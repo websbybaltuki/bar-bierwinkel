@@ -1,0 +1,485 @@
+{
+  "currency": "EUR",
+  "menus": [
+    {
+      "id": "menu_basic",
+      "name": "Menu Basic",
+      "price": 15.9,
+      "includes": [
+        {
+          "type": "starter_choice",
+          "name": "Entrante a elegir",
+          "options": [
+            {
+              "id": "ensalada_pollo",
+              "name": "Ensalada de pollo"
+            },
+            {
+              "id": "ensalada_queso_feta",
+              "name": "Ensalada de queso feta"
+            },
+            {
+              "id": "aros_cebolla",
+              "name": "Aros de cebolla"
+            },
+            {
+              "id": "delicias_pollo",
+              "name": "Delicias de pollo"
+            },
+            {
+              "id": "camembert_frito",
+              "name": "Camembert frito"
+            }
+          ]
+        },
+        {
+          "type": "main_choice",
+          "name": "Plato de salchicha a elegir",
+          "options": [
+            {
+              "id": "bockwurst_ahumada",
+              "name": "Bockwurst ahumada",
+              "description": "Mix de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+            },
+            {
+              "id": "thuringer_especiada",
+              "name": "Thüringer especiada",
+              "description": "Mix de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+            },
+            {
+              "id": "hungara_picante",
+              "name": "Húngara picante",
+              "description": "Mix de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+            },
+            {
+              "id": "rindswurst_ternera",
+              "name": "Rindswurst de ternera",
+              "description": "Mix de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+            }
+          ]
+        },
+        {
+          "type": "drink_included",
+          "name": "1 bebida incluida",
+          "options": [
+            {
+              "id": "agua",
+              "name": "Agua"
+            },
+            {
+              "id": "refresco",
+              "name": "Refresco"
+            },
+            {
+              "id": "copa_vino",
+              "name": "Copa de vino"
+            },
+            {
+              "id": "cerveza_sin_alcohol",
+              "name": "Cerveza sin alcohol"
+            },
+            {
+              "id": "jarra_lager",
+              "name": "Jarra de cerveza lager"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "menu_privaat",
+      "name": "Menu Privaat",
+      "price": 18.95,
+      "includes": [
+        {
+          "type": "starter_choice",
+          "name": "Entrante a elegir",
+          "options": [
+            {
+              "id": "ensalada_pollo",
+              "name": "Ensalada de pollo"
+            },
+            {
+              "id": "ensalada_queso_feta",
+              "name": "Ensalada de queso feta"
+            },
+            {
+              "id": "aros_cebolla",
+              "name": "Aros de cebolla"
+            },
+            {
+              "id": "delicias_pollo",
+              "name": "Delicias de pollo"
+            },
+            {
+              "id": "croquetas_queso",
+              "name": "Croquetas de queso"
+            }
+          ]
+        },
+        {
+          "type": "main_choice",
+          "name": "Plato especialidad a elegir",
+          "options": [
+            {
+              "id": "plato_sugerencia_2_salchichas",
+              "name": "Plato sugerencia (2 salchichas a elegir)",
+              "description": "Mix de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+            },
+            {
+              "id": "frikadellen_menu",
+              "name": "Frikadellen",
+              "description": "Albóndigas de carne especiada al estilo alemán. Acompañado de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+            }
+          ]
+        },
+        {
+          "type": "drink_included",
+          "name": "1 bebida incluida",
+          "options": [
+            {
+              "id": "agua",
+              "name": "Agua"
+            },
+            {
+              "id": "refresco",
+              "name": "Refresco"
+            },
+            {
+              "id": "copa_vino",
+              "name": "Copa de vino"
+            },
+            {
+              "id": "cerveza_sin_alcohol",
+              "name": "Cerveza sin alcohol"
+            },
+            {
+              "id": "jarra_lager",
+              "name": "Jarra de cerveza lager"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "menu_premium",
+      "name": "Menu Premium",
+      "price": 24.45,
+      "includes": [
+        {
+          "type": "starter_choice",
+          "name": "Entrante a elegir",
+          "options": [
+            {
+              "id": "ensalada_pollo",
+              "name": "Ensalada de pollo"
+            },
+            {
+              "id": "ensalada_queso_feta",
+              "name": "Ensalada de queso feta"
+            },
+            {
+              "id": "aros_cebolla",
+              "name": "Aros de cebolla"
+            },
+            {
+              "id": "delicias_pollo",
+              "name": "Delicias de pollo"
+            },
+            {
+              "id": "croquetas_queso",
+              "name": "Croquetas de queso"
+            }
+          ]
+        },
+        {
+          "type": "main_choice",
+          "name": "Plato especialidad a elegir",
+          "options": [
+            {
+              "id": "plato_3_salchichas",
+              "name": "Plato 3 salchichas",
+              "description": "Mix de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+            },
+            {
+              "id": "codillo_cerdo_menu",
+              "name": "Codillo de cerdo",
+              "description": "Hecho al horno al estilo alemán. Acompañado de ensalada, puré de patatas y chucrut."
+            }
+          ]
+        },
+        {
+          "type": "drink_included",
+          "name": "1 bebida incluida",
+          "options": [
+            {
+              "id": "agua",
+              "name": "Agua"
+            },
+            {
+              "id": "refresco",
+              "name": "Refresco"
+            },
+            {
+              "id": "copa_vino",
+              "name": "Copa de vino"
+            },
+            {
+              "id": "cerveza_sin_alcohol",
+              "name": "Cerveza sin alcohol"
+            },
+            {
+              "id": "jarra_lager",
+              "name": "Jarra de cerveza lager"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "a_la_carte": {
+    "aperitivos": [
+      {
+        "id": "aros_cebolla",
+        "name": "Aros de cebolla",
+        "price": 4.8,
+        "description": "Acompañados de salsa barbacoa. 8uds"
+      },
+      {
+        "id": "biernacker",
+        "name": "Biernacker",
+        "price": 4.95,
+        "description": "Salchicha seca y pepinillos."
+      },
+      {
+        "id": "currywurst",
+        "name": "Currywurst",
+        "price": 5.95,
+        "description": "Salchicha Thüringer con salsa curry."
+      },
+      {
+        "id": "plato_queso",
+        "name": "Plato de queso",
+        "price": 6.25,
+        "description": "Queso manchego y queso ahumado francés."
+      },
+      {
+        "id": "delicias_pollo",
+        "name": "Delicias de pollo",
+        "price": 5.45,
+        "description": "Jugosas tiras de pollo rebozado con salsa barbacoa."
+      },
+      {
+        "id": "croquetas_queso",
+        "name": "Croquetas de queso",
+        "price": 5.25,
+        "description": "Con confitura de arándanos. 6uds"
+      },
+      {
+        "id": "camembert_frito",
+        "name": "Camembert frito",
+        "price": 7.85,
+        "description": "Con confitura de arándanos."
+      },
+      {
+        "id": "chips_huevo_bacon",
+        "name": "Chips huevo y bacon",
+        "price": 6.45,
+        "description": "Hechas con patatas fritas de bastón."
+      },
+      {
+        "id": "chips_cheddar_bacon",
+        "name": "Chips cheddar y bacon",
+        "price": 6.35,
+        "description": "Hechas con patatas fritas de bastón."
+      },
+      {
+        "id": "patatas_bravas",
+        "name": "Patatas bravas",
+        "price": 5.75,
+        "description": "Las de toda la vida. Pídelas también con alioli."
+      },
+      {
+        "id": "tabla_campanard",
+        "name": "Tabla campañard",
+        "price": 7.55,
+        "description": "Patatas gajo a las siete salsas."
+      },
+      {
+        "id": "nachos_cheese",
+        "name": "Nachos cheese",
+        "price": 5.25,
+        "description": "Triangulitos de cheddar acompañados de guacamole."
+      },
+      {
+        "id": "tabla_pate_quesos",
+        "name": "Tabla de paté y quesos",
+        "price": 14.45,
+        "description": "Selección de quesos y paté."
+      }
+    ],
+    "ensaladas": [
+      {
+        "id": "ensalada_templada",
+        "name": "Ensalada templada",
+        "price": 7.75,
+        "description": "Mix de ensalada, tomate, bacon a la plancha, cebolla crujiente. Aderezada con crema balsámica."
+      },
+      {
+        "id": "ensalada_pollo",
+        "name": "Ensalada de pollo",
+        "price": 7.95,
+        "description": "Mix de ensalada, tomate, pollo a la plancha. Aderezada con salsa césar."
+      },
+      {
+        "id": "ensalada_queso_feta",
+        "name": "Ensalada de queso feta",
+        "price": 7.25,
+        "description": "Mix de ensalada, tomate, queso feta. Aderezada con vinagreta de la casa."
+      },
+      {
+        "id": "ensalada_ventresca",
+        "name": "Ensalada de ventresca",
+        "price": 9.45,
+        "description": "Ventresca, tomate y frutos secos. Aderezada con crema balsámica."
+      }
+    ],
+    "hamburguesas": {
+      "items": [
+        {
+          "id": "hamburguesa_ternera",
+          "name": "Hamburguesa ternera",
+          "price": 8.9,
+          "description": "Hamburguesa de ternera de 125gr. Mix lechugas, tomate, queso cheddar. Acompañada de patatas fritas."
+        },
+        {
+          "id": "hamburguesa_buey",
+          "name": "Hamburguesa buey",
+          "price": 11.9,
+          "description": "Hamburguesa de buey de 200gr. Mix lechugas, tomate, queso cheddar. Acompañada de patatas fritas."
+        },
+        {
+          "id": "hamburguesa_angus",
+          "name": "Hamburguesa angus",
+          "price": 11.9,
+          "description": "Hamburguesa Angus de 200gr. Mix lechugas, tomate, queso cheddar. Acompañada de patatas fritas."
+        },
+        {
+          "id": "hamburguesa_pollo",
+          "name": "Hamburguesa pollo",
+          "price": 8.75,
+          "description": "Hamburguesa de pollo de 125gr. Mix lechugas, tomate, queso cheddar. Acompañada de patatas fritas."
+        }
+      ],
+      "modifiers": [
+        {
+          "id": "extra_huevo",
+          "name": "Añadir huevo",
+          "price": 1,
+          "description": "Completa tu hamburguesa."
+        },
+        {
+          "id": "extra_bacon",
+          "name": "Añadir bacon",
+          "price": 1,
+          "description": "Completa tu hamburguesa."
+        }
+      ],
+      "notes": "En el cartel aparece: “Añade huevo, bacon o los dos por solo 1,00€ cada extra”."
+    },
+    "perritos": [
+      {
+        "id": "perrito_caliente",
+        "name": "Perrito caliente",
+        "price": 7.45,
+        "description": "Salchicha frankfurt, pepinillo alemán y cebolla crujiente. Acompañado de patatas fritas."
+      }
+    ],
+    "salchichas_y_especialidades_alemanas": {
+      "salchichas_disponibles": [
+        {
+          "id": "bockwurst_ahumada",
+          "name": "Bockwurst ahumada"
+        },
+        {
+          "id": "thuringer_especiada",
+          "name": "Thüringer especiada"
+        },
+        {
+          "id": "rindswurst_ternera",
+          "name": "Rindswurst de ternera"
+        }
+      ],
+      "platos": [
+        {
+          "id": "plato_salchicha_alemana",
+          "name": "Plato salchicha alemana (a elegir)",
+          "price": 7.9,
+          "description": "Mix de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+        },
+        {
+          "id": "plato_salchicha_hungara_picante",
+          "name": "Plato salchicha húngara picante",
+          "price": 8.85,
+          "description": "Mix de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+        },
+        {
+          "id": "plato_sugerencia_2_salchichas",
+          "name": "Plato sugerencia (2 salchichas a elegir)",
+          "price": 14.8,
+          "description": "Mix de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+        },
+        {
+          "id": "tabla_hamburgo_4_salchichas",
+          "name": "Tabla Hamburgo (4 salchichas a elegir)",
+          "price": 27.25,
+          "description": "Mix de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+        },
+        {
+          "id": "tabla_campanard_y_algo_mas",
+          "name": "Tabla campañard y algo más",
+          "price": 10.45,
+          "description": "Patatas gajo y salchicha bockwurst a la siete salsas."
+        },
+        {
+          "id": "frikadellen",
+          "name": "Frikadellen",
+          "price": 9.95,
+          "description": "Albóndigas de carne especiada al estilo alemán. Acompañado de ensalada y guarnición a elegir (patatas fritas, puré de patatas o chucrut)."
+        },
+        {
+          "id": "codillo_de_cerdo",
+          "name": "Codillo de cerdo",
+          "price": 17.75,
+          "description": "Hecho al horno al estilo alemán. Acompañado de ensalada, puré de patatas y chucrut."
+        }
+      ],
+      "side_options": [
+        {
+          "id": "patatas_fritas",
+          "name": "Patatas fritas"
+        },
+        {
+          "id": "pure_patatas",
+          "name": "Puré de patatas"
+        },
+        {
+          "id": "chucrut",
+          "name": "Chucrut"
+        }
+      ]
+    },
+    "postres": [
+      {
+        "id": "tarta_chocolate",
+        "name": "Tarta chocolate",
+        "price": 5.75
+      },
+      {
+        "id": "tarta_manzana",
+        "name": "Tarta de manzana",
+        "price": 5.45
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+﻿seccion_id;nombre;id;precio;precio_cana;precio_jarra;disponible
+cervezas_botella;Hoegaarden Blanca;cervezas_botella_hoegaarden_blanca;3.85;;;SI
+cervezas_botella;Hoegaarden Grand Cru;cervezas_botella_hoegaarden_grand_cru;4.85;;;SI
+cervezas_botella;Paulaner 50cl;cervezas_botella_paulaner_50cl;4;;;SI
+cervezas_botella;Guinness Special Export;cervezas_botella_guinness_special_export;5.2;;;SI
+cervezas_botella;Guinness Original;cervezas_botella_guinness_original;;;;SI
+cervezas_botella;Super Bock Stout;cervezas_botella_super_bock_stout;4.5;;;SI
+cervezas_botella;Barbar Bock Meca;cervezas_botella_barbar_bock_meca;5.2;;;SI
+cervezas_botella;Delirium Red;cervezas_botella_delirium_red;5.2;;;SI
+cervezas_botella;Delirium Tremens;cervezas_botella_delirium_tremens;5.2;;;SI
+cervezas_botella;Kasteel Donker;cervezas_botella_kasteel_donker;4.85;;;SI
+cervezas_botella;Kasteel Triple;cervezas_botella_kasteel_triple;4.85;;;SI
+cervezas_botella;Gulden Draak;cervezas_botella_gulden_draak;4.85;;;SI
+cervezas_botella;Gulden Draak 9000;cervezas_botella_gulden_draak_9000;4.85;;;SI
+cervezas_botella;Satan Gold;cervezas_botella_satan_gold;4.85;;;SI
+cervezas_botella;Piraat;cervezas_botella_piraat;4.85;;;SI
+cervezas_botella;Leffe Blonde;cervezas_botella_leffe_blonde;4;;;SI
+cervezas_botella;Leffe Brune;cervezas_botella_leffe_brune;4;;;SI
+cervezas_botella;Leffe Tripel;cervezas_botella_leffe_tripel;4.2;;;SI
+cervezas_botella;Grimbergen Blonde;cervezas_botella_grimbergen_blonde;4;;;SI
+cervezas_botella;Grimbergen Double Ambree;cervezas_botella_grimbergen_double_ambree;4.2;;;SI
+cervezas_botella;Grimbergen Triple;cervezas_botella_grimbergen_triple;4.85;;;SI
+cervezas_botella;Maredsous Brune;cervezas_botella_maredsous_brune;4.85;;;SI
+cervezas_botella;Maredsous Tripel;cervezas_botella_maredsous_tripel;4.85;;;SI
+cervezas_botella;St Bernardus Prior;cervezas_botella_st_bernardus_prior;4.85;;;SI
+cervezas_botella;St Bernardus Abt;cervezas_botella_st_bernardus_abt;5.2;;;SI
+cervezas_botella;Het Kapittel Pater;cervezas_botella_het_kapittel_pater;4;;;SI
+cervezas_botella;Het Kapittel Abt;cervezas_botella_het_kapittel_abt;4.85;;;SI
+cervezas_botella;Judas;cervezas_botella_judas;4.5;;;SI
+cervezas_botella;Duvel;cervezas_botella_duvel;4.85;;;SI
+cervezas_botella;Duvel Tripel Hop Citra;cervezas_botella_duvel_tripel_hop_citra;4.85;;;SI
+cervezas_botella;Palm;cervezas_botella_palm;3.6;;;SI
+cervezas_botella;Martin's IPA 55;cervezas_botella_martin_s_ipa_55;4.5;;;SI
+cervezas_botella;BrewDog Punk IPA;cervezas_botella_brewdog_punk_ipa;4.7;;;SI
+cervezas_botella;Orval;cervezas_botella_orval;5.2;;;SI
+cervezas_botella;Chimay Roja;cervezas_botella_chimay_roja;4.85;;;SI
+cervezas_botella;Westmalle Tripel;cervezas_botella_westmalle_tripel;5.15;;;SI
+cervezas_botella;Westmalle Dubbel;cervezas_botella_westmalle_dubbel;4.85;;;SI
+cervezas_botella;Rochefort 10;cervezas_botella_rochefort_10;6.2;;;SI
+cervezas_botella;Rochefort 8;cervezas_botella_rochefort_8;4.5;;;SI
+cervezas_botella;La Trappe Dubbel;cervezas_botella_la_trappe_dubbel;4.85;;;SI
+cervezas_botella;La Trappe Tripel;cervezas_botella_la_trappe_tripel;4.85;;;SI
+cervezas_botella;La Trappe Quadrupel;cervezas_botella_la_trappe_quadrupel;4.85;;;SI
+cervezas_botella;1906;cervezas_botella_1906;3;;;SI
+cervezas_botella;Estrella Galicia;cervezas_botella_estrella_galicia;3;;;SI
+cervezas_botella;Bud;cervezas_botella_bud;3;;;SI
+cervezas_botella;Heineken;cervezas_botella_heineken;2.5;;;SI
+cervezas_botella;Corona;cervezas_botella_corona;3.5;;;SI
+cervezas_botella;Biere du Demon;cervezas_botella_biere_du_demon;4.5;;;SI
+cervezas_botella;Lowenbrau;cervezas_botella_lowenbrau;3.5;;;SI
+cervezas_botella;Samichlaus;cervezas_botella_samichlaus;6.6;;;SI
+cervezas_botella;Urquell Pilsner;cervezas_botella_urquell_pilsner;3;;;SI
+cervezas_botella;Stella Artois;cervezas_botella_stella_artois;3;;;SI
+cervezas_botella;Carlsberg;cervezas_botella_carlsberg;3;;;SI
+cervezas_botella;Budvar Budejovicky;cervezas_botella_budvar_budejovicky;3.5;;;SI
+cervezas_botella;Kronenbourg;cervezas_botella_kronenbourg;3;;;SI
+cervezas_botella;Warsteiner;cervezas_botella_warsteiner;3.5;;;SI
+cervezas_barril;Lager BWK;cervezas_barril_lager_bwk;;2.2;3.3;SI
+cervezas_barril;Tripel Karmeliet;cervezas_barril_tripel_karmeliet;;3.8;4.8;SI
+cervezas_barril;Martin's Pale Ale;cervezas_barril_martin_s_pale_ale;;3.8;4.8;SI
+cervezas_barril;Martin's IPA;cervezas_barril_martin_s_ipa;;3.8;4.8;SI
+cervezas_barril;Gordon Finest Gold;cervezas_barril_gordon_finest_gold;;;4.8;SI
+cervezas_barril;Tostada Gran Via;cervezas_barril_tostada_gran_via;;3.5;4.5;SI
+cervezas_barril;Kwak;cervezas_barril_kwak;;3.8;4.8;SI
+cervezas_barril;Kwak Copa;cervezas_barril_kwak_copa;4;;;SI
+cervezas_barril;Guinness Special Export;cervezas_barril_guinness_special_export;;3.9;5.2;SI
+cervezas_barril;Cuvee des Trolls;cervezas_barril_cuvee_des_trolls;;3.8;4.8;SI
+cervezas_barril;La Chouffe;cervezas_barril_la_chouffe;;4.3;5.5;SI
+cervezas_barril;Chimay Roja;cervezas_barril_chimay_roja;;3.9;4.9;SI
+cervezas_sin_gluten;Dougall's IPA;cervezas_sin_gluten_dougall_s_ipa;4.5;;;SI
+cervezas_sin_gluten;Mahou tostada 0,0 Sin Gluten;cervezas_sin_gluten_mahou_tostada_0_0_sin_gluten;;;;SI
+cervezas_sin_gluten;Naturepils;cervezas_sin_gluten_naturepils;4;;;SI
+cervezas_sin_alcohol;Corona 0,0;cervezas_sin_alcohol_corona_0_0;3.5;;;SI
+cervezas_sin_alcohol;Mahou 0,0 tostada;cervezas_sin_alcohol_mahou_0_0_tostada;3;;;SI
+cervezas_sin_alcohol;Heineken 0,0;cervezas_sin_alcohol_heineken_0_0;2.5;;;SI
+cervezas_sin_alcohol;Clausthaler;cervezas_sin_alcohol_clausthaler;3;;;SI
+cervezas_sin_alcohol;Super Bock Stout 0,0;cervezas_sin_alcohol_super_bock_stout_0_0;3;;;SI
+cervezas_sin_alcohol;Kopparberg Fresa y Lima 0,0;cervezas_sin_alcohol_kopparberg_fresa_y_lima_0_0;;;;SI
+cervezas_frutas;Timmermans Peche;cervezas_frutas_timmermans_peche;4;;;SI
+cervezas_frutas;Timmermans Framboise;cervezas_frutas_timmermans_framboise;4;;;SI
+cervezas_frutas;Timmermans Kriek;cervezas_frutas_timmermans_kriek;4.5;;;SI
+cervezas_frutas;Floris Passion;cervezas_frutas_floris_passion;4.5;;;SI
+cervezas_frutas;Floris Chocolate;cervezas_frutas_floris_chocolate;4.5;;;SI
+cervezas_frutas;Mongozo Coconut;cervezas_frutas_mongozo_coconut;4.5;;;SI

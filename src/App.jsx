@@ -1,20 +1,38 @@
 ﻿import { useEffect, useMemo, useState } from "react";
-import InstagramFeed from "./components/InstagramFeed";
 import { supportedLanguages, translations } from "./i18n/translations";
-import { menuSections, sourceDisclaimerEs } from "./data/menuData";
+import {
+  allergenMeta,
+  getCompleteMenus,
+  getMenuSections
+} from "./data/menu";
 
 const MAP_EMBED_URL =
   import.meta.env.VITE_MAP_EMBED_URL ||
   "https://www.google.com/maps?q=Avinguda%20en%20Joan%20Carles%20I%2C%2024%2C%2003202%20Elx%2C%20Alicante&output=embed";
-const RESERVATION_PHONE = import.meta.env.VITE_RESERVATION_PHONE || "+34 600 000 000";
-const WHATSAPP_URL = import.meta.env.VITE_WHATSAPP_URL || "https://wa.me/34600000000";
-const INSTAGRAM_PROFILE =
-  import.meta.env.VITE_INSTAGRAM_PROFILE || "https://www.instagram.com/bierwinkel_elche/";
-const INSTAGRAM_WIDGET_ID = import.meta.env.VITE_INSTAGRAM_WIDGET_ID || "";
-
+const RESERVATION_PHONE = "+34 966 61 26 52";
+const MOBILE_PHONE = "670052243";
+const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || "elche@bierwinkel.es";
+const WHATSAPP_URL = import.meta.env.VITE_WHATSAPP_URL || "https://wa.me/34670052243";
+const INSTAGRAM_URL =
+  import.meta.env.VITE_INSTAGRAM_PROFILE || "https://www.instagram.com/bierwinkel_elche/?hl=es";
 const PAGE_KEYS = ["inicio", "menu", "visitanos"];
 const PAGE_TRANSITION_MS = 280;
-const FOOD_CATEGORIES = ["Aperitivos y Entrantes"];
+const MENU_ASSETS = {
+  es: {
+    appetizers: "/aperitivos_esp.png",
+    menus: "/menus_esp.png"
+  },
+  en: {
+    appetizers: "/aperitivos_eng.png",
+    menus: "/menus_eng.png"
+  }
+};
+const languageOptions = [
+  { code: "es", label: "ES", flagSrc: "https://flagcdn.com/w40/es.png", flagAlt: "Bandera de España" },
+  { code: "en", label: "EN", flagSrc: "https://flagcdn.com/w40/gb.png", flagAlt: "UK flag" },
+  { code: "fr", label: "FR", flagSrc: "https://flagcdn.com/w40/fr.png", flagAlt: "Drapeau français" },
+  { code: "de", label: "DE", flagSrc: "https://flagcdn.com/w40/de.png", flagAlt: "Deutsche Flagge" }
+];
 
 function App() {
   const initialLang = useMemo(() => {
@@ -32,17 +50,36 @@ function App() {
   const [activePage, setActivePage] = useState(initialPage);
   const [pageTransition, setPageTransition] = useState("in");
   const [menuType, setMenuType] = useState("comida");
+  const [showAllergens, setShowAllergens] = useState(false);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
 
   const t = translations[lang];
   const scheduleRows = t.scheduleRows || [];
+  const assetLang = lang === "es" ? "es" : "en";
+  const menuAssets = MENU_ASSETS[assetLang];
+  const selectedLanguage = languageOptions.find((option) => option.code === lang) || languageOptions[0];
+  const localizedMenuSections = useMemo(() => getMenuSections(lang), [lang]);
+  const localizedCompleteMenus = useMemo(() => getCompleteMenus(lang), [lang]);
 
   const filteredMenuSections = useMemo(() => {
-    const isFood = menuType === "comida";
-    return menuSections.filter((section) => {
-      const inFood = FOOD_CATEGORIES.includes(section.category);
-      return isFood ? inFood : !inFood;
-    });
-  }, [menuType]);
+    if (menuType === "menus") return [];
+    if (menuType === "postres") {
+      return localizedMenuSections.filter((section) => section.type === "food" && section.id === "postres");
+    }
+    if (menuType === "comida") {
+      return localizedMenuSections.filter(
+        (section) => section.type === "food" && section.id !== "postres" && section.id !== "menus"
+      );
+    }
+    return localizedMenuSections.filter((section) => section.type === "drink");
+  }, [localizedMenuSections, menuType]);
+
+  const formatMenuPrice = (price) => {
+    if (!price) return "";
+    if (price === "Consultar") return price;
+    if (typeof price === "string") return price;
+    return `${price} €`;
+  };
 
   const updateBrowserUrl = (page) => {
     if (page === "inicio") {
@@ -135,9 +172,15 @@ function App() {
       <div className="bg-orb orb-1"></div>
       <div className="bg-orb orb-2"></div>
       <div className="bg-orb orb-3"></div>
+      {activePage === "inicio" ? (
+        <div className="global-logo-watermark" aria-hidden="true">
+          <img src="/logo_bwk.png" alt="" />
+        </div>
+      ) : null}
 
       <header className="site-header" id="top">
         <button className="logo logo-btn" onClick={() => navigateToPage("inicio")}>
+          <img src="/logo_bwk.png" alt="Bierwinkel" className="brand-mark-header" />
           BIERWINKEL
         </button>
 
@@ -161,30 +204,34 @@ function App() {
         </nav>
 
         <div className="lang-switcher" role="group" aria-label="language switcher">
-          <div className="lang-buttons-desktop">
-            {supportedLanguages.map((code) => (
-              <button
-                key={code}
-                className={`lang-btn ${lang === code ? "active" : ""}`}
-                onClick={() => setLang(code)}
-              >
-                {code.toUpperCase()}
-              </button>
-            ))}
-          </div>
-          <div className="lang-select-wrap">
-            <select
-              className="lang-select"
-              value={lang}
-              onChange={(event) => setLang(event.target.value)}
+          <div className="lang-dropdown">
+            <button
+              className="lang-dropdown-trigger"
+              onClick={() => setLangMenuOpen((value) => !value)}
               aria-label="Seleccion de idioma"
             >
-              {supportedLanguages.map((code) => (
-                <option key={code} value={code}>
-                  {code.toUpperCase()}
-                </option>
-              ))}
-            </select>
+              <img className="lang-flag-img" src={selectedLanguage.flagSrc} alt={selectedLanguage.flagAlt} />
+              <span>{selectedLanguage.label}</span>
+            </button>
+            {langMenuOpen ? (
+              <div className="lang-dropdown-menu">
+                {languageOptions
+                  .filter((option) => supportedLanguages.includes(option.code))
+                  .map((option) => (
+                    <button
+                      key={option.code}
+                      className={`lang-option ${lang === option.code ? "active" : ""}`}
+                      onClick={() => {
+                        setLang(option.code);
+                        setLangMenuOpen(false);
+                      }}
+                    >
+                      <img className="lang-flag-img" src={option.flagSrc} alt={option.flagAlt} />
+                      <span>{option.label}</span>
+                    </button>
+                  ))}
+              </div>
+            ) : null}
           </div>
         </div>
       </header>
@@ -208,15 +255,15 @@ function App() {
 
               <div className="hero-stats">
                 <article>
-                  <strong>+120</strong>
+                  <strong>+110</strong>
                   <span>{t.statBeers}</span>
                 </article>
                 <article>
-                  <strong>15</strong>
+                  <strong>17</strong>
                   <span>{t.statTaps}</span>
                 </article>
                 <article>
-                  <strong>2014</strong>
+                  <strong>1998</strong>
                   <span>{t.statYear}</span>
                 </article>
               </div>
@@ -250,20 +297,6 @@ function App() {
               </div>
             </section>
 
-            <section id="instagram" className="section reveal home-section">
-              <div className="section-heading">
-                <p className="eyebrow">{t.instagramEyebrow}</p>
-                <h2>{t.instagramTitle}</h2>
-                <p>{t.instagramText}</p>
-              </div>
-              <InstagramFeed
-                widgetId={INSTAGRAM_WIDGET_ID}
-                fallbackPosts={t.instaFallback}
-                profileUrl={INSTAGRAM_PROFILE}
-                configHelp={t.instagramConfigHelp}
-              />
-            </section>
-
             <section id="visitanos-home" className="section reveal home-section">
               <div className="section-heading">
                 <p className="eyebrow">{t.visitEyebrow}</p>
@@ -295,10 +328,16 @@ function App() {
                   <h3>{t.reserveTitle}</h3>
                   <p>{t.reserveText}</p>
                   <a className="btn primary" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-                    {t.reserveBtn}
+                    {t.reserveBtn}: {MOBILE_PHONE}
                   </a>
                   <a className="btn ghost" href={`tel:${RESERVATION_PHONE.replace(/\s+/g, "")}`}>
                     {t.callBtn}: {RESERVATION_PHONE}
+                  </a>
+                  <a className="btn ghost" href={`tel:${MOBILE_PHONE.replace(/\s+/g, "")}`}>
+                    {t.mobileBtn}: {MOBILE_PHONE}
+                  </a>
+                  <a className="btn ghost" href={`mailto:${CONTACT_EMAIL}`}>
+                    Email: {CONTACT_EMAIL}
                   </a>
                 </article>
               </div>
@@ -328,27 +367,139 @@ function App() {
               >
                 {t.menuTabDrink}
               </button>
+              <button
+                className={`menu-type-btn ${menuType === "postres" ? "active" : ""}`}
+                onClick={() => setMenuType("postres")}
+              >
+                {t.menuTabDesserts}
+              </button>
+              <button
+                className={`menu-type-btn ${menuType === "menus" ? "active" : ""}`}
+                onClick={() => setMenuType("menus")}
+              >
+                {t.menuTabFullMenus}
+              </button>
             </div>
 
-            <p className="menu-source-note">{sourceDisclaimerEs}</p>
-            <p className="menu-source-note">{t.menuOfficialLinkText}</p>
-            <div className={`menu-sections-grid ${filteredMenuSections.length === 1 ? "single-item" : ""}`}>
-              {filteredMenuSections.map((section) => (
-                <article className="menu-section-card" key={section.category}>
-                  <h3>{section.category}</h3>
-                  <ul className="menu-item-list">
-                    {section.items.map((item) => (
-                      <li key={`${section.category}-${item.name}`}>
-                        <div className="menu-item-row">
-                          <span className="menu-item-name">{item.name}</span>
-                          <span className="menu-item-price">{item.price} €</span>
+            {menuType !== "menus" ? (
+              <>
+                <div className={`menu-sections-grid ${filteredMenuSections.length === 1 ? "single-item" : ""}`}>
+                  {filteredMenuSections.map((section) => (
+                    <article className="menu-section-card" key={section.id || section.category}>
+                      <h3>{section.category}</h3>
+                      {Array.isArray(section.availableSausages) && section.availableSausages.length > 0 ? (
+                        <div className="section-availability-block">
+                          <p className="section-availability-title">
+                            {t.menuAvailableSausages || "Salchichas disponibles"}
+                          </p>
+                          <div className="section-availability-list">
+                            {section.availableSausages.map((sausage) => (
+                              <span
+                                key={`${section.id || section.category}-available-${sausage}`}
+                                className="section-availability-item"
+                              >
+                                {sausage}
+                              </span>
+                            ))}
+                          </div>
                         </div>
-                        {item.note ? <small>{item.note}</small> : null}
-                      </li>
+                      ) : null}
+                      <ul className="menu-item-list">
+                        {section.items.map((item) => (
+                          <li key={`${section.id || section.category}-${item.id || item.name}`}>
+                            <div className="menu-item-row">
+                              <span className="menu-item-name">{item.name}</span>
+                              <span className="menu-item-price">{formatMenuPrice(item.price)}</span>
+                            </div>
+                            {item.note ? <small>{item.note}</small> : null}
+                            {showAllergens && Array.isArray(item.allergens) && item.allergens.length > 0 ? (
+                              <div className="allergen-icons-row">
+                                {item.allergens
+                                  .filter((code) => allergenMeta[code])
+                                  .map((code) => (
+                                    <span
+                                      key={`${section.id || section.category}-${item.id || item.name}-${code}`}
+                                      className="allergen-icon-glyph"
+                                      title={allergenMeta[code].label}
+                                      aria-label={allergenMeta[code].label}
+                                    >
+                                      {allergenMeta[code].icon || allergenMeta[code].symbol}
+                                    </span>
+                                  ))}
+                              </div>
+                            ) : null}
+                          </li>
+                        ))}
+                      </ul>
+                    </article>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <div className="complete-menus-grid">
+                {localizedCompleteMenus.map((menu) => (
+                  <article className="menu-section-card complete-menu-card" key={menu.id}>
+                    <div className="menu-item-row">
+                      <h3>{menu.name}</h3>
+                      <span className="menu-item-price">{menu.price} €</span>
+                    </div>
+                    <div className="complete-menu-sections">
+                      {menu.sections.map((section) => (
+                        <div key={`${menu.id}-${section.id || section.name}`} className="complete-menu-block">
+                          <h4>{section.name}</h4>
+                          {section.options.length > 0 ? (
+                            <ul>
+                              {section.options.map((option) => (
+                                <li key={`${menu.id}-${section.id || section.name}-${option.id || option.name}`}>
+                                  <span>{option.name}</span>
+                                  {option.description ? <small>{option.description}</small> : null}
+                                </li>
+                              ))}
+                            </ul>
+                          ) : null}
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
+
+            {menuType !== "menus" ? (
+              <>
+                {showAllergens ? (
+                  <div className="allergen-legend">
+                    {Object.entries(allergenMeta).map(([code, meta]) => (
+                      <span className="allergen-pill" key={code}>
+                        <span className="allergen-icon-glyph" aria-hidden="true">
+                          {meta.icon || meta.symbol}
+                        </span>
+                        {meta.label}
+                      </span>
                     ))}
-                  </ul>
-                </article>
-              ))}
+                  </div>
+                ) : null}
+
+                <div className="allergen-toggle-wrap">
+                  <button
+                    className={`allergen-toggle-btn ${showAllergens ? "active" : ""}`}
+                    onClick={() => setShowAllergens((value) => !value)}
+                  >
+                    {showAllergens ? t.menuHideAllergens : t.menuShowAllergens}
+                  </button>
+                </div>
+              </>
+            ) : null}
+
+            <div className="menu-files-wrap">
+              <div className="menu-files-links">
+                <a className="btn ghost" href={menuAssets.appetizers} target="_blank" rel="noreferrer">
+                  {t.menuOpenAppetizers}
+                </a>
+                <a className="btn ghost" href={menuAssets.menus} target="_blank" rel="noreferrer">
+                  {t.menuOpenMenus}
+                </a>
+              </div>
             </div>
           </section>
         ) : null}
@@ -385,10 +536,16 @@ function App() {
                 <h3>{t.reserveTitle}</h3>
                 <p>{t.reserveText}</p>
                 <a className="btn primary" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-                  {t.reserveBtn}
+                  {t.reserveBtn}: {MOBILE_PHONE}
                 </a>
                 <a className="btn ghost" href={`tel:${RESERVATION_PHONE.replace(/\s+/g, "")}`}>
                   {t.callBtn}: {RESERVATION_PHONE}
+                </a>
+                <a className="btn ghost" href={`tel:${MOBILE_PHONE.replace(/\s+/g, "")}`}>
+                  {t.mobileBtn}: {MOBILE_PHONE}
+                </a>
+                <a className="btn ghost" href={`mailto:${CONTACT_EMAIL}`}>
+                  Email: {CONTACT_EMAIL}
                 </a>
               </article>
             </div>
@@ -398,7 +555,44 @@ function App() {
 
       <footer className="site-footer">
         <p>{t.footerText}</p>
-        <small>{new Date().getFullYear()} © Bierwinkel</small>
+        <div className="footer-socials" aria-label="Canales de contacto">
+          <a
+            className="footer-icon-link"
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            title="Instagram"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm10.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
+            </svg>
+          </a>
+          <a
+            className="footer-icon-link"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="WhatsApp"
+            title="WhatsApp"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2A10 10 0 0 0 3.4 17.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 0 1 7.9 9.3 8 8 0 0 1-11.8 5.2l-.4-.2-2.9.7.8-2.8-.3-.4A8 8 0 0 1 12 4Zm-3 4.3c-.3 0-.6.1-.8.4-.3.3-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.9 4.4 4 .6.3 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.6-.7 1.8-1.4.2-.7.2-1.2.1-1.3-.1-.1-.3-.2-.6-.4l-1.1-.5c-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.7-1-1-1.7-2.1-1.9-2.5-.2-.3 0-.5.1-.7.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5L10 8.8c-.1-.4-.4-.5-.7-.5H9Z" />
+            </svg>
+          </a>
+        </div>
+        <div className="footer-meta-wrap">
+          <span className="footer-meta">{new Date().getFullYear()} © Bierwinkel</span>
+          <span className="footer-separator" aria-hidden="true">
+            |
+          </span>
+          <span className="footer-credit">
+            {t.footerDesignBy}{" "}
+            <a href="https://websbybaltuki.com/" target="_blank" rel="noreferrer">
+              WebsByBaltuki
+            </a>
+          </span>
+        </div>
       </footer>
     </>
   );

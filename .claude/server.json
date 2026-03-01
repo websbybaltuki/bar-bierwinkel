@@ -1,0 +1,7 @@
+{
+  "frontend": {
+    "dir": ".",
+    "cmd": "npm run dev",
+    "port": 3000
+  }
+}

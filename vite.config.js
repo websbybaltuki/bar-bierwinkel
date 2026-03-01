@@ -2,5 +2,11 @@
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins: [react()]
+  plugins: [react()],
+  server: {
+    allowedHosts: [".trycloudflare.com"]
+  },
+  preview: {
+    allowedHosts: [".trycloudflare.com"]
+  }
 });

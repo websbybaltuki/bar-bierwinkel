@@ -1,0 +1,1885 @@
+{
+  "local": "Bierwinkel Elche",
+  "fuente": "https://mybakarta.com/Bierwinkelelche",
+  "scraped_at": "2026-02-17T17:11:48.331240+00:00",
+  "bebida": {
+    "CERVEZAS DE BOTELLA": {
+      "categorias": [
+        {
+          "nombre": "PILSEN",
+          "items": [
+            {
+              "nombre": "Hoegaarden Blanca",
+              "descripcion": "Blanca.Turbia. Aromatizada con cilantro. Belga. 5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.85,
+                  "moneda": "EUR",
+                  "raw": "€3.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Hoegaarden Grand Cru",
+              "descripcion": "Turbia dorada. Strong Ale de baja fermentación. Belga. 8,5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Paulaner 50cl",
+              "descripcion": "Turbia y dorada. Alemana. 5° PORTER Y STOUT",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.0,
+                  "moneda": "EUR",
+                  "raw": "€4.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Guinness Special Export",
+              "descripcion": "Stout seca. Irlandesa elaborada al estilo belga. 8°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 5.2,
+                  "moneda": "EUR",
+                  "raw": "€5.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Guinness Original",
+              "descripcion": "5 alc% 33cl.",
+              "precios": []
+            },
+            {
+              "nombre": "Super Bock Stout",
+              "descripcion": "Stoutcon cuerpo, dulce y poco amarga. Portuguesa 5° ESPECIALIDADES EXTRA",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Barbar Bock Meca",
+              "descripcion": "Oscura elaborada con miel. Belga. 8°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 5.2,
+                  "moneda": "EUR",
+                  "raw": "€5.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Delirium Red",
+              "descripcion": "Cerveza fuerte, con cerezas. Rojo oscuro. Belga. 8,5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 5.2,
+                  "moneda": "EUR",
+                  "raw": "€5.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Delirium Tremens",
+              "descripcion": "Dorada. Sabor dulce y final seco y alcohólico. Belga. 8,5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 5.2,
+                  "moneda": "EUR",
+                  "raw": "€5.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Kasteel Donker",
+              "descripcion": "Oscura y cremosa. Belga. 11°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Kasteel Triple",
+              "descripcion": "Estilo abadía triple. Ale. Dorada. Belga. 11°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Gulden Draak",
+              "descripcion": "Tostada oscura triple. Muy fuerte. Belga. 10,5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Gulden Draak 9000",
+              "descripcion": "Ámbar. Strong Ale. Belga. 10°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Satan Gold",
+              "descripcion": "Dorada. Belga. 8°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Piraat",
+              "descripcion": "Rubia muy fuerte. Belga. 10,5° ABADIA",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Leffe Blonde",
+              "descripcion": "Rubia. Belga. 6,6°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.0,
+                  "moneda": "EUR",
+                  "raw": "€4.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Leffe Brune",
+              "descripcion": "Oscura. Con sabor a malta tostada. Belga. 6,5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.0,
+                  "moneda": "EUR",
+                  "raw": "€4.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Leffe Tripel",
+              "descripcion": "La Leffe Tripel se caracteriza por ser una cerveza de alta fermentación y tener un contenido de alcohol de alrededor del 8,5%. Esta cerveza se elabora con malta de cebada y lúpulo, y destaca por tener un sabor dulce y afrutado con notas de especias y levadura. Además, su color es dorado y su espuma es densa y cremosa.",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.2,
+                  "moneda": "EUR",
+                  "raw": "€4.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Grimbergen Blonde",
+              "descripcion": "Rubia y ligera. Belga. 6,7°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.0,
+                  "moneda": "EUR",
+                  "raw": "€4.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Grimbergen Double Ambrée",
+              "descripcion": "Tostada. Belga. 6,5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.2,
+                  "moneda": "EUR",
+                  "raw": "€4.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Grimbergen Triple",
+              "descripcion": "Dorada. Belga. 9°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Maredsous Brune",
+              "descripcion": "Oscura con cuerpo. Belga. 8°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Maredsous Tripel",
+              "descripcion": "Dorada fuerte. Belga. 10°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "St Bernardus Prior",
+              "descripcion": "Oscura muy aromática. Belga. 8°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "St Bernardus Abt",
+              "descripcion": "Oscura muy fuerte. Belga. 10°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 5.2,
+                  "moneda": "EUR",
+                  "raw": "€5.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Het Kapittel Pater",
+              "descripcion": "Negra. Belga. 6°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.0,
+                  "moneda": "EUR",
+                  "raw": "€4.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Het Kapittel Abt",
+              "descripcion": "Rubia fuerte y amarga. Belga. 10° PALE ALE - IPA - Alta Fermentación",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Judas",
+              "descripcion": "Dorada. Belga. 8,5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Duvel",
+              "descripcion": "Dorada. Clásica cerveza belga. 8,5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Duvel Tripel Hop Citra",
+              "descripcion": "IPA. Elaborada con tres variedades de lúpulo. Belga. 9,5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Palm",
+              "descripcion": "Pale Ale. Tostada. Belga. 5,2°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.6,
+                  "moneda": "EUR",
+                  "raw": "€3.60"
+                }
+              ]
+            },
+            {
+              "nombre": "Martin’s IPA 55",
+              "descripcion": "44 Ibus. Belga. 6,9°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "BrewDog Punk IPA",
+              "descripcion": "5,6° IPA de color claro, aromas a frutas tropicales (mango y piña sobre todo) y ligeramente amarga. TRAPENSES",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.7,
+                  "moneda": "EUR",
+                  "raw": "€4.70"
+                }
+              ]
+            },
+            {
+              "nombre": "Orval",
+              "descripcion": "La trapense más amarga. Belga. 6,2°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 5.2,
+                  "moneda": "EUR",
+                  "raw": "€5.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Chimay Roja",
+              "descripcion": "Color rojizo. Afrutada. Belga. 7°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Westmalle Tripel",
+              "descripcion": "Rubia dorada. Aroma a hierbas. Belga. 9,5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 5.15,
+                  "moneda": "EUR",
+                  "raw": "€5.15"
+                }
+              ]
+            },
+            {
+              "nombre": "Westmalle Dubbel",
+              "descripcion": "Oscura. Cuerpo suave. Belga. 7°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Rochefort 10",
+              "descripcion": "Negra. Muy especiada. Belga. 11,3°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.2,
+                  "moneda": "EUR",
+                  "raw": "€6.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Rochefort 8",
+              "descripcion": "Ámbar. Belga. 9,2°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "La Trappe Dubbel",
+              "descripcion": "Color oscuro. Holandesa. 6°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "La Trappe Tripel",
+              "descripcion": "Rubia. Holandesa. 8°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "La Trappe Quadrupel",
+              "descripcion": "Rojizo. Strong Ale. Holandesa. 10° LAGERS",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.85,
+                  "moneda": "EUR",
+                  "raw": "€4.85"
+                }
+              ]
+            },
+            {
+              "nombre": "1906",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.0,
+                  "moneda": "EUR",
+                  "raw": "€3.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Estrella Galicia",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.0,
+                  "moneda": "EUR",
+                  "raw": "€3.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Bud",
+              "descripcion": "Rubia dulzona. Americana. 5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.0,
+                  "moneda": "EUR",
+                  "raw": "€3.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Heineken",
+              "descripcion": "Holandesa. 5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.5,
+                  "moneda": "EUR",
+                  "raw": "€2.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Corona",
+              "descripcion": "Ligera. Mexicana. 4,6°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.5,
+                  "moneda": "EUR",
+                  "raw": "€3.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Biere du Demon",
+              "descripcion": "Francesa. 12°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Löwenbrau",
+              "descripcion": "Alemana. 5,2°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.5,
+                  "moneda": "EUR",
+                  "raw": "€3.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Samichlaus",
+              "descripcion": "Ámbar. La lager más fuerte del mundo. Suiza. 14° PILSEN",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.6,
+                  "moneda": "EUR",
+                  "raw": "€6.60"
+                }
+              ]
+            },
+            {
+              "nombre": "Urquell Pilsner",
+              "descripcion": "Checa. 4,4°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.0,
+                  "moneda": "EUR",
+                  "raw": "€3.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Stella Artois",
+              "descripcion": "Belga. 5,2°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.0,
+                  "moneda": "EUR",
+                  "raw": "€3.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Carlsberg",
+              "descripcion": "Danesa. 5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.0,
+                  "moneda": "EUR",
+                  "raw": "€3.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Budvar. Budejovick",
+              "descripcion": "Checa. 5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.5,
+                  "moneda": "EUR",
+                  "raw": "€3.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Kronenbourg",
+              "descripcion": "Francesa. 5°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.0,
+                  "moneda": "EUR",
+                  "raw": "€3.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Warsteiner",
+              "descripcion": "Alemana. 4,8° Carta Contacto Servicio ofrecido por bakarta Bienvenido! Bakarta Global S.L. valora su privacidad Nosotros y nuestros proveedores (896) almacenamos y/o accedemos a información en un dispositivo, como cookies y procesamos datos personales, como identificadores únicos para personalizar contenidos y anuncios, proporcionar funciones de redes sociales, analizar nuestro tráfico y desarrollar y mejorar productos. Nosotros y nuestros proveedores podemos utilizar datos precisos de geolocalización e identificación a través del escaneo del dispositivo con su permiso. Puede hacer clic para dar su consentimiento a nuestro tratamiento y al de nuestros socios, tal y como se ha descrito anteriormente. También, puede acceder a información más detallada y cambiar sus preferencias antes de otorgar o denegar su consentimiento. Tenga en cuenta que, algunos tratamientos de sus datos personales pueden no requerir su consentimiento, pero tiene derecho a oponerse a ellos. Sus preferencias se aplicarán únicamente a este sitio web. Puede cambiar sus preferencias en cualquier momento volviendo a este sitio. Nuestros socios pueden utilizar dichos fines y características especiales: almacenar la información en un dispositivo y/o acceder a ella, uso de datos limitados para seleccionar anuncios básicos, crear perfiles para publicidad personalizada, utilizar perfiles para seleccionar la publicidad personalizada, crear un perfil para personalizar el contenido, uso de perfiles para la selección de contenido personalizado, medir el rendimiento de la publicidad, medir el rendimiento del contenido, comprender al público a través de estadísticas o a través de la combinación de datos procedentes de diferentes fuentes, desarrollo y mejora de los servicios, uso de datos limitados con el objetivo de seleccionar el contenido, utilizar datos de localización geográfica precisa, analizar activamente las características del dispositivo para su identificación. Gestionar configuración Consentir todo Powered by",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.5,
+                  "moneda": "EUR",
+                  "raw": "€3.50"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CERVEZAS DE BARRIL": {
+      "categorias": [
+        {
+          "nombre": "Barril",
+          "items": [
+            {
+              "nombre": "Lager BWK",
+              "descripcion": "Rubia suave. 5°",
+              "precios": [
+                {
+                  "tipo": "Caña",
+                  "volumen": "33cl",
+                  "precio": 2.2,
+                  "moneda": "EUR",
+                  "raw": "Caña 33cl €2.20"
+                },
+                {
+                  "tipo": "Jarra",
+                  "volumen": "50cl",
+                  "precio": 3.3,
+                  "moneda": "EUR",
+                  "raw": "Jarra 50cl €3.30"
+                }
+              ]
+            },
+            {
+              "nombre": "Tripel Karmeliet",
+              "descripcion": "Tres cereales. Belga. 8°",
+              "precios": [
+                {
+                  "tipo": "Caña",
+                  "volumen": "33cl",
+                  "precio": 3.8,
+                  "moneda": "EUR",
+                  "raw": "Caña 33cl €3.80"
+                },
+                {
+                  "tipo": "Jarra",
+                  "volumen": "50cl",
+                  "precio": 4.8,
+                  "moneda": "EUR",
+                  "raw": "Jarra 50cl €4.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Martin’s Pale Ale",
+              "descripcion": "Inglesa. 5,8°",
+              "precios": [
+                {
+                  "tipo": "Caña",
+                  "volumen": "33cl",
+                  "precio": 3.8,
+                  "moneda": "EUR",
+                  "raw": "Caña 33cl €3.80"
+                },
+                {
+                  "tipo": "Jarra",
+                  "volumen": "50cl",
+                  "precio": 4.8,
+                  "moneda": "EUR",
+                  "raw": "Jarra 50cl €4.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Martin’s IPA",
+              "descripcion": "55 ibus. Belga. 6,5°",
+              "precios": [
+                {
+                  "tipo": "Caña",
+                  "volumen": "33cl",
+                  "precio": 3.8,
+                  "moneda": "EUR",
+                  "raw": "Caña 33cl €3.80"
+                },
+                {
+                  "tipo": "Jarra",
+                  "volumen": "50cl",
+                  "precio": 4.8,
+                  "moneda": "EUR",
+                  "raw": "Jarra 50cl €4.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Gordon Finest Gold",
+              "descripcion": "Rubia fuerte. Escocesa. 10°",
+              "precios": [
+                {
+                  "tipo": "Jarra",
+                  "volumen": "50cl",
+                  "precio": 4.8,
+                  "moneda": "EUR",
+                  "raw": "Jarra 50cl €4.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Tostada Gran Vía",
+              "descripcion": "6,4° Es una cerveza de color ámbar intenso, con reflejos rojizos. Su espuma persistente evoca el blanco marfil. Tiene una alta intensidad aromática, destacando los aromas de levadura fresca y recuerdos a pan tostado.",
+              "precios": [
+                {
+                  "tipo": "Caña",
+                  "volumen": "33cl",
+                  "precio": 3.5,
+                  "moneda": "EUR",
+                  "raw": "Caña 33cl €3.50"
+                },
+                {
+                  "tipo": "Jarra",
+                  "volumen": "50cl",
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "Jarra 50cl €4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Kwak",
+              "descripcion": "Tostada afrutada. Belga. 8,4°",
+              "precios": [
+                {
+                  "tipo": "Caña",
+                  "volumen": "33cl",
+                  "precio": 3.8,
+                  "moneda": "EUR",
+                  "raw": "Caña 33cl €3.80"
+                },
+                {
+                  "tipo": "Jarra",
+                  "volumen": "50cl",
+                  "precio": 4.8,
+                  "moneda": "EUR",
+                  "raw": "Jarra 50cl €4.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Kwak Copa",
+              "descripcion": "La Pauwel Kwak o Kwak debe su nombre a Pauwel Kwak, un tabernero que en el año 1791 elaboró la receta de esta cerveza que era servida a los viajeros que paraban a descansar en su posada. Como por orden de Napoleón los cocheros tenían prohibido abandonar durante las paradas el carruaje para ir a beber, Pauwel ideó un soporte de madera que iba sujeto al pescante y al que se podía acoplar un vaso de forma alargada que permitía a los conductores tomar buenos tragos de cerveza durante el viaje y tener las manos libres al dejarla en la sujeción de madera.",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.0,
+                  "moneda": "EUR",
+                  "raw": "€4.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Guinness Special Export",
+              "descripcion": "Elaborada al estilo belga. 8°",
+              "precios": [
+                {
+                  "tipo": "Caña",
+                  "volumen": null,
+                  "precio": 3.9,
+                  "moneda": "EUR",
+                  "raw": "Caña €3.90"
+                },
+                {
+                  "tipo": "Jarra",
+                  "volumen": "50cl",
+                  "precio": 5.2,
+                  "moneda": "EUR",
+                  "raw": "Jarra 50cl €5.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Cuvee des Trolls",
+              "descripcion": "Cerveza de alta fermentación, pero refrescante y ligera, con aromas sorprendentes, principalmente por el de cáscara de naranja seca durante el proceso de ebullición. Belga. 7º",
+              "precios": [
+                {
+                  "tipo": "Caña",
+                  "volumen": "33cl",
+                  "precio": 3.8,
+                  "moneda": "EUR",
+                  "raw": "Caña 33cl €3.80"
+                },
+                {
+                  "tipo": "Jarra",
+                  "volumen": "50cl",
+                  "precio": 4.8,
+                  "moneda": "EUR",
+                  "raw": "Jarra 50cl €4.80"
+                }
+              ]
+            },
+            {
+              "nombre": "La Chouffe",
+              "descripcion": "Dorada. Sabor afrutado y ligeramente lupulizado. Belga. 8º",
+              "precios": [
+                {
+                  "tipo": "Caña",
+                  "volumen": "33cl",
+                  "precio": 4.3,
+                  "moneda": "EUR",
+                  "raw": "Caña 33cl €4.30"
+                },
+                {
+                  "tipo": "Jarra",
+                  "volumen": "0.5L",
+                  "precio": 5.5,
+                  "moneda": "EUR",
+                  "raw": "Jarra 0,5L €5.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Chimay Roja",
+              "descripcion": "Roja afrutada. Trapense. Belga. 7º Carta Contacto Servicio ofrecido por bakarta Bienvenido! Bakarta Global S.L. valora su privacidad Nosotros y nuestros proveedores (896) almacenamos y/o accedemos a información en un dispositivo, como cookies y procesamos datos personales, como identificadores únicos para personalizar contenidos y anuncios, proporcionar funciones de redes sociales, analizar nuestro tráfico y desarrollar y mejorar productos. Nosotros y nuestros proveedores podemos utilizar datos precisos de geolocalización e identificación a través del escaneo del dispositivo con su permiso. Puede hacer clic para dar su consentimiento a nuestro tratamiento y al de nuestros socios, tal y como se ha descrito anteriormente. También, puede acceder a información más detallada y cambiar sus preferencias antes de otorgar o denegar su consentimiento. Tenga en cuenta que, algunos tratamientos de sus datos personales pueden no requerir su consentimiento, pero tiene derecho a oponerse a ellos. Sus preferencias se aplicarán únicamente a este sitio web. Puede cambiar sus preferencias en cualquier momento volviendo a este sitio. Nuestros socios pueden utilizar dichos fines y características especiales: almacenar la información en un dispositivo y/o acceder a ella, uso de datos limitados para seleccionar anuncios básicos, crear perfiles para publicidad personalizada, utilizar perfiles para seleccionar la publicidad personalizada, crear un perfil para personalizar el contenido, uso de perfiles para la selección de contenido personalizado, medir el rendimiento de la publicidad, medir el rendimiento del contenido, comprender al público a través de estadísticas o a través de la combinación de datos procedentes de diferentes fuentes, desarrollo y mejora de los servicios, uso de datos limitados con el objetivo de seleccionar el contenido, utilizar datos de localización geográfica precisa, analizar activamente las características del dispositivo para su identificación. Gestionar configuración Consentir todo Powered by",
+              "precios": [
+                {
+                  "tipo": "Caña",
+                  "volumen": "33cl",
+                  "precio": 3.9,
+                  "moneda": "EUR",
+                  "raw": "Caña 33cl €3.90"
+                },
+                {
+                  "tipo": "Jarra",
+                  "volumen": "50cl",
+                  "precio": 4.9,
+                  "moneda": "EUR",
+                  "raw": "Jarra 50cl €4.90"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "INFUSIONES Y TÉS": {
+      "categorias": [
+        {
+          "nombre": "INFUSIONES Y TÉS",
+          "items": [
+            {
+              "nombre": "Manzanilla",
+              "descripcion": "Ingredientes: Manzanilla. 100% pura flor de manzanilla, este corte proporciona aroma y colores más intensos.",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 1.8,
+                  "moneda": "EUR",
+                  "raw": "€1.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Menta",
+              "descripcion": "Ingredientes: Hojas de Menta. Una tisana tradicional. Disfruta de esta deliciosa infusión de refrescante sabor.",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 1.8,
+                  "moneda": "EUR",
+                  "raw": "€1.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Té Rooibos con Vainilla",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 1.8,
+                  "moneda": "EUR",
+                  "raw": "€1.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Té Jengibre con Cúrcuma",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 1.8,
+                  "moneda": "EUR",
+                  "raw": "€1.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Té Jengibre con Mango",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 1.8,
+                  "moneda": "EUR",
+                  "raw": "€1.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Té Jengibre con Limón",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 1.8,
+                  "moneda": "EUR",
+                  "raw": "€1.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Té rojo cuerpo del deseo",
+              "descripcion": "Ingredientes: Té pu-erh, té verde, piña, pétalos de rosa y trozos de fresa. A base de té rojo pu-erh, té verde e hibisco combina un sensual aroma con el ligero toque ácido de las diferentes frutas, perfecto para las personas que cuidan su línea",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 1.8,
+                  "moneda": "EUR",
+                  "raw": "€1.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Té verde jengibre y limón",
+              "descripcion": "Ingredientes: Té verde, limón, regaliz, jengibre, menta y pimienta negra. Nadie se puede perder este combinado de té verde que añade jengibre y limón. Mañana estamos aquí para servirte otro. Carta Contacto Servicio ofrecido por bakarta Bienvenido! Bakarta Global S.L. valora su privacidad Nosotros y nuestros proveedores (896) almacenamos y/o accedemos a información en un dispositivo, como cookies y procesamos datos personales, como identificadores únicos para personalizar contenidos y anuncios, proporcionar funciones de redes sociales, analizar nuestro tráfico y desarrollar y mejorar productos. Nosotros y nuestros proveedores podemos utilizar datos precisos de geolocalización e identificación a través del escaneo del dispositivo con su permiso. Puede hacer clic para dar su consentimiento a nuestro tratamiento y al de nuestros socios, tal y como se ha descrito anteriormente. También, puede acceder a información más detallada y cambiar sus preferencias antes de otorgar o denegar su consentimiento. Tenga en cuenta que, algunos tratamientos de sus datos personales pueden no requerir su consentimiento, pero tiene derecho a oponerse a ellos. Sus preferencias se aplicarán únicamente a este sitio web. Puede cambiar sus preferencias en cualquier momento volviendo a este sitio. Nuestros socios pueden utilizar dichos fines y características especiales: almacenar la información en un dispositivo y/o acceder a ella, uso de datos limitados para seleccionar anuncios básicos, crear perfiles para publicidad personalizada, utilizar perfiles para seleccionar la publicidad personalizada, crear un perfil para personalizar el contenido, uso de perfiles para la selección de contenido personalizado, medir el rendimiento de la publicidad, medir el rendimiento del contenido, comprender al público a través de estadísticas o a través de la combinación de datos procedentes de diferentes fuentes, desarrollo y mejora de los servicios, uso de datos limitados con el objetivo de seleccionar el contenido, utilizar datos de localización geográfica precisa, analizar activamente las características del dispositivo para su identificación. Gestionar configuración Consentir todo Powered by",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 1.8,
+                  "moneda": "EUR",
+                  "raw": "€1.80"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CERVEZAS SIN GLUTEN": {
+      "categorias": [
+        {
+          "nombre": "Sin gluten",
+          "items": [
+            {
+              "nombre": "Dougall´s IPA",
+              "descripcion": "IPA sin gluten, 6.4 %. 33cl.",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Mahou tostada 0,0 Sin Gluten",
+              "descripcion": null,
+              "precios": []
+            },
+            {
+              "nombre": "Naturepils",
+              "descripcion": "Cerveza ecológica sin gluten. Alc. 4.6% Carta Contacto Servicio ofrecido por bakarta Bienvenido! Bakarta Global S.L. valora su privacidad Nosotros y nuestros proveedores (896) almacenamos y/o accedemos a información en un dispositivo, como cookies y procesamos datos personales, como identificadores únicos para personalizar contenidos y anuncios, proporcionar funciones de redes sociales, analizar nuestro tráfico y desarrollar y mejorar productos. Nosotros y nuestros proveedores podemos utilizar datos precisos de geolocalización e identificación a través del escaneo del dispositivo con su permiso. Puede hacer clic para dar su consentimiento a nuestro tratamiento y al de nuestros socios, tal y como se ha descrito anteriormente. También, puede acceder a información más detallada y cambiar sus preferencias antes de otorgar o denegar su consentimiento. Tenga en cuenta que, algunos tratamientos de sus datos personales pueden no requerir su consentimiento, pero tiene derecho a oponerse a ellos. Sus preferencias se aplicarán únicamente a este sitio web. Puede cambiar sus preferencias en cualquier momento volviendo a este sitio. Nuestros socios pueden utilizar dichos fines y características especiales: almacenar la información en un dispositivo y/o acceder a ella, uso de datos limitados para seleccionar anuncios básicos, crear perfiles para publicidad personalizada, utilizar perfiles para seleccionar la publicidad personalizada, crear un perfil para personalizar el contenido, uso de perfiles para la selección de contenido personalizado, medir el rendimiento de la publicidad, medir el rendimiento del contenido, comprender al público a través de estadísticas o a través de la combinación de datos procedentes de diferentes fuentes, desarrollo y mejora de los servicios, uso de datos limitados con el objetivo de seleccionar el contenido, utilizar datos de localización geográfica precisa, analizar activamente las características del dispositivo para su identificación. Gestionar configuración Consentir todo Powered by",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.0,
+                  "moneda": "EUR",
+                  "raw": "€4.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CERVEZAS SIN ALCOHOL": {
+      "categorias": [
+        {
+          "nombre": "Sin alcohol",
+          "items": [
+            {
+              "nombre": "Corona 0,0",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.5,
+                  "moneda": "EUR",
+                  "raw": "€3.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Mahou 0,0 tostada",
+              "descripcion": "Tostada",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.0,
+                  "moneda": "EUR",
+                  "raw": "€3.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Heineken 0,0",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.5,
+                  "moneda": "EUR",
+                  "raw": "€2.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Clausthaler",
+              "descripcion": "0,0",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.0,
+                  "moneda": "EUR",
+                  "raw": "€3.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Super Bock Stout",
+              "descripcion": "Negra sin alcohol",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.0,
+                  "moneda": "EUR",
+                  "raw": "€3.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Kopparberg Fresa y Lima",
+              "descripcion": "Sidra 33CL. Carta Contacto Servicio ofrecido por bakarta Bienvenido! Bakarta Global S.L. valora su privacidad Nosotros y nuestros proveedores (896) almacenamos y/o accedemos a información en un dispositivo, como cookies y procesamos datos personales, como identificadores únicos para personalizar contenidos y anuncios, proporcionar funciones de redes sociales, analizar nuestro tráfico y desarrollar y mejorar productos. Nosotros y nuestros proveedores podemos utilizar datos precisos de geolocalización e identificación a través del escaneo del dispositivo con su permiso. Puede hacer clic para dar su consentimiento a nuestro tratamiento y al de nuestros socios, tal y como se ha descrito anteriormente. También, puede acceder a información más detallada y cambiar sus preferencias antes de otorgar o denegar su consentimiento. Tenga en cuenta que, algunos tratamientos de sus datos personales pueden no requerir su consentimiento, pero tiene derecho a oponerse a ellos. Sus preferencias se aplicarán únicamente a este sitio web. Puede cambiar sus preferencias en cualquier momento volviendo a este sitio. Nuestros socios pueden utilizar dichos fines y características especiales: almacenar la información en un dispositivo y/o acceder a ella, uso de datos limitados para seleccionar anuncios básicos, crear perfiles para publicidad personalizada, utilizar perfiles para seleccionar la publicidad personalizada, crear un perfil para personalizar el contenido, uso de perfiles para la selección de contenido personalizado, medir el rendimiento de la publicidad, medir el rendimiento del contenido, comprender al público a través de estadísticas o a través de la combinación de datos procedentes de diferentes fuentes, desarrollo y mejora de los servicios, uso de datos limitados con el objetivo de seleccionar el contenido, utilizar datos de localización geográfica precisa, analizar activamente las características del dispositivo para su identificación. Gestionar configuración Consentir todo Powered by",
+              "precios": []
+            }
+          ]
+        }
+      ]
+    },
+    "CERVEZAS LAMBIC Y FRUTAS": {
+      "categorias": [
+        {
+          "nombre": "Cervezas de frutas",
+          "items": [
+            {
+              "nombre": "Timmermans Peche",
+              "descripcion": "Melocotón. 4°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.0,
+                  "moneda": "EUR",
+                  "raw": "€4.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Timmermans Framboise",
+              "descripcion": "Frambuesa. 4°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.0,
+                  "moneda": "EUR",
+                  "raw": "€4.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Timmermans Kriek",
+              "descripcion": "Cerezas. 4° Cervezas de frutas",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Floris Passion",
+              "descripcion": "Fruta de la pasión. 4°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Floris Chocolate",
+              "descripcion": "4°",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Mongozo Coconut",
+              "descripcion": "Coco. 4° Carta Contacto Servicio ofrecido por bakarta Bienvenido! Bakarta Global S.L. valora su privacidad Nosotros y nuestros proveedores (896) almacenamos y/o accedemos a información en un dispositivo, como cookies y procesamos datos personales, como identificadores únicos para personalizar contenidos y anuncios, proporcionar funciones de redes sociales, analizar nuestro tráfico y desarrollar y mejorar productos. Nosotros y nuestros proveedores podemos utilizar datos precisos de geolocalización e identificación a través del escaneo del dispositivo con su permiso. Puede hacer clic para dar su consentimiento a nuestro tratamiento y al de nuestros socios, tal y como se ha descrito anteriormente. También, puede acceder a información más detallada y cambiar sus preferencias antes de otorgar o denegar su consentimiento. Tenga en cuenta que, algunos tratamientos de sus datos personales pueden no requerir su consentimiento, pero tiene derecho a oponerse a ellos. Sus preferencias se aplicarán únicamente a este sitio web. Puede cambiar sus preferencias en cualquier momento volviendo a este sitio. Nuestros socios pueden utilizar dichos fines y características especiales: almacenar la información en un dispositivo y/o acceder a ella, uso de datos limitados para seleccionar anuncios básicos, crear perfiles para publicidad personalizada, utilizar perfiles para seleccionar la publicidad personalizada, crear un perfil para personalizar el contenido, uso de perfiles para la selección de contenido personalizado, medir el rendimiento de la publicidad, medir el rendimiento del contenido, comprender al público a través de estadísticas o a través de la combinación de datos procedentes de diferentes fuentes, desarrollo y mejora de los servicios, uso de datos limitados con el objetivo de seleccionar el contenido, utilizar datos de localización geográfica precisa, analizar activamente las características del dispositivo para su identificación. Gestionar configuración Consentir todo Powered by",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SIDRAS": {
+      "categorias": [
+        {
+          "nombre": "Sidras",
+          "items": [
+            {
+              "nombre": "Magners",
+              "descripcion": "33cl. Irlandesa",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.0,
+                  "moneda": "EUR",
+                  "raw": "€4.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Kopparberg Fresa y Lima",
+              "descripcion": "50cl",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Kopparberg Mixed Fruit",
+              "descripcion": "50cl",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Kopparberg Mixed Fruit Tropical",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 4.5,
+                  "moneda": "EUR",
+                  "raw": "€4.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Ladrón de Manzanas",
+              "descripcion": "33cl Carta Contacto Servicio ofrecido por bakarta Bienvenido! Bakarta Global S.L. valora su privacidad Nosotros y nuestros proveedores (896) almacenamos y/o accedemos a información en un dispositivo, como cookies y procesamos datos personales, como identificadores únicos para personalizar contenidos y anuncios, proporcionar funciones de redes sociales, analizar nuestro tráfico y desarrollar y mejorar productos. Nosotros y nuestros proveedores podemos utilizar datos precisos de geolocalización e identificación a través del escaneo del dispositivo con su permiso. Puede hacer clic para dar su consentimiento a nuestro tratamiento y al de nuestros socios, tal y como se ha descrito anteriormente. También, puede acceder a información más detallada y cambiar sus preferencias antes de otorgar o denegar su consentimiento. Tenga en cuenta que, algunos tratamientos de sus datos personales pueden no requerir su consentimiento, pero tiene derecho a oponerse a ellos. Sus preferencias se aplicarán únicamente a este sitio web. Puede cambiar sus preferencias en cualquier momento volviendo a este sitio. Nuestros socios pueden utilizar dichos fines y características especiales: almacenar la información en un dispositivo y/o acceder a ella, uso de datos limitados para seleccionar anuncios básicos, crear perfiles para publicidad personalizada, utilizar perfiles para seleccionar la publicidad personalizada, crear un perfil para personalizar el contenido, uso de perfiles para la selección de contenido personalizado, medir el rendimiento de la publicidad, medir el rendimiento del contenido, comprender al público a través de estadísticas o a través de la combinación de datos procedentes de diferentes fuentes, desarrollo y mejora de los servicios, uso de datos limitados con el objetivo de seleccionar el contenido, utilizar datos de localización geográfica precisa, analizar activamente las características del dispositivo para su identificación. Gestionar configuración Consentir todo Powered by",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.3,
+                  "moneda": "EUR",
+                  "raw": "€3.30"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "LICORES / CUBATAS / OTROS": {
+      "categorias": [
+        {
+          "nombre": "Otros",
+          "items": [
+            {
+              "nombre": "Jack Daniel’s",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 7.5,
+                  "moneda": "EUR",
+                  "raw": "€7.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Red Label",
+              "descripcion": "Ron",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "€6.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Brugal",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "€6.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Cacique",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "€6.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Barceló",
+              "descripcion": "Ginebra",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "€6.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Seagram´s",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "€6.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Beefeater",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "€6.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Tanqueray",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "€6.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Tanqueray 0,0",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "€6.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Puerto de Indias",
+              "descripcion": "Vodka",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "€6.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Vodka Absolut",
+              "descripcion": "Otros",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "€6.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Baileys",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": "Copa",
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "Copa €6.50"
+                },
+                {
+                  "tipo": "Chupito",
+                  "volumen": null,
+                  "precio": 2.2,
+                  "moneda": "EUR",
+                  "raw": "Chupito €2.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Tequila",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": "Copa",
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "Copa €6.50"
+                },
+                {
+                  "tipo": "Chupito",
+                  "volumen": null,
+                  "precio": 2.2,
+                  "moneda": "EUR",
+                  "raw": "Chupito €2.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Jägermeister",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": "Copa",
+                  "volumen": null,
+                  "precio": 7.5,
+                  "moneda": "EUR",
+                  "raw": "Copa €7.50"
+                },
+                {
+                  "tipo": "Chupito",
+                  "volumen": null,
+                  "precio": 2.2,
+                  "moneda": "EUR",
+                  "raw": "Chupito €2.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Licor de Hierbas",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": "Copa",
+                  "volumen": null,
+                  "precio": 6.5,
+                  "moneda": "EUR",
+                  "raw": "Copa €6.50"
+                },
+                {
+                  "tipo": "Chupito",
+                  "volumen": null,
+                  "precio": 2.2,
+                  "moneda": "EUR",
+                  "raw": "Chupito €2.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Vermouth",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.85,
+                  "moneda": "EUR",
+                  "raw": "€3.85"
+                }
+              ]
+            },
+            {
+              "nombre": "Martini",
+              "descripcion": "Carta Contacto Servicio ofrecido por bakarta Bienvenido! Bakarta Global S.L. valora su privacidad Nosotros y nuestros proveedores (896) almacenamos y/o accedemos a información en un dispositivo, como cookies y procesamos datos personales, como identificadores únicos para personalizar contenidos y anuncios, proporcionar funciones de redes sociales, analizar nuestro tráfico y desarrollar y mejorar productos. Nosotros y nuestros proveedores podemos utilizar datos precisos de geolocalización e identificación a través del escaneo del dispositivo con su permiso. Puede hacer clic para dar su consentimiento a nuestro tratamiento y al de nuestros socios, tal y como se ha descrito anteriormente. También, puede acceder a información más detallada y cambiar sus preferencias antes de otorgar o denegar su consentimiento. Tenga en cuenta que, algunos tratamientos de sus datos personales pueden no requerir su consentimiento, pero tiene derecho a oponerse a ellos. Sus preferencias se aplicarán únicamente a este sitio web. Puede cambiar sus preferencias en cualquier momento volviendo a este sitio. Nuestros socios pueden utilizar dichos fines y características especiales: almacenar la información en un dispositivo y/o acceder a ella, uso de datos limitados para seleccionar anuncios básicos, crear perfiles para publicidad personalizada, utilizar perfiles para seleccionar la publicidad personalizada, crear un perfil para personalizar el contenido, uso de perfiles para la selección de contenido personalizado, medir el rendimiento de la publicidad, medir el rendimiento del contenido, comprender al público a través de estadísticas o a través de la combinación de datos procedentes de diferentes fuentes, desarrollo y mejora de los servicios, uso de datos limitados con el objetivo de seleccionar el contenido, utilizar datos de localización geográfica precisa, analizar activamente las características del dispositivo para su identificación. Gestionar configuración Consentir todo Powered by",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 3.5,
+                  "moneda": "EUR",
+                  "raw": "€3.50"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "VINOS": {
+      "categorias": [
+        {
+          "nombre": "Vinos",
+          "items": [
+            {
+              "nombre": "Copa de vino tinto",
+              "descripcion": "Consulte al camarero por el vino",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.5,
+                  "moneda": "EUR",
+                  "raw": "€2.50"
+                }
+              ]
+            },
+            {
+              "nombre": "Tinto de verano",
+              "descripcion": "Tinto de verano de la casa preparado con Fanta limón.",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.8,
+                  "moneda": "EUR",
+                  "raw": "€2.80"
+                }
+              ]
+            },
+            {
+              "nombre": "Copa vino blanco Alicante",
+              "descripcion": "Sabor refrescante y afrutado.",
+              "precios": [
+                {
+                  "tipo": "Copa",
+                  "volumen": null,
+                  "precio": 3.7,
+                  "moneda": "EUR",
+                  "raw": "Copa €3.70"
+                }
+              ]
+            },
+            {
+              "nombre": "Botella vino blanco Alicante",
+              "descripcion": "Vino semidulce de la zona. Sabor refrescante y afrutado.",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 25.0,
+                  "moneda": "EUR",
+                  "raw": "€25.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Copa de vino blanco verdejo",
+              "descripcion": "Consulte al camarero por el vino Carta Contacto Servicio ofrecido por bakarta Bienvenido! Bakarta Global S.L. valora su privacidad Nosotros y nuestros proveedores (896) almacenamos y/o accedemos a información en un dispositivo, como cookies y procesamos datos personales, como identificadores únicos para personalizar contenidos y anuncios, proporcionar funciones de redes sociales, analizar nuestro tráfico y desarrollar y mejorar productos. Nosotros y nuestros proveedores podemos utilizar datos precisos de geolocalización e identificación a través del escaneo del dispositivo con su permiso. Puede hacer clic para dar su consentimiento a nuestro tratamiento y al de nuestros socios, tal y como se ha descrito anteriormente. También, puede acceder a información más detallada y cambiar sus preferencias antes de otorgar o denegar su consentimiento. Tenga en cuenta que, algunos tratamientos de sus datos personales pueden no requerir su consentimiento, pero tiene derecho a oponerse a ellos. Sus preferencias se aplicarán únicamente a este sitio web. Puede cambiar sus preferencias en cualquier momento volviendo a este sitio. Nuestros socios pueden utilizar dichos fines y características especiales: almacenar la información en un dispositivo y/o acceder a ella, uso de datos limitados para seleccionar anuncios básicos, crear perfiles para publicidad personalizada, utilizar perfiles para seleccionar la publicidad personalizada, crear un perfil para personalizar el contenido, uso de perfiles para la selección de contenido personalizado, medir el rendimiento de la publicidad, medir el rendimiento del contenido, comprender al público a través de estadísticas o a través de la combinación de datos procedentes de diferentes fuentes, desarrollo y mejora de los servicios, uso de datos limitados con el objetivo de seleccionar el contenido, utilizar datos de localización geográfica precisa, analizar activamente las características del dispositivo para su identificación. Gestionar configuración Consentir todo Powered by",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.5,
+                  "moneda": "EUR",
+                  "raw": "€2.50"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ZUMOS Y REFRESCOS": {
+      "categorias": [
+        {
+          "nombre": "REFRESCOS",
+          "items": [
+            {
+              "nombre": "Agua",
+              "descripcion": "33 cl",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 1.3,
+                  "moneda": "EUR",
+                  "raw": "€1.30"
+                }
+              ]
+            },
+            {
+              "nombre": "Sprite",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.0,
+                  "moneda": "EUR",
+                  "raw": "€2.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Coca Cola",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.0,
+                  "moneda": "EUR",
+                  "raw": "€2.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Coca Cola Zero",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.0,
+                  "moneda": "EUR",
+                  "raw": "€2.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Fanta Limón",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.0,
+                  "moneda": "EUR",
+                  "raw": "€2.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Fanta Naranja",
+              "descripcion": null,
+              "precios": []
+            },
+            {
+              "nombre": "Naranja",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.0,
+                  "moneda": "EUR",
+                  "raw": "€2.00"
+                }
+              ]
+            },
+            {
+              "nombre": "Aquarius Limón",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.2,
+                  "moneda": "EUR",
+                  "raw": "€2.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Aquarius Naranja",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.2,
+                  "moneda": "EUR",
+                  "raw": "€2.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Aquarius Melocotón Rojo",
+              "descripcion": null,
+              "precios": []
+            },
+            {
+              "nombre": "Melocotón",
+              "descripcion": "Rojo",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.2,
+                  "moneda": "EUR",
+                  "raw": "€2.20"
+                }
+              ]
+            },
+            {
+              "nombre": "FuzeTea",
+              "descripcion": null,
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.2,
+                  "moneda": "EUR",
+                  "raw": "€2.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Tónica",
+              "descripcion": "ZUMOS",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.2,
+                  "moneda": "EUR",
+                  "raw": "€2.20"
+                }
+              ]
+            },
+            {
+              "nombre": "Piña",
+              "descripcion": "Melocotón Naranja Carta Contacto Servicio ofrecido por bakarta Bienvenido! Bakarta Global S.L. valora su privacidad Nosotros y nuestros proveedores (896) almacenamos y/o accedemos a información en un dispositivo, como cookies y procesamos datos personales, como identificadores únicos para personalizar contenidos y anuncios, proporcionar funciones de redes sociales, analizar nuestro tráfico y desarrollar y mejorar productos. Nosotros y nuestros proveedores podemos utilizar datos precisos de geolocalización e identificación a través del escaneo del dispositivo con su permiso. Puede hacer clic para dar su consentimiento a nuestro tratamiento y al de nuestros socios, tal y como se ha descrito anteriormente. También, puede acceder a información más detallada y cambiar sus preferencias antes de otorgar o denegar su consentimiento. Tenga en cuenta que, algunos tratamientos de sus datos personales pueden no requerir su consentimiento, pero tiene derecho a oponerse a ellos. Sus preferencias se aplicarán únicamente a este sitio web. Puede cambiar sus preferencias en cualquier momento volviendo a este sitio. Nuestros socios pueden utilizar dichos fines y características especiales: almacenar la información en un dispositivo y/o acceder a ella, uso de datos limitados para seleccionar anuncios básicos, crear perfiles para publicidad personalizada, utilizar perfiles para seleccionar la publicidad personalizada, crear un perfil para personalizar el contenido, uso de perfiles para la selección de contenido personalizado, medir el rendimiento de la publicidad, medir el rendimiento del contenido, comprender al público a través de estadísticas o a través de la combinación de datos procedentes de diferentes fuentes, desarrollo y mejora de los servicios, uso de datos limitados con el objetivo de seleccionar el contenido, utilizar datos de localización geográfica precisa, analizar activamente las características del dispositivo para su identificación. Gestionar configuración Consentir todo Powered by",
+              "precios": [
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.0,
+                  "moneda": "EUR",
+                  "raw": "€2.00"
+                },
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.0,
+                  "moneda": "EUR",
+                  "raw": "€2.00"
+                },
+                {
+                  "tipo": null,
+                  "volumen": null,
+                  "precio": 2.0,
+                  "moneda": "EUR",
+                  "raw": "€2.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
