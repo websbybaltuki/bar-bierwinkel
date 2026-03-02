@@ -1,0 +1,1129 @@
+{
+  "secciones": [
+    {
+      "menu": "CERVEZAS DE BOTELLA",
+      "categorias": [
+        {
+          "nombre": "CERVEZAS DE TRIGO",
+          "productos": [
+            {
+              "nombre": "Hoegaarden Grand Cru",
+              "descripcion": "Turbia dorada. Strong Ale de baja fermentación. Belga. 8,5°",
+              "origen": "Belga",
+              "graduacion": "8.5°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Hoegaarden Fruto Prohibido",
+              "descripcion": "Dark Ale. Alta fermentación. Segunda fermentación en botella. Belga. 8,5°",
+              "origen": "Belga",
+              "graduacion": "8.5°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Paulaner 50cl",
+              "descripcion": "Turbia y dorada. Alemana. 5°",
+              "origen": "Alemana",
+              "graduacion": "5°",
+              "volumen_cl": 50,
+              "precio_eur": 4.0
+            },
+            {
+              "nombre": "Weihenstephan Hefe 50cl",
+              "descripcion": "Sin filtrar. Turbia. Aroma de flores y hierbas frescas. Alemana. 5,4°",
+              "origen": "Alemana",
+              "graduacion": "5.4°",
+              "volumen_cl": 50,
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "Erdinger Pikantus 50cl",
+              "descripcion": "Weizenbok. Tostada oscura. Alemana. 7,3°",
+              "origen": "Alemana",
+              "graduacion": "7.3°",
+              "volumen_cl": 50,
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Sanwald",
+              "descripcion": "La cerveza de trigo Sanwald se elabora en estricto cumplimiento con la Ley alemana de pureza de la cerveza de 1.516. Se embotella sin filtrar y con toda su naturalidad, de ahí su ligero aspecto turbio de color, y de este modo los componentes naturales permanecen intactos hasta su consumo. Todo ello hace que estemos ante una cerveza de trigo con un sabor pronunciado, un tono picante, muy aromático y un cuerpo muy completo lo que la hace que sea una cerveza muy refrescante.",
+              "origen": "Alemana",
+              "precio_eur": 4.0
+            }
+          ]
+        },
+        {
+          "nombre": "ESPECIALIDADES EXTRA",
+          "productos": [
+            {
+              "nombre": "Triple Moines",
+              "descripcion": "Cerveza belga de color dorado y aroma a frutas y especias. Tiene un sabor dulce y afrutado y un final suave y seco. 7,5°",
+              "origen": "Belga",
+              "graduacion": "7.5°",
+              "volumen_cl": 33,
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Barbar Blonde",
+              "descripcion": "Cerveza belga, elaborada con miel de color rubio y espumosa. Carácter maltoso, a miel, dulce, aunque no es empalagosa por el amargor que le otorga el lúpulo. 8°.",
+              "origen": "Belga",
+              "graduacion": "8°",
+              "volumen_cl": 33,
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "St Feuillien",
+              "descripcion": "Cerveza belga de alta fermentación. Tiene un sabor afrutado y especiado y está equilibrado con una amargura del lúpulo. Color ámbar. 8,5°.",
+              "origen": "Belga",
+              "graduacion": "8.5°",
+              "volumen_cl": 33,
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Delirium Red",
+              "descripcion": "Cerveza fuerte, con cerezas. Rojo oscuro. Belga. 8,5°",
+              "origen": "Belga",
+              "graduacion": "8.5°",
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "La Divine",
+              "descripcion": "Rubia oscura fuerte. Con toque de caramelo. Belga. 9,5°",
+              "origen": "Belga",
+              "graduacion": "9.5°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Delirium Tremens",
+              "descripcion": "Dorada. Sabor dulce y final seco y alcohólico. Belga. 8,5°",
+              "origen": "Belga",
+              "graduacion": "8.5°",
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Kasteel Donker",
+              "descripcion": "Oscura y cremosa. Belga. 11°",
+              "origen": "Belga",
+              "graduacion": "11°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Kasteel Triple",
+              "descripcion": "Estilo abadía triple. Ale. Dorada. Belga. 11°",
+              "origen": "Belga",
+              "graduacion": "11°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Tripel Karmeliet",
+              "descripcion": "Elaborada con trigo, avena y cebada. Rubia. Belga. 8°",
+              "origen": "Belga",
+              "graduacion": "8°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Gulden Draak",
+              "descripcion": "Tostada oscura triple. Muy fuerte. Belga. 10,5°",
+              "origen": "Belga",
+              "graduacion": "10.5°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Gulden Draak 9000",
+              "descripcion": "Ámbar. Strong Ale. Belga. 10°",
+              "origen": "Belga",
+              "graduacion": "10°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Satan Gold",
+              "descripcion": "Dorada. Belga. 8°",
+              "origen": "Belga",
+              "graduacion": "8°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Satan Red",
+              "descripcion": "Rojiza. Belga. 8°",
+              "origen": "Belga",
+              "graduacion": "8°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "La Guillotine",
+              "descripcion": "Strong Ale muy equilibrada de aroma especiado y complejo y sabor dulce. 8,5°",
+              "origen": "Belga",
+              "graduacion": "8.5°",
+              "precio_eur": 4.85
+            }
+          ]
+        },
+        {
+          "nombre": "ABADIA",
+          "productos": [
+            {
+              "nombre": "Leffe Blonde",
+              "descripcion": "Rubia. Belga. 6,6°",
+              "origen": "Belga",
+              "graduacion": "6.6°",
+              "precio_eur": 4.0
+            },
+            {
+              "nombre": "Leffe Brune",
+              "descripcion": "Oscura. Con sabor a malta tostada. Belga. 6,5°",
+              "origen": "Belga",
+              "graduacion": "6.5°",
+              "precio_eur": 4.0
+            },
+            {
+              "nombre": "Leffe Tripel",
+              "descripcion": "Cerveza de alta fermentación con contenido de alcohol de alrededor del 8,5%. Elaborada con malta de cebada y lúpulo. Sabor dulce y afrutado con notas de especias y levadura. Color dorado y espuma densa y cremosa.",
+              "origen": "Belga",
+              "graduacion": "8.5°",
+              "precio_eur": 4.2
+            },
+            {
+              "nombre": "Grimbergen Triple",
+              "descripcion": "Dorada. Belga. 9°",
+              "origen": "Belga",
+              "graduacion": "9°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Grimbergen Double Ambrée",
+              "descripcion": "Tostada. Belga. 6,5°",
+              "origen": "Belga",
+              "graduacion": "6.5°",
+              "precio_eur": 4.2
+            },
+            {
+              "nombre": "Maredsous Brune",
+              "descripcion": "Oscura con cuerpo. Belga. 8°",
+              "origen": "Belga",
+              "graduacion": "8°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Maredsous Tripel",
+              "descripcion": "Dorada fuerte. Belga. 10°",
+              "origen": "Belga",
+              "graduacion": "10°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "St Bernardus Prior",
+              "descripcion": "Oscura muy aromática. Belga. 8°",
+              "origen": "Belga",
+              "graduacion": "8°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "St Bernardus Abt",
+              "descripcion": "Oscura muy fuerte. Belga. 10°",
+              "origen": "Belga",
+              "graduacion": "10°",
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Het Kapittel Pater",
+              "descripcion": "Negra. Belga. 6°",
+              "origen": "Belga",
+              "graduacion": "6°",
+              "precio_eur": 4.0
+            },
+            {
+              "nombre": "Het Kapittel Abt",
+              "descripcion": "Rubia fuerte y amarga. Belga. 10°",
+              "origen": "Belga",
+              "graduacion": "10°",
+              "precio_eur": 4.85
+            }
+          ]
+        },
+        {
+          "nombre": "PALE ALE - IPA - Alta Fermentación",
+          "productos": [
+            {
+              "nombre": "Chouffe IPA",
+              "descripcion": "Cerveza belga estilo IPA, de color rubia y turbia. 9°",
+              "origen": "Belga",
+              "graduacion": "9°",
+              "volumen_cl": 33,
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Judas",
+              "descripcion": "Dorada. Belga. 8,5°",
+              "origen": "Belga",
+              "graduacion": "8.5°",
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "Troubadour Magma",
+              "descripcion": "Cerveza belga IPA. Color ámbar. 9°",
+              "origen": "Belga",
+              "graduacion": "9°",
+              "volumen_cl": 33,
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Bush Beer Ambrée",
+              "descripcion": "Dorada. Belga. 12°",
+              "origen": "Belga",
+              "graduacion": "12°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Duvel",
+              "descripcion": "Dorada. Clásica cerveza belga. 8,5°",
+              "origen": "Belga",
+              "graduacion": "8.5°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Duvel Tripel Hop Citra",
+              "descripcion": "IPA. Elaborada con tres variedades de lúpulo. Belga. 9,5°",
+              "origen": "Belga",
+              "graduacion": "9.5°",
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Palm",
+              "descripcion": "Pale Ale. Tostada. Belga. 5,2°",
+              "origen": "Belga",
+              "graduacion": "5.2°",
+              "precio_eur": 3.6
+            },
+            {
+              "nombre": "Martin's IPA 55",
+              "descripcion": "44 Ibus. Belga. 6,9°",
+              "origen": "Belga",
+              "graduacion": "6.9°",
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "BrewDog Punk IPA",
+              "descripcion": "IPA de color claro, aromas a frutas tropicales (mango y piña sobre todo) y ligeramente amarga. 5,6°",
+              "origen": null,
+              "graduacion": "5.6°",
+              "precio_eur": 4.7
+            }
+          ]
+        },
+        {
+          "nombre": "TRAPENSES",
+          "productos": [
+            {
+              "nombre": "Achel Dubbel",
+              "descripcion": "Cerveza trapense de abadía. Color marrón oscuro, cremosa. Sabor a trigo tostado. De alta fermentación. 8°.",
+              "origen": "Belga",
+              "graduacion": "8°",
+              "volumen_cl": 33,
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Orval",
+              "descripcion": "La trapense más amarga. Belga. 6,2°",
+              "origen": "Belga",
+              "graduacion": "6.2°",
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Chimay Roja",
+              "descripcion": "Color rojizo. Afrutada. Belga. 7°",
+              "origen": "Belga",
+              "graduacion": "7°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Chimay Blanca",
+              "descripcion": "Color dorado. Triple. Belga. 8°",
+              "origen": "Belga",
+              "graduacion": "8°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Westmalle Tripel",
+              "descripcion": "Rubia dorada. Aroma a hierbas. Belga. 9,5°",
+              "origen": "Belga",
+              "graduacion": "9.5°",
+              "precio_eur": 5.15
+            },
+            {
+              "nombre": "Chimay Azul",
+              "descripcion": "Negra especiada. Belga. 9°",
+              "origen": "Belga",
+              "graduacion": "9°",
+              "precio_eur": 5.3
+            },
+            {
+              "nombre": "Westmalle Dubbel",
+              "descripcion": "Oscura. Cuerpo suave. Belga. 7°",
+              "origen": "Belga",
+              "graduacion": "7°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Rochefort 10",
+              "descripcion": "Negra. Muy especiada. Belga. 11,3°",
+              "origen": "Belga",
+              "graduacion": "11.3°",
+              "precio_eur": 6.2
+            },
+            {
+              "nombre": "Rochefort 8",
+              "descripcion": "Ámbar. Belga. 9,2°",
+              "origen": "Belga",
+              "graduacion": "9.2°",
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "La Trappe Dubbel",
+              "descripcion": "Color oscuro. Holandesa. 6°",
+              "origen": "Holandesa",
+              "graduacion": "6°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "La Trappe Tripel",
+              "descripcion": "Rubia. Holandesa. 8°",
+              "origen": "Holandesa",
+              "graduacion": "8°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "La Trappe Quadrupel",
+              "descripcion": "Rojizo. Strong Ale. Holandesa. 10°",
+              "origen": "Holandesa",
+              "graduacion": "10°",
+              "precio_eur": 4.85
+            }
+          ]
+        },
+        {
+          "nombre": "LAGERS",
+          "productos": [
+            {
+              "nombre": "1906",
+              "descripcion": null,
+              "origen": "Española",
+              "precio_eur": 3.0
+            },
+            {
+              "nombre": "Estrella Galicia",
+              "descripcion": null,
+              "origen": "Española",
+              "precio_eur": 3.0
+            },
+            {
+              "nombre": "Bud",
+              "descripcion": "Rubia dulzona. Americana. 5°",
+              "origen": "Americana",
+              "graduacion": "5°",
+              "precio_eur": 3.0
+            },
+            {
+              "nombre": "Heineken",
+              "descripcion": "Holandesa. 5°",
+              "origen": "Holandesa",
+              "graduacion": "5°",
+              "precio_eur": 2.5
+            },
+            {
+              "nombre": "Biere du Demon",
+              "descripcion": "Francesa. 12°",
+              "origen": "Francesa",
+              "graduacion": "12°",
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "Löwenbrau",
+              "descripcion": "Alemana. 5,2°",
+              "origen": "Alemana",
+              "graduacion": "5.2°",
+              "precio_eur": 3.5
+            },
+            {
+              "nombre": "Samichlaus",
+              "descripcion": "Ámbar. La lager más fuerte del mundo. Suiza. 14°",
+              "origen": "Suiza",
+              "graduacion": "14°",
+              "precio_eur": 6.6
+            }
+          ]
+        },
+        {
+          "nombre": "PILSEN",
+          "productos": [
+            {
+              "nombre": "Urquell Pilsner",
+              "descripcion": "Checa. 4,4°",
+              "origen": "Checa",
+              "graduacion": "4.4°",
+              "precio_eur": 3.0
+            },
+            {
+              "nombre": "Stella Artois",
+              "descripcion": "Belga. 5,2°",
+              "origen": "Belga",
+              "graduacion": "5.2°",
+              "precio_eur": 3.0
+            },
+            {
+              "nombre": "Carlsberg",
+              "descripcion": "Danesa. 5°",
+              "origen": "Danesa",
+              "graduacion": "5°",
+              "precio_eur": 3.0
+            },
+            {
+              "nombre": "Budvar. Budejovick",
+              "descripcion": "Checa. 5°",
+              "origen": "Checa",
+              "graduacion": "5°",
+              "precio_eur": 3.5
+            },
+            {
+              "nombre": "Kronenbourg",
+              "descripcion": "Francesa. 5°",
+              "origen": "Francesa",
+              "graduacion": "5°",
+              "precio_eur": 3.0
+            },
+            {
+              "nombre": "Warsteiner",
+              "descripcion": "Alemana. 4,8°",
+              "origen": "Alemana",
+              "graduacion": "4.8°",
+              "precio_eur": 3.5
+            }
+          ]
+        },
+        {
+          "nombre": "PORTER Y STOUT",
+          "productos": [
+            {
+              "nombre": "Guinness Special Export",
+              "descripcion": "Stout seca. Irlandesa elaborada al estilo belga. 8°",
+              "origen": "Irlandesa",
+              "graduacion": "8°",
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Troubadour Imperial Stout",
+              "descripcion": "Cerveza belga con sabor a malta tostada y caramelo con notas de café y chocolate. 9°. 33cl.",
+              "origen": "Belga",
+              "graduacion": "9°",
+              "volumen_cl": 33,
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Troubadour Obscura",
+              "descripcion": "Cerveza belga, negra que a diferencia de la Troubador Imperial Stout tiene 8.2° y es de un color marrón oscuro. Su sabor es dulce, con matices de malta tostada y caramelo. 33cl.",
+              "origen": "Belga",
+              "graduacion": "8.2°",
+              "volumen_cl": 33,
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Guinness Original",
+              "descripcion": "5% alc. 33cl.",
+              "origen": "Irlandesa",
+              "graduacion": "5°",
+              "volumen_cl": 33,
+              "precio_eur": null
+            },
+            {
+              "nombre": "Super Bock Stout",
+              "descripcion": "Stout con cuerpo, dulce y poco amarga. Portuguesa 5°",
+              "origen": "Portuguesa",
+              "graduacion": "5°",
+              "precio_eur": 4.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "menu": "CERVEZAS DE BARRIL",
+      "categorias": [
+        {
+          "nombre": "Barril",
+          "productos": [
+            {
+              "nombre": "Lager BWK",
+              "descripcion": "Rubia suave. 5°",
+              "origen": null,
+              "graduacion": "5°",
+              "precios": {
+                "cana_33cl": 2.2,
+                "jarra_50cl": 3.3
+              }
+            },
+            {
+              "nombre": "Escape Hoppy Pils",
+              "descripcion": "Ligera, refrescante, con amargor moderado y notas cítricas por los lúpulos. 4,5°",
+              "origen": null,
+              "graduacion": "4.5°",
+              "precios": {
+                "cana_33cl": 3.8,
+                "jarra_50cl": 4.8
+              }
+            },
+            {
+              "nombre": "Tripel Karmeliet",
+              "descripcion": "Tres cereales. Belga. 8°",
+              "origen": "Belga",
+              "graduacion": "8°",
+              "precios": {
+                "cana_33cl": 3.8,
+                "jarra_50cl": 4.8
+              }
+            },
+            {
+              "nombre": "Martin's Pale Ale",
+              "descripcion": "Inglesa. 5,8°",
+              "origen": "Inglesa",
+              "graduacion": "5.8°",
+              "precios": {
+                "cana_33cl": 3.8,
+                "jarra_50cl": 4.8
+              }
+            },
+            {
+              "nombre": "Gordon Finest Gold",
+              "descripcion": "Rubia fuerte. Escocesa. 10°",
+              "origen": "Escocesa",
+              "graduacion": "10°",
+              "precios": {
+                "jarra_50cl": 4.8
+              }
+            },
+            {
+              "nombre": "Tostada Gran Vía",
+              "descripcion": "6,4°. Cerveza de color ámbar intenso, con reflejos rojizos. Su espuma persistente evoca el blanco marfil. Tiene una alta intensidad aromática, destacando los aromas de levadura fresca y recuerdos a pan tostado.",
+              "origen": null,
+              "graduacion": "6.4°",
+              "precios": {
+                "cana_33cl": 3.5,
+                "jarra_50cl": 4.5
+              }
+            },
+            {
+              "nombre": "Kwak",
+              "descripcion": "Tostada afrutada. Belga. 8,4°",
+              "origen": "Belga",
+              "graduacion": "8.4°",
+              "precios": {
+                "cana_33cl": 3.8,
+                "jarra_50cl": 4.8
+              }
+            },
+            {
+              "nombre": "Kwak Copa",
+              "descripcion": "La Pauwel Kwak o Kwak debe su nombre a Pauwel Kwak, un tabernero que en el año 1791 elaboró la receta de esta cerveza que era servida a los viajeros que paraban a descansar en su posada. Como por orden de Napoleón los cocheros tenían prohibido abandonar durante las paradas el carruaje para ir a beber, Pauwel ideó un soporte de madera que iba sujeto al pescante y al que se podía acoplar un vaso de forma alargada que permitía a los conductores tomar buenos tragos de cerveza durante el viaje y tener las manos libres al dejarla en la sujeción de madera.",
+              "origen": "Belga",
+              "graduacion": "8.4°",
+              "precios": {
+                "copa": 4.0
+              }
+            },
+            {
+              "nombre": "Guinness Special Export",
+              "descripcion": "Elaborada al estilo belga. 8°",
+              "origen": "Irlandesa",
+              "graduacion": "8°",
+              "precios": {
+                "cana": 3.9,
+                "jarra_50cl": 5.2
+              }
+            },
+            {
+              "nombre": "Delirium Tremens",
+              "descripcion": "Pale Ale Triple. Belga. 8,5°",
+              "origen": "Belga",
+              "graduacion": "8.5°",
+              "precios": {
+                "cana_33cl": 3.9,
+                "jarra_50cl": 4.9
+              }
+            },
+            {
+              "nombre": "Carolus Hopsinjoor",
+              "descripcion": "Cerveza de estilo Ale, para cuya elaboración se utilizan cinco tipos de lúpulo que la convierten en una deliciosa cerveza dorada con fuerte aroma a lúpulo. Belga. 8°",
+              "origen": "Belga",
+              "graduacion": "8°",
+              "precios": {
+                "cana_33cl": 3.7,
+                "jarra_50cl": 4.8
+              }
+            },
+            {
+              "nombre": "Chimay Roja",
+              "descripcion": "Roja afrutada. Trapense. Belga. 7°",
+              "origen": "Belga",
+              "graduacion": "7°",
+              "precios": {
+                "cana_33cl": 3.9,
+                "jarra_50cl": 4.9
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "menu": "CERVEZAS SIN GLUTEN",
+      "categorias": [
+        {
+          "nombre": "Sin gluten",
+          "productos": [
+            {
+              "nombre": "Dougall's IPA",
+              "descripcion": "IPA sin gluten. 6,4%. 33cl.",
+              "origen": null,
+              "graduacion": "6.4°",
+              "volumen_cl": 33,
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "Mahou Tostada 0,0 Sin Gluten",
+              "descripcion": "Sin gluten",
+              "origen": "Española",
+              "graduacion": "0°",
+              "precio_eur": null
+            },
+            {
+              "nombre": "Naturepils",
+              "descripcion": "Cerveza ecológica sin gluten. Alc. 4.6%",
+              "origen": null,
+              "graduacion": "4.6°",
+              "precio_eur": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "menu": "CERVEZAS SIN ALCOHOL",
+      "categorias": [
+        {
+          "nombre": "Sin alcohol",
+          "productos": [
+            {
+              "nombre": "Corona 0,0",
+              "descripcion": null,
+              "origen": null,
+              "graduacion": "0°",
+              "precio_eur": 3.5
+            },
+            {
+              "nombre": "Mahou 0,0 Tostada",
+              "descripcion": "Tostada",
+              "origen": "Española",
+              "graduacion": "0°",
+              "precio_eur": 3.0
+            },
+            {
+              "nombre": "Heineken 0,0",
+              "descripcion": null,
+              "origen": "Holandesa",
+              "graduacion": "0°",
+              "precio_eur": 2.5
+            },
+            {
+              "nombre": "Clausthaler",
+              "descripcion": "0,0",
+              "origen": "Alemana",
+              "graduacion": "0°",
+              "precio_eur": 3.0
+            },
+            {
+              "nombre": "Super Bock Stout",
+              "descripcion": "Negra sin alcohol",
+              "origen": "Portuguesa",
+              "graduacion": "0°",
+              "precio_eur": 3.0
+            },
+            {
+              "nombre": "Kopparberg Fresa y Lima",
+              "descripcion": "Sidra 33cl.",
+              "origen": "Sueca",
+              "graduacion": "0°",
+              "precio_eur": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "menu": "CERVEZAS LAMBIC Y FRUTAS",
+      "categorias": [
+        {
+          "nombre": "Lambic",
+          "productos": [
+            {
+              "nombre": "Timmermans Peche",
+              "descripcion": "Melocotón. 4°",
+              "origen": "Belga",
+              "graduacion": "4°",
+              "precio_eur": 4.0
+            },
+            {
+              "nombre": "Timmermans Framboise",
+              "descripcion": "Frambuesa. 4°",
+              "origen": "Belga",
+              "graduacion": "4°",
+              "precio_eur": 4.0
+            },
+            {
+              "nombre": "Timmermans Kriek",
+              "descripcion": "Cerezas. 4°",
+              "origen": "Belga",
+              "graduacion": "4°",
+              "precio_eur": 4.5
+            }
+          ]
+        },
+        {
+          "nombre": "Cervezas de frutas",
+          "productos": [
+            {
+              "nombre": "Floris Passion",
+              "descripcion": "Fruta de la pasión. 4°",
+              "origen": "Belga",
+              "graduacion": "4°",
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "Floris Mango",
+              "descripcion": "4°",
+              "origen": "Belga",
+              "graduacion": "4°",
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "Floris Chocolate",
+              "descripcion": "4°",
+              "origen": "Belga",
+              "graduacion": "4°",
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "Mongozo Coconut",
+              "descripcion": "Coco. 4°",
+              "origen": null,
+              "graduacion": "4°",
+              "precio_eur": 4.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "menu": "SIDRAS",
+      "categorias": [
+        {
+          "nombre": "Sidras",
+          "productos": [
+            {
+              "nombre": "Kopparberg Fresa y Lima",
+              "descripcion": "50cl.",
+              "origen": "Sueca",
+              "volumen_cl": 50,
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "Kopparberg Mixed Fruit",
+              "descripcion": "50cl.",
+              "origen": "Sueca",
+              "volumen_cl": 50,
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "Kopparberg Mixed Fruit Tropical",
+              "descripcion": null,
+              "origen": "Sueca",
+              "precio_eur": 4.5
+            },
+            {
+              "nombre": "Ladrón de Manzanas",
+              "descripcion": "33cl.",
+              "origen": "Española",
+              "volumen_cl": 33,
+              "precio_eur": 3.3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "menu": "LICORES / CUBATAS / OTROS",
+      "categorias": [
+        {
+          "nombre": "Whisky",
+          "productos": [
+            {
+              "nombre": "Jack Daniel's",
+              "precio_eur": 7.5
+            },
+            {
+              "nombre": "Red Label",
+              "precio_eur": 6.5
+            }
+          ]
+        },
+        {
+          "nombre": "Ron",
+          "productos": [
+            {
+              "nombre": "Brugal",
+              "precio_eur": 6.5
+            },
+            {
+              "nombre": "Cacique",
+              "precio_eur": 6.5
+            },
+            {
+              "nombre": "Barceló",
+              "precio_eur": 6.5
+            }
+          ]
+        },
+        {
+          "nombre": "Ginebra",
+          "productos": [
+            {
+              "nombre": "Seagram's",
+              "precio_eur": 6.5
+            },
+            {
+              "nombre": "Beefeater",
+              "precio_eur": 6.5
+            },
+            {
+              "nombre": "Tanqueray",
+              "precio_eur": 6.5
+            },
+            {
+              "nombre": "Tanqueray 0,0",
+              "descripcion": "Sin alcohol",
+              "graduacion": "0°",
+              "precio_eur": 6.5
+            },
+            {
+              "nombre": "Puerto de Indias",
+              "precio_eur": 6.5
+            }
+          ]
+        },
+        {
+          "nombre": "Vodka",
+          "productos": [
+            {
+              "nombre": "Vodka Absolut",
+              "precio_eur": 6.5
+            }
+          ]
+        },
+        {
+          "nombre": "Otros",
+          "productos": [
+            {
+              "nombre": "Baileys",
+              "precios": {
+                "copa": 6.5,
+                "chupito": 2.2
+              }
+            },
+            {
+              "nombre": "Tequila",
+              "precios": {
+                "copa": 6.5,
+                "chupito": 2.2
+              }
+            },
+            {
+              "nombre": "Jägermeister",
+              "precios": {
+                "copa": 7.5,
+                "chupito": 2.2
+              }
+            },
+            {
+              "nombre": "Licor de Hierbas",
+              "precios": {
+                "copa": 6.5,
+                "chupito": 2.2
+              }
+            },
+            {
+              "nombre": "Vermouth",
+              "precio_eur": 3.85
+            },
+            {
+              "nombre": "Martini",
+              "precio_eur": 3.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "menu": "VINOS",
+      "categorias": [
+        {
+          "nombre": "Vinos",
+          "productos": [
+            {
+              "nombre": "Copa de vino tinto",
+              "descripcion": "Consulte al camarero por el vino",
+              "precio_eur": 2.5
+            },
+            {
+              "nombre": "Tinto de verano",
+              "descripcion": "Tinto de verano de la casa preparado con Fanta limón.",
+              "precio_eur": 2.8
+            },
+            {
+              "nombre": "Copa vino blanco Alicante",
+              "descripcion": "Sabor refrescante y afrutado.",
+              "precios": {
+                "copa": 3.7
+              }
+            },
+            {
+              "nombre": "Botella vino blanco Alicante",
+              "descripcion": "Vino semidulce de la zona. Sabor refrescante y afrutado.",
+              "precio_eur": 25.0
+            },
+            {
+              "nombre": "Copa de vino blanco verdejo",
+              "descripcion": "Consulte al camarero por el vino",
+              "precio_eur": 2.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "menu": "ZUMOS Y REFRESCOS",
+      "categorias": [
+        {
+          "nombre": "REFRESCOS",
+          "productos": [
+            {
+              "nombre": "Agua",
+              "descripcion": "33cl.",
+              "volumen_cl": 33,
+              "precio_eur": 1.3
+            },
+            {
+              "nombre": "Sprite",
+              "precio_eur": 2.0
+            },
+            {
+              "nombre": "Coca Cola",
+              "precio_eur": 2.0
+            },
+            {
+              "nombre": "Coca Cola Zero",
+              "precio_eur": 2.0
+            },
+            {
+              "nombre": "Fanta Limón",
+              "precio_eur": 2.0
+            },
+            {
+              "nombre": "Fanta Naranja",
+              "precio_eur": 2.0
+            },
+            {
+              "nombre": "Aquarius Limón",
+              "precio_eur": 2.2
+            },
+            {
+              "nombre": "Aquarius Naranja",
+              "precio_eur": 2.2
+            },
+            {
+              "nombre": "Aquarius Melocotón Rojo",
+              "precio_eur": 2.2
+            },
+            {
+              "nombre": "FuzeTea",
+              "precio_eur": 2.2
+            },
+            {
+              "nombre": "Tónica",
+              "precio_eur": 2.2
+            }
+          ]
+        },
+        {
+          "nombre": "ZUMOS",
+          "productos": [
+            {
+              "nombre": "Piña",
+              "precio_eur": 2.0
+            },
+            {
+              "nombre": "Melocotón",
+              "precio_eur": 2.0
+            },
+            {
+              "nombre": "Naranja",
+              "precio_eur": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "menu": "INFUSIONES Y TÉS",
+      "categorias": [
+        {
+          "nombre": "INFUSIONES Y TÉS",
+          "productos": [
+            {
+              "nombre": "Manzanilla",
+              "descripcion": "Ingredientes: Manzanilla. 100% pura flor de manzanilla, este corte proporciona aroma y colores más intensos.",
+              "precio_eur": 1.8
+            },
+            {
+              "nombre": "Menta",
+              "descripcion": "Ingredientes: Hojas de Menta. Una tisana tradicional. Disfruta de esta deliciosa infusión de refrescante sabor.",
+              "precio_eur": 1.8
+            },
+            {
+              "nombre": "Té Rooibos con Vainilla",
+              "precio_eur": 1.8
+            },
+            {
+              "nombre": "Té Jengibre con Cúrcuma",
+              "precio_eur": 1.8
+            },
+            {
+              "nombre": "Té Jengibre con Mango",
+              "precio_eur": 1.8
+            },
+            {
+              "nombre": "Té Jengibre con Limón",
+              "precio_eur": 1.8
+            },
+            {
+              "nombre": "Té rojo cuerpo del deseo",
+              "descripcion": "Ingredientes: Té pu-erh, té verde, piña, pétalos de rosa y trozos de fresa. A base de té rojo pu-erh, té verde e hibisco combina un sensual aroma con el ligero toque ácido de las diferentes frutas, perfecto para las personas que cuidan su línea.",
+              "precio_eur": 1.8
+            },
+            {
+              "nombre": "Té verde jengibre y limón",
+              "descripcion": "Ingredientes: Té verde, limón, regaliz, jengibre, menta y pimienta negra.",
+              "precio_eur": 1.8
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

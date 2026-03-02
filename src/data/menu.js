@@ -1,3 +1,5 @@
+import cervezasData from "./Cervezas.json";
+
 // Complete multilingual menu data for Bierwinkel Elche
 // This file exports structured menu data with translations for es, en, fr, de
 
@@ -42,194 +44,197 @@ const servingTypes = {
 // =====================
 // DRINKS MENU
 // =====================
+const normalizeKey = (value) =>
+  String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+
+const toNumber = (value) => {
+  if (value === null || value === undefined || value === "") return null;
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  const parsed = Number(String(value).replace(",", "."));
+  return Number.isFinite(parsed) ? parsed : null;
+};
+
+const getSectionByMenu = (menuName) => {
+  const target = normalizeKey(menuName);
+  return (cervezasData?.secciones || []).find((section) => normalizeKey(section?.menu) === target) || null;
+};
+
+const drinkSectionIdByMenuKey = {
+  cervezas_de_botella: "cervezas_botella",
+  cervezas_de_barril: "cervezas_barril",
+  cervezas_sin_gluten: "cervezas_sin_gluten",
+  cervezas_sin_alcohol: "cervezas_sin_alcohol",
+  cervezas_lambic_y_frutas: "cervezas_frutas",
+  sidras: "sidras",
+  vinos: "vinos",
+  licores_cubatas_otros: "licores",
+  infusiones_y_tes: "infusiones",
+  zumos_y_refrescos: "refrescos"
+};
+
+const getDrinkSectionId = (menuName) => {
+  const menuKey = normalizeKey(menuName);
+  return drinkSectionIdByMenuKey[menuKey] || menuKey;
+};
+
+const buildDrinkItemId = (sectionId, productName, fallbackId) => {
+  const normalizedName = normalizeKey(productName);
+  const normalizedFallback = normalizeKey(fallbackId);
+  const baseId = normalizedName || normalizedFallback || "item";
+  return `${sectionId}_${baseId}`;
+};
+
+const buildDescription = (product) => {
+  const description = String(product?.descripcion || "").trim();
+  if (description) return description;
+
+  const parts = [product?.origen, product?.graduacion].filter(Boolean);
+  if (parts.length > 0) return parts.join(". ");
+  return null;
+};
+
+const buildPrices = (product) => {
+  const prices = product?.precios && typeof product.precios === "object" ? product.precios : null;
+  if (!prices) return [];
+
+  const mapped = [];
+  const cana = toNumber(prices.cana_33cl ?? prices.cana);
+  const jarra = toNumber(prices.jarra_50cl);
+  const copa = toNumber(prices.copa);
+  const chupito = toNumber(prices.chupito);
+
+  if (cana !== null) {
+    mapped.push({
+      type: servingTypes.glass,
+      volume: prices.cana_33cl !== undefined ? "33cl" : null,
+      price: cana
+    });
+  }
+  if (jarra !== null) {
+    mapped.push({
+      type: servingTypes.mug,
+      volume: "50cl",
+      price: jarra
+    });
+  }
+  if (copa !== null) {
+    mapped.push({
+      type: servingTypes.cup,
+      price: copa
+    });
+  }
+  if (chupito !== null) {
+    mapped.push({
+      type: servingTypes.shot,
+      price: chupito
+    });
+  }
+  return mapped;
+};
+
+const buildItemFromProduct = (product, sectionId, fallbackId) => {
+  const item = {
+    id: buildDrinkItemId(sectionId, product?.nombre, fallbackId),
+    name: product?.nombre || "",
+    description: buildDescription(product)
+  };
+
+  const price = toNumber(product?.precio_eur);
+  const prices = buildPrices(product);
+
+  if (price !== null) {
+    item.price = price;
+    return item;
+  }
+
+  if (prices.length === 1 && !prices[0].volume) {
+    item.price = prices[0].price;
+    return item;
+  }
+
+  if (prices.length > 0) {
+    item.prices = prices;
+    return item;
+  }
+
+  item.price = null;
+  return item;
+};
+
+const getSectionItems = (menuName) => {
+  const section = getSectionByMenu(menuName);
+  if (!section) return [];
+  const sectionId = getDrinkSectionId(menuName);
+
+  return (section.categorias || []).flatMap((category, categoryIndex) =>
+    (category.productos || []).map((product, productIndex) =>
+      buildItemFromProduct(product, sectionId, `item_${categoryIndex + 1}_${productIndex + 1}`)
+    )
+  );
+};
+
+const buildGroupedSection = (menuName) => {
+  const section = getSectionByMenu(menuName);
+  if (!section) return [];
+  const sectionId = getDrinkSectionId(menuName);
+
+  return (section.categorias || []).map((category, index) => ({
+    id: normalizeKey(category?.nombre || `group_${index + 1}`),
+    category: category?.nombre || `Grupo ${index + 1}`,
+    items: (category.productos || []).map((product, productIndex) =>
+      buildItemFromProduct(product, sectionId, `item_${index + 1}_${productIndex + 1}`)
+    )
+  }));
+};
+
+const bottleGroups = buildGroupedSection("CERVEZAS DE BOTELLA");
+
 export const drinksMenu = {
   bottleBeers: {
     category: categories.BOTTLE_BEERS,
-    items: [
-      // Pilsen / White beers
-      { name: "Hoegaarden Blanca", price: 3.85, description: { es: "Blanca. Turbia. Aromatizada con cilantro. Belga. 5%", en: "White beer. Cloudy. Flavored with coriander. Belgian. 5%", fr: "Blanche. Trouble. Aromatisee a la coriandre. Belge. 5%", de: "Weissbier. Trub. Mit Koriander aromatisiert. Belgisch. 5%" } },
-      { name: "Hoegaarden Grand Cru", price: 4.85, description: { es: "Turbia dorada. Strong Ale de baja fermentacion. Belga. 8,5%", en: "Golden cloudy. Low fermentation Strong Ale. Belgian. 8.5%", fr: "Doree trouble. Strong Ale de basse fermentation. Belge. 8,5%", de: "Goldtrub. Untergaring Strong Ale. Belgisch. 8,5%" } },
-      { name: "Paulaner 50cl", price: 4.0, description: { es: "Turbia y dorada. Alemana. 5%", en: "Cloudy and golden. German. 5%", fr: "Trouble et doree. Allemande. 5%", de: "Trub und golden. Deutsch. 5%" } },
-      // Porter & Stout
-      { name: "Guinness Special Export", price: 5.2, description: { es: "Stout seca. Irlandesa elaborada al estilo belga. 8%", en: "Dry stout. Irish brewed in Belgian style. 8%", fr: "Stout seche. Irlandaise brassee a la belge. 8%", de: "Trockenes Stout. Irisch im belgischen Stil gebraut. 8%" } },
-      { name: "Guinness Original", price: null, description: { es: "5% alc. 33cl", en: "5% alc. 33cl", fr: "5% alc. 33cl", de: "5% Alk. 33cl" } },
-      { name: "Super Bock Stout", price: 4.5, description: { es: "Stout con cuerpo, dulce y poco amarga. Portuguesa. 5%", en: "Full-bodied stout, sweet and low bitterness. Portuguese. 5%", fr: "Stout corsee, douce et peu amere. Portugaise. 5%", de: "Vollmundiges Stout, suss und wenig bitter. Portugiesisch. 5%" } },
-      // Specialties
-      { name: "Barbar Bock Meca", price: 5.2, description: { es: "Oscura elaborada con miel. Belga. 8%", en: "Dark beer brewed with honey. Belgian. 8%", fr: "Brune brassee au miel. Belge. 8%", de: "Dunkelbier mit Honig gebraut. Belgisch. 8%" } },
-      { name: "Delirium Red", price: 5.2, description: { es: "Cerveza fuerte con cerezas. Rojo oscuro. Belga. 8,5%", en: "Strong beer with cherries. Dark red. Belgian. 8.5%", fr: "Biere forte aux cerises. Rouge fonce. Belge. 8,5%", de: "Starkes Bier mit Kirschen. Dunkelrot. Belgisch. 8,5%" } },
-      { name: "Delirium Tremens", price: 5.2, description: { es: "Dorada. Sabor dulce y final seco y alcoholico. Belga. 8,5%", en: "Golden. Sweet flavor with dry, alcoholic finish. Belgian. 8.5%", fr: "Doree. Saveur sucree et finale seche et alcoolisee. Belge. 8,5%", de: "Golden. Susser Geschmack mit trockenem, alkoholischem Abgang. Belgisch. 8,5%" } },
-      { name: "Kasteel Donker", price: 4.85, description: { es: "Oscura y cremosa. Belga. 11%", en: "Dark and creamy. Belgian. 11%", fr: "Brune et cremeuse. Belge. 11%", de: "Dunkel und cremig. Belgisch. 11%" } },
-      { name: "Kasteel Triple", price: 4.85, description: { es: "Estilo abadia triple. Ale. Dorada. Belga. 11%", en: "Triple abbey style. Ale. Golden. Belgian. 11%", fr: "Style abbaye triple. Ale. Doree. Belge. 11%", de: "Dreifacher Abteistil. Ale. Golden. Belgisch. 11%" } },
-      { name: "Gulden Draak", price: 4.85, description: { es: "Tostada oscura triple. Muy fuerte. Belga. 10,5%", en: "Dark toasted triple. Very strong. Belgian. 10.5%", fr: "Triple brune grillee. Tres forte. Belge. 10,5%", de: "Dunkles gerostetes Tripel. Sehr stark. Belgisch. 10,5%" } },
-      { name: "Gulden Draak 9000", price: 4.85, description: { es: "Ambar. Strong Ale. Belga. 10%", en: "Amber. Strong Ale. Belgian. 10%", fr: "Ambree. Strong Ale. Belge. 10%", de: "Bernstein. Strong Ale. Belgisch. 10%" } },
-      { name: "Satan Gold", price: 4.85, description: { es: "Dorada. Belga. 8%", en: "Golden. Belgian. 8%", fr: "Doree. Belge. 8%", de: "Golden. Belgisch. 8%" } },
-      { name: "Piraat", price: 4.85, description: { es: "Rubia muy fuerte. Belga. 10,5%", en: "Very strong blonde. Belgian. 10.5%", fr: "Blonde tres forte. Belge. 10,5%", de: "Sehr starkes Blondes. Belgisch. 10,5%" } },
-      // Abbey beers
-      { name: "Leffe Blonde", price: 4.0, description: { es: "Rubia. Belga. 6,6%", en: "Blonde. Belgian. 6.6%", fr: "Blonde. Belge. 6,6%", de: "Blond. Belgisch. 6,6%" } },
-      { name: "Leffe Brune", price: 4.0, description: { es: "Oscura. Con sabor a malta tostada. Belga. 6,5%", en: "Dark. With roasted malt flavor. Belgian. 6.5%", fr: "Brune. Saveur de malt torrefie. Belge. 6,5%", de: "Dunkel. Mit Rostmalzgeschmack. Belgisch. 6,5%" } },
-      { name: "Leffe Tripel", price: 4.2, description: { es: "Cerveza de alta fermentacion con 8,5% de alcohol. Sabor dulce y afrutado con notas de especias. Color dorado con espuma densa y cremosa.", en: "Top-fermented beer with 8.5% alcohol. Sweet and fruity flavor with spice notes. Golden color with dense, creamy foam.", fr: "Biere de haute fermentation a 8,5% d'alcool. Saveur douce et fruitee aux notes d'epices. Couleur doree avec mousse dense et cremeuse.", de: "Obergaring Bier mit 8,5% Alkohol. Susser, fruchtiger Geschmack mit Gewurznoten. Goldene Farbe mit dichtem, cremigem Schaum." } },
-      { name: "Grimbergen Blonde", price: 4.0, description: { es: "Rubia y ligera. Belga. 6,7%", en: "Blonde and light. Belgian. 6.7%", fr: "Blonde et legere. Belge. 6,7%", de: "Blond und leicht. Belgisch. 6,7%" } },
-      { name: "Grimbergen Double Ambree", price: 4.2, description: { es: "Tostada. Belga. 6,5%", en: "Toasted. Belgian. 6.5%", fr: "Ambree. Belge. 6,5%", de: "Gerostet. Belgisch. 6,5%" } },
-      { name: "Grimbergen Triple", price: 4.85, description: { es: "Dorada. Belga. 9%", en: "Golden. Belgian. 9%", fr: "Doree. Belge. 9%", de: "Golden. Belgisch. 9%" } },
-      { name: "Maredsous Brune", price: 4.85, description: { es: "Oscura con cuerpo. Belga. 8%", en: "Full-bodied dark. Belgian. 8%", fr: "Brune corsee. Belge. 8%", de: "Vollmundiges Dunkelbier. Belgisch. 8%" } },
-      { name: "Maredsous Tripel", price: 4.85, description: { es: "Dorada fuerte. Belga. 10%", en: "Strong golden. Belgian. 10%", fr: "Doree forte. Belge. 10%", de: "Starkes Goldenes. Belgisch. 10%" } },
-      { name: "St Bernardus Prior", price: 4.85, description: { es: "Oscura muy aromatica. Belga. 8%", en: "Very aromatic dark. Belgian. 8%", fr: "Brune tres aromatique. Belge. 8%", de: "Sehr aromatisches Dunkelbier. Belgisch. 8%" } },
-      { name: "St Bernardus Abt", price: 5.2, description: { es: "Oscura muy fuerte. Belga. 10%", en: "Very strong dark. Belgian. 10%", fr: "Brune tres forte. Belge. 10%", de: "Sehr starkes Dunkelbier. Belgisch. 10%" } },
-      { name: "Het Kapittel Pater", price: 4.0, description: { es: "Negra. Belga. 6%", en: "Black. Belgian. 6%", fr: "Noire. Belge. 6%", de: "Schwarz. Belgisch. 6%" } },
-      { name: "Het Kapittel Abt", price: 4.85, description: { es: "Rubia fuerte y amarga. Belga. 10%", en: "Strong and bitter blonde. Belgian. 10%", fr: "Blonde forte et amere. Belge. 10%", de: "Stark und bitteres Blondes. Belgisch. 10%" } },
-      // Pale Ale / IPA
-      { name: "Judas", price: 4.5, description: { es: "Dorada. Belga. 8,5%", en: "Golden. Belgian. 8.5%", fr: "Doree. Belge. 8,5%", de: "Golden. Belgisch. 8,5%" } },
-      { name: "Duvel", price: 4.85, description: { es: "Dorada. Clasica cerveza belga. 8,5%", en: "Golden. Classic Belgian beer. 8.5%", fr: "Doree. Biere belge classique. 8,5%", de: "Golden. Klassisches belgisches Bier. 8,5%" } },
-      { name: "Duvel Tripel Hop Citra", price: 4.85, description: { es: "IPA. Elaborada con tres variedades de lupulo. Belga. 9,5%", en: "IPA. Brewed with three hop varieties. Belgian. 9.5%", fr: "IPA. Brassee avec trois varietes de houblon. Belge. 9,5%", de: "IPA. Mit drei Hopfensorten gebraut. Belgisch. 9,5%" } },
-      { name: "Palm", price: 3.6, description: { es: "Pale Ale. Tostada. Belga. 5,2%", en: "Pale Ale. Toasted. Belgian. 5.2%", fr: "Pale Ale. Ambree. Belge. 5,2%", de: "Pale Ale. Gerostet. Belgisch. 5,2%" } },
-      { name: "Martin's IPA 55", price: 4.5, description: { es: "44 IBUs. Belga. 6,9%", en: "44 IBUs. Belgian. 6.9%", fr: "44 IBU. Belge. 6,9%", de: "44 IBU. Belgisch. 6,9%" } },
-      { name: "BrewDog Punk IPA", price: 4.7, description: { es: "5,6% IPA de color claro, aromas a frutas tropicales (mango y pina) y ligeramente amarga.", en: "5.6% Light colored IPA, tropical fruit aromas (mango and pineapple) and slightly bitter.", fr: "5,6% IPA de couleur claire, aromes de fruits tropicaux (mangue et ananas) et legerement amere.", de: "5,6% Helles IPA, tropische Fruchtaromen (Mango und Ananas) und leicht bitter." } },
-      // Trappist
-      { name: "Orval", price: 5.2, description: { es: "La trapense mas amarga. Belga. 6,2%", en: "The most bitter Trappist. Belgian. 6.2%", fr: "La trappiste la plus amere. Belge. 6,2%", de: "Das bitterste Trappistenbier. Belgisch. 6,2%" } },
-      { name: "Chimay Roja", price: 4.85, description: { es: "Color rojizo. Afrutada. Trapense. Belga. 7%", en: "Reddish color. Fruity. Trappist. Belgian. 7%", fr: "Couleur rousse. Fruitee. Trappiste. Belge. 7%", de: "Rotliche Farbe. Fruchtig. Trappist. Belgisch. 7%" } },
-      { name: "Westmalle Tripel", price: 5.15, description: { es: "Rubia dorada. Aroma a hierbas. Belga. 9,5%", en: "Golden blonde. Herbal aroma. Belgian. 9.5%", fr: "Blonde doree. Aromes d'herbes. Belge. 9,5%", de: "Goldblond. Krauteraroma. Belgisch. 9,5%" } },
-      { name: "Westmalle Dubbel", price: 4.85, description: { es: "Oscura. Cuerpo suave. Belga. 7%", en: "Dark. Smooth body. Belgian. 7%", fr: "Brune. Corps doux. Belge. 7%", de: "Dunkel. Weicher Korper. Belgisch. 7%" } },
-      { name: "Rochefort 10", price: 6.2, description: { es: "Negra. Muy especiada. Belga. 11,3%", en: "Black. Very spicy. Belgian. 11.3%", fr: "Noire. Tres epicee. Belge. 11,3%", de: "Schwarz. Sehr wurzig. Belgisch. 11,3%" } },
-      { name: "Rochefort 8", price: 4.5, description: { es: "Ambar. Belga. 9,2%", en: "Amber. Belgian. 9.2%", fr: "Ambree. Belge. 9,2%", de: "Bernstein. Belgisch. 9,2%" } },
-      { name: "La Trappe Dubbel", price: 4.85, description: { es: "Color oscuro. Holandesa. 6%", en: "Dark color. Dutch. 6%", fr: "Couleur sombre. Hollandaise. 6%", de: "Dunkle Farbe. Niederlandisch. 6%" } },
-      { name: "La Trappe Tripel", price: 4.85, description: { es: "Rubia. Holandesa. 8%", en: "Blonde. Dutch. 8%", fr: "Blonde. Hollandaise. 8%", de: "Blond. Niederlandisch. 8%" } },
-      { name: "La Trappe Quadrupel", price: 4.85, description: { es: "Rojizo. Strong Ale. Holandesa. 10%", en: "Reddish. Strong Ale. Dutch. 10%", fr: "Rousse. Strong Ale. Hollandaise. 10%", de: "Rotlich. Strong Ale. Niederlandisch. 10%" } },
-      // Lagers
-      { name: "1906", price: 3.0, description: null },
-      { name: "Estrella Galicia", price: 3.0, description: null },
-      { name: "Bud", price: 3.0, description: { es: "Rubia dulzona. Americana. 5%", en: "Sweet blonde. American. 5%", fr: "Blonde sucree. Americaine. 5%", de: "Susses Blondes. Amerikanisch. 5%" } },
-      { name: "Heineken", price: 2.5, description: { es: "Holandesa. 5%", en: "Dutch. 5%", fr: "Hollandaise. 5%", de: "Niederlandisch. 5%" } },
-      { name: "Corona", price: 3.5, description: { es: "Ligera. Mexicana. 4,6%", en: "Light. Mexican. 4.6%", fr: "Legere. Mexicaine. 4,6%", de: "Leicht. Mexikanisch. 4,6%" } },
-      { name: "Biere du Demon", price: 4.5, description: { es: "Francesa. 12%", en: "French. 12%", fr: "Francaise. 12%", de: "Franzosisch. 12%" } },
-      { name: "Lowenbrau", price: 3.5, description: { es: "Alemana. 5,2%", en: "German. 5.2%", fr: "Allemande. 5,2%", de: "Deutsch. 5,2%" } },
-      { name: "Samichlaus", price: 6.6, description: { es: "Ambar. La lager mas fuerte del mundo. Suiza. 14%", en: "Amber. The world's strongest lager. Swiss. 14%", fr: "Ambree. La lager la plus forte du monde. Suisse. 14%", de: "Bernstein. Das starkste Lager der Welt. Schweizer. 14%" } },
-      { name: "Urquell Pilsner", price: 3.0, description: { es: "Checa. 4,4%", en: "Czech. 4.4%", fr: "Tcheque. 4,4%", de: "Tschechisch. 4,4%" } },
-      { name: "Stella Artois", price: 3.0, description: { es: "Belga. 5,2%", en: "Belgian. 5.2%", fr: "Belge. 5,2%", de: "Belgisch. 5,2%" } },
-      { name: "Carlsberg", price: 3.0, description: { es: "Danesa. 5%", en: "Danish. 5%", fr: "Danoise. 5%", de: "Danisch. 5%" } },
-      { name: "Budvar Budejovicky", price: 3.5, description: { es: "Checa. 5%", en: "Czech. 5%", fr: "Tcheque. 5%", de: "Tschechisch. 5%" } },
-      { name: "Kronenbourg", price: 3.0, description: { es: "Francesa. 5%", en: "French. 5%", fr: "Francaise. 5%", de: "Franzosisch. 5%" } },
-      { name: "Warsteiner", price: 3.5, description: { es: "Alemana. 4,8%", en: "German. 4.8%", fr: "Allemande. 4,8%", de: "Deutsch. 4,8%" } }
-    ]
+    groups: bottleGroups,
+    items: bottleGroups.flatMap((group) => group.items)
   },
   draftBeers: {
     category: categories.DRAFT_BEERS,
-    items: [
-      { name: "Lager BWK", prices: [{ type: servingTypes.glass, volume: "33cl", price: 2.2 }, { type: servingTypes.mug, volume: "50cl", price: 3.3 }], description: { es: "Rubia suave. 5%", en: "Smooth blonde. 5%", fr: "Blonde douce. 5%", de: "Mildes Blondes. 5%" } },
-      { name: "Tripel Karmeliet", prices: [{ type: servingTypes.glass, volume: "33cl", price: 3.8 }, { type: servingTypes.mug, volume: "50cl", price: 4.8 }], description: { es: "Tres cereales. Belga. 8%", en: "Three grains. Belgian. 8%", fr: "Trois cereales. Belge. 8%", de: "Drei Getreide. Belgisch. 8%" } },
-      { name: "Martin's Pale Ale", prices: [{ type: servingTypes.glass, volume: "33cl", price: 3.8 }, { type: servingTypes.mug, volume: "50cl", price: 4.8 }], description: { es: "Inglesa. 5,8%", en: "English. 5.8%", fr: "Anglaise. 5,8%", de: "Englisch. 5,8%" } },
-      { name: "Martin's IPA", prices: [{ type: servingTypes.glass, volume: "33cl", price: 3.8 }, { type: servingTypes.mug, volume: "50cl", price: 4.8 }], description: { es: "55 IBUs. Belga. 6,5%", en: "55 IBUs. Belgian. 6.5%", fr: "55 IBU. Belge. 6,5%", de: "55 IBU. Belgisch. 6,5%" } },
-      { name: "Gordon Finest Gold", prices: [{ type: servingTypes.mug, volume: "50cl", price: 4.8 }], description: { es: "Rubia fuerte. Escocesa. 10%", en: "Strong blonde. Scottish. 10%", fr: "Blonde forte. Ecossaise. 10%", de: "Starkes Blondes. Schottisch. 10%" } },
-      { name: "Tostada Gran Via", prices: [{ type: servingTypes.glass, volume: "33cl", price: 3.5 }, { type: servingTypes.mug, volume: "50cl", price: 4.5 }], description: { es: "6,4% Color ambar intenso con reflejos rojizos. Espuma persistente. Alta intensidad aromatica con notas de levadura fresca y pan tostado.", en: "6.4% Intense amber color with reddish reflections. Persistent foam. High aromatic intensity with notes of fresh yeast and toasted bread.", fr: "6,4% Couleur ambre intense aux reflets rougeatres. Mousse persistante. Haute intensite aromatique aux notes de levure fraiche et pain grille.", de: "6,4% Intensive Bernsteinfarbe mit rotlichen Reflexen. Bestandiger Schaum. Hohe aromatische Intensitat mit Noten von frischer Hefe und getoastetem Brot." } },
-      { name: "Kwak", prices: [{ type: servingTypes.glass, volume: "33cl", price: 3.8 }, { type: servingTypes.mug, volume: "50cl", price: 4.8 }], description: { es: "Tostada afrutada. Belga. 8,4%", en: "Fruity toasted. Belgian. 8.4%", fr: "Ambree fruitee. Belge. 8,4%", de: "Fruchtiges Rostbier. Belgisch. 8,4%" } },
-      { name: "Kwak Copa", price: 4.0, description: { es: "La Kwak debe su nombre a Pauwel Kwak, un tabernero de 1791 que creo esta cerveza servida en un vaso alargado con soporte de madera para los cocheros.", en: "Kwak owes its name to Pauwel Kwak, an innkeeper from 1791 who created this beer served in an elongated glass with wooden support for coachmen.", fr: "La Kwak doit son nom a Pauwel Kwak, un aubergiste de 1791 qui crea cette biere servie dans un verre allonge avec support en bois pour les cochers.", de: "Kwak verdankt seinen Namen Pauwel Kwak, einem Gastwirt von 1791, der dieses Bier in einem langlichen Glas mit Holzstander fur Kutscher kreierte." } },
-      { name: "Guinness Special Export", prices: [{ type: servingTypes.glass, price: 3.9 }, { type: servingTypes.mug, volume: "50cl", price: 5.2 }], description: { es: "Elaborada al estilo belga. 8%", en: "Brewed in Belgian style. 8%", fr: "Brassee a la belge. 8%", de: "Im belgischen Stil gebraut. 8%" } },
-      { name: "Cuvee des Trolls", prices: [{ type: servingTypes.glass, volume: "33cl", price: 3.8 }, { type: servingTypes.mug, volume: "50cl", price: 4.8 }], description: { es: "Cerveza de alta fermentacion, refrescante y ligera, con aromas de cascara de naranja seca. Belga. 7%", en: "Top-fermented beer, refreshing and light, with dried orange peel aromas. Belgian. 7%", fr: "Biere de haute fermentation, rafraichissante et legere, aux aromes d'ecorce d'orange sechee. Belge. 7%", de: "Obergaring Bier, erfrischend und leicht, mit Aromen von getrockneter Orangenschale. Belgisch. 7%" } },
-      { name: "La Chouffe", prices: [{ type: servingTypes.glass, volume: "33cl", price: 4.3 }, { type: servingTypes.mug, volume: "50cl", price: 5.5 }], description: { es: "Dorada. Sabor afrutado y ligeramente lupulizado. Belga. 8%", en: "Golden. Fruity and slightly hoppy flavor. Belgian. 8%", fr: "Doree. Saveur fruitee et legerement houblonnee. Belge. 8%", de: "Golden. Fruchtiger und leicht hopfiger Geschmack. Belgisch. 8%" } },
-      { name: "Chimay Roja", prices: [{ type: servingTypes.glass, volume: "33cl", price: 3.9 }, { type: servingTypes.mug, volume: "50cl", price: 4.9 }], description: { es: "Roja afrutada. Trapense. Belga. 7%", en: "Fruity red. Trappist. Belgian. 7%", fr: "Rouge fruitee. Trappiste. Belge. 7%", de: "Fruchtiges Rot. Trappist. Belgisch. 7%" } }
-    ]
+    items: getSectionItems("CERVEZAS DE BARRIL")
   },
   glutenFreeBeers: {
     category: categories.GLUTEN_FREE_BEERS,
-    items: [
-      { name: "Dougall's IPA", price: 4.5, description: { es: "IPA sin gluten. 6,4%. 33cl", en: "Gluten-free IPA. 6.4%. 33cl", fr: "IPA sans gluten. 6,4%. 33cl", de: "Glutenfreies IPA. 6,4%. 33cl" } },
-      { name: "Mahou tostada 0,0 Sin Gluten", price: null, description: null },
-      { name: "Naturepils", price: 4.0, description: { es: "Cerveza ecologica sin gluten. 4,6%", en: "Organic gluten-free beer. 4.6%", fr: "Biere bio sans gluten. 4,6%", de: "Bio glutenfreies Bier. 4,6%" } }
-    ]
+    items: getSectionItems("CERVEZAS SIN GLUTEN")
   },
   nonAlcoholicBeers: {
     category: categories.NON_ALCOHOLIC_BEERS,
-    items: [
-      { name: "Corona 0,0", price: 3.5, description: null },
-      { name: "Mahou 0,0 tostada", price: 3.0, description: { es: "Tostada", en: "Toasted", fr: "Ambree", de: "Gerostet" } },
-      { name: "Heineken 0,0", price: 2.5, description: null },
-      { name: "Clausthaler", price: 3.0, description: { es: "0,0", en: "0.0", fr: "0,0", de: "0,0" } },
-      { name: "Super Bock Stout 0,0", price: 3.0, description: { es: "Negra sin alcohol", en: "Non-alcoholic dark beer", fr: "Noire sans alcool", de: "Alkoholfreies Dunkelbier" } },
-      { name: "Kopparberg Fresa y Lima 0,0", price: null, description: { es: "Sidra 33cl", en: "Cider 33cl", fr: "Cidre 33cl", de: "Cider 33cl" } }
-    ]
+    items: getSectionItems("CERVEZAS SIN ALCOHOL")
   },
   fruitBeers: {
     category: categories.LAMBIC_FRUIT_BEERS,
-    items: [
-      { name: "Timmermans Peche", price: 4.0, description: { es: "Melocoton. 4%", en: "Peach. 4%", fr: "Peche. 4%", de: "Pfirsich. 4%" } },
-      { name: "Timmermans Framboise", price: 4.0, description: { es: "Frambuesa. 4%", en: "Raspberry. 4%", fr: "Framboise. 4%", de: "Himbeere. 4%" } },
-      { name: "Timmermans Kriek", price: 4.5, description: { es: "Cerezas. 4%", en: "Cherries. 4%", fr: "Cerises. 4%", de: "Kirschen. 4%" } },
-      { name: "Floris Passion", price: 4.5, description: { es: "Fruta de la pasion. 4%", en: "Passion fruit. 4%", fr: "Fruit de la passion. 4%", de: "Passionsfrucht. 4%" } },
-      { name: "Floris Chocolate", price: 4.5, description: { es: "Chocolate. 4%", en: "Chocolate. 4%", fr: "Chocolat. 4%", de: "Schokolade. 4%" } },
-      { name: "Mongozo Coconut", price: 4.5, description: { es: "Coco. 4%", en: "Coconut. 4%", fr: "Noix de coco. 4%", de: "Kokosnuss. 4%" } }
-    ]
+    items: getSectionItems("CERVEZAS LAMBIC Y FRUTAS")
   },
   ciders: {
     category: categories.CIDERS,
-    items: [
-      { name: "Magners", price: 4.0, description: { es: "33cl. Irlandesa", en: "33cl. Irish", fr: "33cl. Irlandaise", de: "33cl. Irisch" } },
-      { name: "Kopparberg Fresa y Lima", price: 4.5, description: { es: "Sidra de fresa y lima. 50cl", en: "Strawberry and lime cider. 50cl", fr: "Cidre fraise et citron vert. 50cl", de: "Erdbeer-Limetten-Cider. 50cl" } },
-      { name: "Kopparberg Mixed Fruit", price: 4.5, description: { es: "Frutas variadas. 50cl", en: "Mixed fruit. 50cl", fr: "Fruits varies. 50cl", de: "Gemischte Fruchte. 50cl" } },
-      { name: "Kopparberg Mixed Fruit Tropical", price: 4.5, description: { es: "Frutas tropicales. 50cl", en: "Tropical fruit. 50cl", fr: "Fruits tropicaux. 50cl", de: "Tropische Fruchte. 50cl" } },
-      { name: "Ladron de Manzanas", price: 3.3, description: { es: "Sidra de manzana. 33cl", en: "Apple cider. 33cl", fr: "Cidre de pomme. 33cl", de: "Apfelcider. 33cl" } }
-    ]
+    items: getSectionItems("SIDRAS")
   },
   wines: {
     category: categories.WINES,
-    items: [
-      { name: { es: "Copa de vino tinto", en: "Glass of red wine", fr: "Verre de vin rouge", de: "Glas Rotwein" }, price: 2.5, description: { es: "Consulte al camarero por el vino", en: "Ask your server about the wine", fr: "Consultez le serveur pour le vin", de: "Fragen Sie den Kellner nach dem Wein" } },
-      { name: { es: "Tinto de verano", en: "Summer red wine", fr: "Tinto de verano", de: "Tinto de Verano" }, price: 2.8, description: { es: "Tinto de verano de la casa preparado con Fanta limon", en: "House summer red wine prepared with lemon Fanta", fr: "Tinto de verano maison prepare avec Fanta citron", de: "Haus-Tinto de Verano mit Zitronen-Fanta" } },
-      { name: { es: "Copa vino blanco Alicante", en: "Alicante white wine glass", fr: "Verre de vin blanc Alicante", de: "Glas Alicante Weisswein" }, price: 3.7, description: { es: "Sabor refrescante y afrutado", en: "Refreshing and fruity flavor", fr: "Saveur rafraichissante et fruitee", de: "Erfrischender und fruchtiger Geschmack" } },
-      { name: { es: "Botella vino blanco Alicante", en: "Alicante white wine bottle", fr: "Bouteille de vin blanc Alicante", de: "Flasche Alicante Weisswein" }, price: 25.0, description: { es: "Vino semidulce de la zona. Sabor refrescante y afrutado.", en: "Semi-sweet local wine. Refreshing and fruity flavor.", fr: "Vin demi-doux de la region. Saveur rafraichissante et fruitee.", de: "Halbsusser Wein aus der Region. Erfrischender und fruchtiger Geschmack." } },
-      { name: { es: "Copa de vino blanco verdejo", en: "Verdejo white wine glass", fr: "Verre de vin blanc verdejo", de: "Glas Verdejo Weisswein" }, price: 2.5, description: { es: "Consulte al camarero por el vino", en: "Ask your server about the wine", fr: "Consultez le serveur pour le vin", de: "Fragen Sie den Kellner nach dem Wein" } }
-    ]
+    items: getSectionItems("VINOS")
   },
   liquors: {
     category: categories.LIQUORS,
-    items: [
-      { name: "Jack Daniel's", price: 7.5 },
-      { name: "Red Label", price: 6.5 },
-      { name: "Brugal", price: 6.5 },
-      { name: "Cacique", price: 6.5 },
-      { name: "Barcelo", price: 6.5 },
-      { name: "Seagram's", price: 6.5 },
-      { name: "Beefeater", price: 6.5 },
-      { name: "Tanqueray", price: 6.5 },
-      { name: "Tanqueray 0,0", price: 6.5 },
-      { name: "Puerto de Indias", price: 6.5 },
-      { name: "Vodka Absolut", price: 6.5 },
-      { name: "Baileys", prices: [{ type: servingTypes.cup, price: 6.5 }, { type: servingTypes.shot, price: 2.2 }] },
-      { name: "Tequila", prices: [{ type: servingTypes.cup, price: 6.5 }, { type: servingTypes.shot, price: 2.2 }] },
-      { name: "Jagermeister", prices: [{ type: servingTypes.cup, price: 7.5 }, { type: servingTypes.shot, price: 2.2 }] },
-      { name: { es: "Licor de Hierbas", en: "Herbal liqueur", fr: "Liqueur aux herbes", de: "Krauterlikor" }, prices: [{ type: servingTypes.cup, price: 6.5 }, { type: servingTypes.shot, price: 2.2 }] },
-      { name: "Vermouth", price: 3.85 },
-      { name: "Martini", price: 3.5 }
-    ]
+    items: getSectionItems("LICORES / CUBATAS / OTROS")
   },
   teas: {
     category: categories.TEAS,
-    items: [
-      { name: { es: "Manzanilla", en: "Chamomile", fr: "Camomille", de: "Kamille" }, price: 1.8, description: { es: "100% pura flor de manzanilla. Aroma y colores intensos.", en: "100% pure chamomile flower. Intense aroma and colors.", fr: "100% pure fleur de camomille. Aromes et couleurs intenses.", de: "100% reine Kamillenblute. Intensives Aroma und Farben." } },
-      { name: { es: "Menta", en: "Mint", fr: "Menthe", de: "Minze" }, price: 1.8, description: { es: "Hojas de menta. Infusion tradicional de sabor refrescante.", en: "Mint leaves. Traditional infusion with refreshing flavor.", fr: "Feuilles de menthe. Infusion traditionnelle au gout rafraichissant.", de: "Minzblatten. Traditioneller Aufguss mit erfrischendem Geschmack." } },
-      { name: { es: "Te Rooibos con Vainilla", en: "Rooibos tea with vanilla", fr: "The rooibos a la vanille", de: "Rooibos-Tee mit Vanille" }, price: 1.8 },
-      { name: { es: "Te Jengibre con Curcuma", en: "Ginger tea with turmeric", fr: "The au gingembre et curcuma", de: "Ingwertee mit Kurkuma" }, price: 1.8 },
-      { name: { es: "Te Jengibre con Mango", en: "Ginger tea with mango", fr: "The au gingembre et mangue", de: "Ingwertee mit Mango" }, price: 1.8 },
-      { name: { es: "Te Jengibre con Limon", en: "Ginger tea with lemon", fr: "The au gingembre et citron", de: "Ingwertee mit Zitrone" }, price: 1.8 },
-      { name: { es: "Te rojo cuerpo del deseo", en: "Red tea body of desire", fr: "The rouge corps du desir", de: "Roter Tee Korper der Begierde" }, price: 1.8, description: { es: "Te pu-erh, te verde, pina, petalos de rosa y trozos de fresa. Perfecto para quienes cuidan su linea.", en: "Pu-erh tea, green tea, pineapple, rose petals and strawberry pieces. Perfect for those watching their figure.", fr: "The pu-erh, the vert, ananas, petales de rose et morceaux de fraise. Parfait pour ceux qui surveillent leur ligne.", de: "Pu-Erh-Tee, Gruntee, Ananas, Rosenblattern und Erdbeerstucke. Perfekt fur Figurbewusste." } },
-      { name: { es: "Te verde jengibre y limon", en: "Green tea ginger and lemon", fr: "The vert gingembre et citron", de: "Gruntee Ingwer und Zitrone" }, price: 1.8, description: { es: "Te verde, limon, regaliz, jengibre, menta y pimienta negra.", en: "Green tea, lemon, licorice, ginger, mint and black pepper.", fr: "The vert, citron, reglisse, gingembre, menthe et poivre noir.", de: "Gruntee, Zitrone, Lakritze, Ingwer, Minze und schwarzer Pfeffer." } }
-    ]
+    items: getSectionItems("INFUSIONES Y TES")
   },
   softDrinks: {
     category: categories.SOFT_DRINKS,
-    items: [
-      { name: { es: "Agua", en: "Water", fr: "Eau", de: "Wasser" }, price: 1.3, description: "33cl" },
-      { name: "Sprite", price: 2.0 },
-      { name: "Coca Cola", price: 2.0 },
-      { name: "Coca Cola Zero", price: 2.0 },
-      { name: { es: "Fanta Limon", en: "Fanta Lemon", fr: "Fanta Citron", de: "Fanta Zitrone" }, price: 2.0 },
-      { name: { es: "Fanta Naranja", en: "Fanta Orange", fr: "Fanta Orange", de: "Fanta Orange" }, price: 2.0 },
-      { name: { es: "Aquarius Limon", en: "Aquarius Lemon", fr: "Aquarius Citron", de: "Aquarius Zitrone" }, price: 2.2 },
-      { name: { es: "Aquarius Naranja", en: "Aquarius Orange", fr: "Aquarius Orange", de: "Aquarius Orange" }, price: 2.2 },
-      { name: "FuzeTea", price: 2.2 },
-      { name: { es: "Tonica", en: "Tonic water", fr: "Eau tonique", de: "Tonic Water" }, price: 2.2 },
-      { name: { es: "Zumo de pina", en: "Pineapple juice", fr: "Jus d'ananas", de: "Ananassaft" }, price: 2.0 },
-      { name: { es: "Zumo de melocoton", en: "Peach juice", fr: "Jus de peche", de: "Pfirsichsaft" }, price: 2.0 },
-      { name: { es: "Zumo de naranja", en: "Orange juice", fr: "Jus d'orange", de: "Orangensaft" }, price: 2.0 }
-    ]
+    items: getSectionItems("ZUMOS Y REFRESCOS")
   }
 };
 
@@ -569,11 +574,21 @@ export const getMenuSections = (lang) => {
     items: foodMenu.desserts.items.map((item) => formatMenuItem(item, lang))
   });
 
+  const bottleBeerGroups = (drinksMenu.bottleBeers.groups || []).map((group) => ({
+    id: group.id,
+    category: getLocalizedText(group.category, lang),
+    items: (group.items || []).map((item) => formatMenuItem(item, lang))
+  }));
+
   sections.push({
     id: "cervezas_botella",
     type: "drink",
     category: getLocalizedText(drinksMenu.bottleBeers.category, lang),
-    items: drinksMenu.bottleBeers.items.map((item) => formatMenuItem(item, lang))
+    items:
+      bottleBeerGroups.length > 0
+        ? bottleBeerGroups.flatMap((group) => group.items)
+        : drinksMenu.bottleBeers.items.map((item) => formatMenuItem(item, lang)),
+    groups: bottleBeerGroups.length > 0 ? bottleBeerGroups : undefined
   });
 
   sections.push({
@@ -657,6 +672,27 @@ export const getCompleteMenus = (lang) => {
       }))
     }))
   }));
+};
+
+/**
+ * Returns all bottle beers from Cervezas.json with their generated IDs and full JSON data.
+ * Use BEER_IMAGES in App.jsx (keyed by these IDs) to cross-reference photos.
+ */
+export const getBottleBeerCatalog = () => {
+  const section = getSectionByMenu("CERVEZAS DE BOTELLA");
+  if (!section) return [];
+  const sectionId = "cervezas_botella";
+  return (section.categorias || []).flatMap((category) =>
+    (category.productos || []).map((product) => ({
+      id: buildDrinkItemId(sectionId, product.nombre, ""),
+      name: product.nombre || "",
+      categoria: category.nombre || "",
+      descripcion: product.descripcion || null,
+      origen: product.origen || null,
+      graduacion: product.graduacion || null,
+      precio: product.precio_eur ?? null
+    }))
+  );
 };
 
 // Export all

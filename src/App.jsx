@@ -2,20 +2,37 @@
 import { supportedLanguages, translations } from "./i18n/translations";
 import {
   allergenMeta,
+  getBottleBeerCatalog,
   getCompleteMenus,
   getMenuSections
 } from "./data/menu";
 
 const MAP_EMBED_URL =
   import.meta.env.VITE_MAP_EMBED_URL ||
-  "https://www.google.com/maps?q=Avinguda%20en%20Joan%20Carles%20I%2C%2024%2C%2003202%20Elx%2C%20Alicante&output=embed";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.5574426676135!2d-0.6934849!3d38.266569000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b68c79e2798d%3A0xbe1411f868907d7c!2sBierwinkel%20Elche!5e0!3m2!1sen!2ses!4v1772485321842!5m2!1sen!2ses";
+const MAP_LINK_URL =
+  import.meta.env.VITE_MAP_LINK_URL ||
+  "https://maps.app.goo.gl/QggDacB3iVjiyzvM9";
+
+
 const RESERVATION_PHONE = "+34 966 61 26 52";
 const MOBILE_PHONE = "670052243";
 const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || "elche@bierwinkel.es";
 const WHATSAPP_URL = import.meta.env.VITE_WHATSAPP_URL || "https://wa.me/34670052243";
 const INSTAGRAM_URL =
   import.meta.env.VITE_INSTAGRAM_PROFILE || "https://www.instagram.com/bierwinkel_elche/?hl=es";
-const PAGE_KEYS = ["inicio", "menu", "visitanos"];
+const PAGE_KEYS = ["inicio", "menu", "album", "visitanos"];
+
+const BEER_IMAGES = {
+  "cervezas_botella_hoegaarden_grand_cru": "/hoegaarden.jpeg",
+  "cervezas_botella_paulaner_50cl": "/paulaner.jpeg",
+  "cervezas_botella_weihenstephan_hefe_50cl": "/weihenstephaner.jpeg",
+  "cervezas_botella_erdinger_pikantus_50cl": "/erdinger.jpeg",
+  "cervezas_botella_sanwald": "/sanwald.jpeg"
+};
+const BEER_CATALOG = getBottleBeerCatalog()
+  .filter((beer) => BEER_IMAGES[beer.id])
+  .map((beer) => ({ ...beer, img: BEER_IMAGES[beer.id] }));
 const PAGE_TRANSITION_MS = 280;
 const MENU_ASSETS = {
   es: {
@@ -52,6 +69,8 @@ function App() {
   const [menuType, setMenuType] = useState("comida");
   const [showAllergens, setShowAllergens] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const [sheetOverrides, setSheetOverrides] = useState({});
+  const [emailCopied, setEmailCopied] = useState(false);
 
   const t = translations[lang];
   const scheduleRows = t.scheduleRows || [];
@@ -63,16 +82,37 @@ function App() {
 
   const filteredMenuSections = useMemo(() => {
     if (menuType === "menus") return [];
+    let sections;
     if (menuType === "postres") {
-      return localizedMenuSections.filter((section) => section.type === "food" && section.id === "postres");
-    }
-    if (menuType === "comida") {
-      return localizedMenuSections.filter(
+      sections = localizedMenuSections.filter((section) => section.type === "food" && section.id === "postres");
+    } else if (menuType === "comida") {
+      sections = localizedMenuSections.filter(
         (section) => section.type === "food" && section.id !== "postres" && section.id !== "menus"
       );
+    } else {
+      sections = localizedMenuSections.filter((section) => section.type === "drink");
     }
-    return localizedMenuSections.filter((section) => section.type === "drink");
-  }, [localizedMenuSections, menuType]);
+
+    if (Object.keys(sheetOverrides).length === 0) return sections;
+
+    const applyItem = (item) => {
+      const ov = sheetOverrides[item.id];
+      if (!ov) return item;
+      if ((ov.disponible || "").toUpperCase() === "NO") return null;
+      const price = parseFloat((ov.precio || "").replace(",", "."));
+      return { ...item, price: isNaN(price) ? item.price : price };
+    };
+
+    return sections.map((section) => {
+      if (section.groups) {
+        const newGroups = section.groups
+          .map((group) => ({ ...group, items: group.items.map(applyItem).filter(Boolean) }))
+          .filter((g) => g.items.length > 0);
+        return { ...section, groups: newGroups, items: newGroups.flatMap((g) => g.items) };
+      }
+      return { ...section, items: section.items.map(applyItem).filter(Boolean) };
+    });
+  }, [localizedMenuSections, menuType, sheetOverrides]);
 
   const formatMenuPrice = (price) => {
     if (!price) return "";
@@ -81,12 +121,18 @@ function App() {
     return `${price} €`;
   };
 
+  const copyEmail = () => {
+    navigator.clipboard.writeText(CONTACT_EMAIL).catch(() => {});
+    setEmailCopied(true);
+    window.setTimeout(() => setEmailCopied(false), 2500);
+  };
+
   const updateBrowserUrl = (page) => {
     if (page === "inicio") {
       history.replaceState(null, "", window.location.pathname + window.location.search);
       return;
     }
-    window.location.hash = page;
+    history.pushState(null, "", "#" + page);
   };
 
   const navigateToPage = (page) => {
@@ -100,7 +146,7 @@ function App() {
     window.setTimeout(() => {
       setActivePage(page);
       updateBrowserUrl(page);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo(0, 0);
       setPageTransition("in");
     }, PAGE_TRANSITION_MS);
   };
@@ -125,6 +171,15 @@ function App() {
       window.scrollTo({ top: 0, behavior: "smooth" });
       window.setTimeout(() => scrollToHomeSection(sectionId), 90);
     }, PAGE_TRANSITION_MS);
+  };
+
+  const goToBottleBeers = () => {
+    setMenuType("bebida");
+    navigateToPage("menu");
+    window.setTimeout(() => {
+      const el = document.getElementById("section-cervezas_botella");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, PAGE_TRANSITION_MS + 120);
   };
 
   useEffect(() => {
@@ -167,6 +222,34 @@ function App() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  useEffect(() => {
+    const sheetId = import.meta.env.VITE_BEERS_SHEET_ID;
+    const sheetGid = import.meta.env.VITE_BEERS_SHEET_GID || "0";
+    const csvUrl =
+      import.meta.env.VITE_BEERS_SHEET_CSV_URL ||
+      (sheetId
+        ? `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=${sheetGid}`
+        : null);
+
+    if (!csvUrl) return;
+
+    fetch(csvUrl)
+      .then((r) => r.text())
+      .then((text) => {
+        const rows = text.trim().split("\n").map((line) => line.split(";").map((c) => c.trim()));
+        if (rows.length < 2) return;
+        const headers = rows[0];
+        const map = {};
+        for (let i = 1; i < rows.length; i++) {
+          const obj = {};
+          headers.forEach((h, j) => { obj[h] = rows[i][j] ?? ""; });
+          if (obj.id) map[obj.id] = obj;
+        }
+        setSheetOverrides(map);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <>
       <div className="bg-orb orb-1"></div>
@@ -197,6 +280,9 @@ function App() {
           </button>
           <button className={`nav-link-btn ${activePage === "menu" ? "active" : ""}`} onClick={() => navigateToPage("menu")}>
             {t.navMenu}
+          </button>
+          <button className={`nav-link-btn ${activePage === "album" ? "active" : ""}`} onClick={() => navigateToPage("album")}>
+            {t.navAlbum}
           </button>
           <button className={`nav-link-btn ${activePage === "visitanos" ? "active" : ""}`} onClick={() => navigateToPage("visitanos")}>
             {t.navVisit}
@@ -281,12 +367,29 @@ function App() {
               </div>
             </section>
 
+            <section id="cervezas-trigo" className="section reveal home-section">
+              <div className="section-heading">
+                <p className="eyebrow">{t.wheatBeersEyebrow}</p>
+                <h2>{t.wheatBeersTitle}</h2>
+              </div>
+              <div className="wheat-beer-showcase">
+                {BEER_CATALOG.map((beer) => (
+                  <article className="wheat-beer-card" key={beer.id}>
+                    <div className="wheat-beer-img-wrap">
+                      <img src={beer.img} alt={beer.name} loading="lazy" />
+                    </div>
+                    <p className="wheat-beer-name">{beer.name}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
             <section id="eventos" className="section reveal home-section">
               <div className="section-heading">
                 <p className="eyebrow">{t.eventsEyebrow}</p>
                 <h2>{t.eventsTitle}</h2>
               </div>
-              <div className="event-list">
+              <div className={`event-list${t.events.length <= 2 ? " event-list--centered" : ""}`}>
                 {t.events.map((event) => (
                   <article className="event-item" key={event.title}>
                     <p className="event-date">{event.day}</p>
@@ -320,7 +423,8 @@ function App() {
                   <h3>{t.addressTitle}</h3>
                   <p>{t.addressText}</p>
                   <div className="map-frame-wrap">
-                    <iframe src={MAP_EMBED_URL} title="Bierwinkel map home" loading="lazy"></iframe>
+                    <iframe src={MAP_EMBED_URL} title="Bierwinkel map home" allowFullScreen referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    <a href={MAP_LINK_URL} target="_blank" rel="noreferrer" className="map-click-overlay" aria-label={t.mapLinkText}></a>
                   </div>
                 </article>
 
@@ -336,9 +440,9 @@ function App() {
                   <a className="btn ghost" href={`tel:${MOBILE_PHONE.replace(/\s+/g, "")}`}>
                     {t.mobileBtn}: {MOBILE_PHONE}
                   </a>
-                  <a className="btn ghost" href={`mailto:${CONTACT_EMAIL}`}>
-                    Email: {CONTACT_EMAIL}
-                  </a>
+                  <button className="btn ghost" onClick={copyEmail}>
+                    {emailCopied ? t.emailCopied : `Email: ${CONTACT_EMAIL}`}
+                  </button>
                 </article>
               </div>
             </section>
@@ -347,7 +451,7 @@ function App() {
         ) : null}
 
         {activePage === "menu" ? (
-          <section id="menu" className="section reveal">
+          <section id="menu" className="section">
             <div className="section-heading">
               <p className="eyebrow">{t.menuEyebrow}</p>
               <h2>{t.menuTitle}</h2>
@@ -385,7 +489,7 @@ function App() {
               <>
                 <div className={`menu-sections-grid ${filteredMenuSections.length === 1 ? "single-item" : ""}`}>
                   {filteredMenuSections.map((section) => (
-                    <article className="menu-section-card" key={section.id || section.category}>
+                    <article className="menu-section-card" key={section.id || section.category} id={section.id ? `section-${section.id}` : undefined}>
                       <h3>{section.category}</h3>
                       {Array.isArray(section.availableSausages) && section.availableSausages.length > 0 ? (
                         <div className="section-availability-block">
@@ -404,33 +508,72 @@ function App() {
                           </div>
                         </div>
                       ) : null}
-                      <ul className="menu-item-list">
-                        {section.items.map((item) => (
-                          <li key={`${section.id || section.category}-${item.id || item.name}`}>
-                            <div className="menu-item-row">
-                              <span className="menu-item-name">{item.name}</span>
-                              <span className="menu-item-price">{formatMenuPrice(item.price)}</span>
-                            </div>
-                            {item.note ? <small>{item.note}</small> : null}
-                            {showAllergens && Array.isArray(item.allergens) && item.allergens.length > 0 ? (
-                              <div className="allergen-icons-row">
-                                {item.allergens
-                                  .filter((code) => allergenMeta[code])
-                                  .map((code) => (
-                                    <span
-                                      key={`${section.id || section.category}-${item.id || item.name}-${code}`}
-                                      className="allergen-icon-glyph"
-                                      title={allergenMeta[code].label}
-                                      aria-label={allergenMeta[code].label}
-                                    >
-                                      {allergenMeta[code].icon || allergenMeta[code].symbol}
+                      {section.groups && section.groups.length > 0 ? (
+                        section.groups.map((group) => (
+                          <div key={group.id} className="menu-subgroup">
+                            <h4 className="menu-subgroup-title">{group.category}</h4>
+                            <ul className="menu-item-list">
+                              {group.items.map((item) => (
+                                <li key={`${group.id}-${item.id || item.name}`}>
+                                  <div className="menu-item-row">
+                                    <span className="menu-item-name">
+                                      {item.name}
                                     </span>
-                                  ))}
+                                    <span className="menu-item-price">{formatMenuPrice(item.price)}</span>
+                                  </div>
+                                  {item.note ? <small>{item.note}</small> : null}
+                                  {showAllergens && Array.isArray(item.allergens) && item.allergens.length > 0 ? (
+                                    <div className="allergen-icons-row">
+                                      {item.allergens
+                                        .filter((code) => allergenMeta[code])
+                                        .map((code) => (
+                                          <span
+                                            key={`${group.id}-${item.id || item.name}-${code}`}
+                                            className="allergen-icon-glyph"
+                                            title={allergenMeta[code].label}
+                                            aria-label={allergenMeta[code].label}
+                                          >
+                                            {allergenMeta[code].icon || allergenMeta[code].symbol}
+                                          </span>
+                                        ))}
+                                    </div>
+                                  ) : null}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))
+                      ) : (
+                        <ul className="menu-item-list">
+                          {section.items.map((item) => (
+                            <li key={`${section.id || section.category}-${item.id || item.name}`}>
+                              <div className="menu-item-row">
+                                <span className="menu-item-name">
+                                  {item.name}
+                                </span>
+                                <span className="menu-item-price">{formatMenuPrice(item.price)}</span>
                               </div>
-                            ) : null}
-                          </li>
-                        ))}
-                      </ul>
+                              {item.note ? <small>{item.note}</small> : null}
+                              {showAllergens && Array.isArray(item.allergens) && item.allergens.length > 0 ? (
+                                <div className="allergen-icons-row">
+                                  {item.allergens
+                                    .filter((code) => allergenMeta[code])
+                                    .map((code) => (
+                                      <span
+                                        key={`${section.id || section.category}-${item.id || item.name}-${code}`}
+                                        className="allergen-icon-glyph"
+                                        title={allergenMeta[code].label}
+                                        aria-label={allergenMeta[code].label}
+                                      >
+                                        {allergenMeta[code].icon || allergenMeta[code].symbol}
+                                      </span>
+                                    ))}
+                                </div>
+                              ) : null}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </article>
                   ))}
                 </div>
@@ -504,8 +647,40 @@ function App() {
           </section>
         ) : null}
 
+        {activePage === "album" ? (
+          <section id="album" className="section">
+            <div className="section-heading">
+              <p className="eyebrow">{t.albumEyebrow}</p>
+              <h2>{t.albumTitle}</h2>
+              <p>{t.albumText}</p>
+            </div>
+            <div className="beer-album-grid">
+              {BEER_CATALOG.map((beer) => (
+                <article
+                  className="beer-album-card"
+                  key={beer.id}
+                  onClick={goToBottleBeers}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") goToBottleBeers(); }}
+                >
+                  <div className="beer-album-img-wrap">
+                    <img src={beer.img} alt={beer.name} loading="lazy" />
+                  </div>
+                  <div className="beer-album-info">
+                    {beer.categoria ? <p className="beer-album-type">{beer.categoria}</p> : null}
+                    <h3 className="beer-album-name">{beer.name}</h3>
+                    {beer.origen ? <p className="beer-album-origin">{beer.origen}</p> : null}
+                    {beer.graduacion ? <p className="beer-album-abv">{beer.graduacion}</p> : null}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {activePage === "visitanos" ? (
-          <section id="visitanos" className="section reveal">
+          <section id="visitanos" className="section">
             <div className="section-heading">
               <p className="eyebrow">{t.visitEyebrow}</p>
               <h2>{t.visitTitle}</h2>
@@ -528,7 +703,8 @@ function App() {
                 <h3>{t.addressTitle}</h3>
                 <p>{t.addressText}</p>
                 <div className="map-frame-wrap">
-                  <iframe src={MAP_EMBED_URL} title="Bierwinkel map" loading="lazy"></iframe>
+                  <iframe src={MAP_EMBED_URL} title="Bierwinkel map" allowFullScreen referrerPolicy="no-referrer-when-downgrade"></iframe>
+                  <a href={MAP_LINK_URL} target="_blank" rel="noreferrer" className="map-click-overlay" aria-label={t.mapLinkText}></a>
                 </div>
               </article>
 
