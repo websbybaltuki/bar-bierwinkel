@@ -64,11 +64,46 @@
               "precio_eur": 5.2
             },
             {
+              "nombre": "La Chouffe",
+              "descripcion": "Especialidad. Belga. 8°",
+              "origen": "Belga",
+              "graduacion": "8°",
+              "precio_eur": 4.85
+            },
+            {
+              "nombre": "Becks",
+              "descripcion": "Pilsen. Alemana. 5,2°",
+              "origen": "Alemana",
+              "graduacion": "5.2°",
+              "precio_eur": 3.5
+            },
+            {
+              "nombre": "Dinckel Privaat",
+              "descripcion": "Trigo. Alemana. 5,6°",
+              "origen": "Alemana",
+              "graduacion": "5.6°",
+              "precio_eur": 2.5
+            },
+            {
+              "nombre": "Corona",
+              "descripcion": "Lager. Mexicana. 4,7°",
+              "origen": "Mexicana",
+              "graduacion": "4.7°",
+              "precio_eur": 3.5
+            },
+            {
               "nombre": "Barbar Blonde",
               "descripcion": "Cerveza belga, elaborada con miel de color rubio y espumosa. Carácter maltoso, a miel, dulce, aunque no es empalagosa por el amargor que le otorga el lúpulo. 8°.",
               "origen": "Belga",
               "graduacion": "8°",
               "volumen_cl": 33,
+              "precio_eur": 5.2
+            },
+            {
+              "nombre": "Barbar Bock Meca",
+              "descripcion": "Oscura elaborada con miel. Belga. 8°",
+              "origen": "Belga",
+              "graduacion": "8°",
               "precio_eur": 5.2
             },
             {

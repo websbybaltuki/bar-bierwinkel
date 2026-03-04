@@ -23,16 +23,123 @@ const INSTAGRAM_URL =
   import.meta.env.VITE_INSTAGRAM_PROFILE || "https://www.instagram.com/bierwinkel_elche/?hl=es";
 const PAGE_KEYS = ["inicio", "menu", "album", "visitanos"];
 
+// Mapeo: ID de cerveza (generado desde Cervezas.json) → archivo de imagen en /public/cervezas/
+// Sin mapeo (sin cerveza en el menú): Becks.jpeg, BarbarBok.jpeg, Corona.jpeg,
+//   Dinckerlaker.jpeg, HogaerdaaenGranCru.jpeg (duplicado), ChouffeIPA.jpeg (duplicado)
 const BEER_IMAGES = {
-  "cervezas_botella_hoegaarden_grand_cru": "/hoegaarden.jpeg",
-  "cervezas_botella_paulaner_50cl": "/paulaner.jpeg",
-  "cervezas_botella_weihenstephan_hefe_50cl": "/weihenstephaner.jpeg",
-  "cervezas_botella_erdinger_pikantus_50cl": "/erdinger.jpeg",
-  "cervezas_botella_sanwald": "/sanwald.jpeg"
+  // ── CERVEZAS DE TRIGO ──────────────────────────────────────────────────────
+  "cervezas_botella_hoegaarden_grand_cru":      "/cervezas/HogaerdaaenGranCru.jpeg",       // Hoegaarden Grand Cru
+  "cervezas_botella_paulaner_50cl":             "/cervezas/Paulaner.jpeg",                // Paulaner 50cl
+  "cervezas_botella_weihenstephan_hefe_50cl":   "/cervezas/Weihenstephaner.jpeg",         // Weihenstephan Hefe 50cl
+  "cervezas_botella_erdinger_pikantus_50cl":    "/cervezas/Erdinger.jpeg",                // Erdinger Pikantus 50cl
+  "cervezas_botella_sanwald":                   "/cervezas/Sanwald.jpeg",                 // Sanwald
+
+  // ── ESPECIALIDADES EXTRA ───────────────────────────────────────────────────
+  "cervezas_botella_la_chouffe":                "/cervezas/Lachouffe.jpeg",               // La Chouffe
+  "cervezas_botella_becks":                     "/cervezas/Becks.jpeg",                   // Becks
+  "cervezas_botella_dinckel_privaat":           "/cervezas/Dinckerlaker.jpeg",            // Dinckel Privaat
+  "cervezas_botella_corona":                    "/cervezas/Corona.jpeg",                  // Corona
+  "cervezas_botella_triple_moines":             "/cervezas/TripleMoines.jpeg",            // Triple Moines
+  "cervezas_botella_barbar_blonde":             "/cervezas/Barbar%20Blonde.jpeg",         // Barbar Blonde
+  "cervezas_botella_barbar_bock_meca":          "/cervezas/BarbarBok.jpeg",               // Barbar Bock Meca
+  "cervezas_botella_st_feuillien":              "/cervezas/StFeuillien.jpeg",             // St Feuillien
+  "cervezas_botella_delirium_red":              "/cervezas/Deliriumred.jpeg",             // Delirium Red
+  "cervezas_botella_la_divine":                 "/cervezas/Ladivine.jpeg",                // La Divine
+  "cervezas_botella_delirium_tremens":          "/cervezas/cerveza_botella_delirium_tremens.jpeg", // Delirium Tremens
+  "cervezas_botella_kasteel_triple":            "/cervezas/Kaasteltriple.jpeg",           // Kasteel Triple
+  "cervezas_botella_tripel_karmeliet":          "/cervezas/TripleKarmeliet.jpeg",         // Tripel Karmeliet
+  "cervezas_botella_gulden_draak":              "/cervezas/GuldenDraak.jpeg",             // Gulden Draak
+  "cervezas_botella_gulden_draak_9000":         "/cervezas/GuldenDrak9000.jpeg",          // Gulden Draak 9000
+  "cervezas_botella_satan_gold":                "/cervezas/Satan_gold.jpeg",              // Satan Gold
+  "cervezas_botella_la_guillotine":             "/cervezas/La%20guillot%C3%ADneme.jpeg",  // La Guillotine
+
+  // ── ABADÍA ─────────────────────────────────────────────────────────────────
+  "cervezas_botella_leffe_blonde":              "/cervezas/LeffeBlonde.jpeg",             // Leffe Blonde
+  "cervezas_botella_leffe_brune":               "/cervezas/LeffeBrune.jpeg",              // Leffe Brune
+  "cervezas_botella_leffe_tripel":              "/cervezas/Leffetriple.jpeg",             // Leffe Tripel
+  "cervezas_botella_grimbergen_triple":         "/cervezas/GrimbergenTriple.jpeg",        // Grimbergen Triple
+  "cervezas_botella_grimbergen_double_ambree":  "/cervezas/GrimbergeDouble.jpeg",         // Grimbergen Double Ambrée
+  "cervezas_botella_maredsous_brune":           "/cervezas/Maredsousbrune.jpeg",          // Maredsous Brune
+  "cervezas_botella_maredsous_tripel":          "/cervezas/Maredsoustriple.jpeg",         // Maredsous Tripel
+  "cervezas_botella_st_bernardus_prior":        "/cervezas/SaintBernardusPrior.jpeg",     // St Bernardus Prior
+  "cervezas_botella_st_bernardus_abt":          "/cervezas/SaintBernardus12.jpeg",        // St Bernardus Abt
+  "cervezas_botella_het_kapittel_pater":        "/cervezas/HetKapittel.jpeg",             // Het Kapittel Pater
+  "cervezas_botella_het_kapittel_abt":          "/cervezas/HetKapittelWatou.jpeg",        // Het Kapittel Abt
+
+  // ── PALE ALE / IPA / ALTA FERMENTACIÓN ────────────────────────────────────
+  "cervezas_botella_chouffe_ipa":               "/cervezas/ChouffeIPA.jpeg",              // Chouffe IPA
+  "cervezas_botella_judas":                     "/cervezas/Judas.jpeg",                   // Judas
+  "cervezas_botella_troubadour_magma":          "/cervezas/TroubadourMagma.jpeg",         // Troubadour Magma
+  "cervezas_botella_bush_beer_ambree":          "/cervezas/BushCaractere.jpeg",           // Bush Beer Ambrée
+  "cervezas_botella_duvel":                     "/cervezas/Duvel.jpeg",                   // Duvel
+  "cervezas_botella_duvel_tripel_hop_citra":    "/cervezas/DuvelHopCitra.jpeg",           // Duvel Tripel Hop Citra
+  "cervezas_botella_palm":                      "/cervezas/Palm.jpeg",                    // Palm
+  "cervezas_botella_martin_s_ipa_55":           "/cervezas/MatinsIPA55.jpeg",             // Martin's IPA 55
+  "cervezas_botella_brewdog_punk_ipa":          "/cervezas/BrewdrogIPA.jpeg",             // BrewDog Punk IPA
+
+  // ── TRAPENSES ──────────────────────────────────────────────────────────────
+  "cervezas_botella_achel_dubbel":              "/cervezas/AchelDubbel.jpeg",             // Achel Dubbel
+  "cervezas_botella_orval":                     "/cervezas/Orval.jpeg",                   // Orval
+  "cervezas_botella_chimay_roja":               "/cervezas/Chimayroja.jpeg",              // Chimay Roja
+  "cervezas_botella_chimay_blanca":             "/cervezas/Chimay_blanca.jpeg",           // Chimay Blanca
+  "cervezas_botella_chimay_azul":               "/cervezas/ChimayAzul.jpeg",              // Chimay Azul
+  "cervezas_botella_westmalle_tripel":          "/cervezas/Westmalletriple.jpeg",         // Westmalle Tripel
+  "cervezas_botella_westmalle_dubbel":          "/cervezas/WestmalleDubell.jpeg",         // Westmalle Dubbel
+  "cervezas_botella_rochefort_10":              "/cervezas/Rocherfort10.jpeg",            // Rochefort 10
+  "cervezas_botella_rochefort_8":               "/cervezas/Rochefort8.jpeg",              // Rochefort 8
+  "cervezas_botella_la_trappe_dubbel":          "/cervezas/Latrappedubel.jpeg",           // La Trappe Dubbel
+  "cervezas_botella_la_trappe_tripel":          "/cervezas/Latrappetriple.jpeg",          // La Trappe Tripel
+  "cervezas_botella_la_trappe_quadrupel":       "/cervezas/Latrappequadruple.jpeg",       // La Trappe Quadrupel
+
+  // ── LAGERS ─────────────────────────────────────────────────────────────────
+  "cervezas_botella_1906":                      "/cervezas/1906.jpeg",                    // 1906
+  "cervezas_botella_estrella_galicia":          "/cervezas/EstrellaGalicia.jpeg",         // Estrella Galicia
+  "cervezas_botella_bud":                       "/cervezas/Budweiser.jpeg",               // Bud
+  "cervezas_botella_heineken":                  "/cervezas/Heineken.jpeg",                // Heineken
+  "cervezas_botella_biere_du_demon":            "/cervezas/Bieredudemon.jpeg",            // Biere du Demon
+  "cervezas_botella_lowenbrau":                 "/cervezas/Lowenbrau.jpeg",               // Löwenbrau
+  "cervezas_botella_samichlaus":                "/cervezas/Samischlaus.jpeg",             // Samichlaus
+
+  // ── PILSEN ─────────────────────────────────────────────────────────────────
+  "cervezas_botella_urquell_pilsner":           "/cervezas/PilserUrquell.jpeg",           // Urquell Pilsner
+  "cervezas_botella_stella_artois":             "/cervezas/StellaArtois.jpeg",            // Stella Artois
+  "cervezas_botella_carlsberg":                 "/cervezas/Calsberg.jpeg",                // Carlsberg
+  "cervezas_botella_warsteiner":                "/cervezas/Wasteiner.jpeg",               // Warsteiner
+
+  // ── PORTER Y STOUT ─────────────────────────────────────────────────────────
+  "cervezas_botella_guinness_special_export":   "/cervezas/GuinnessSpecialExport.jpeg",   // Guinness Special Export
+  "cervezas_botella_troubadour_imperial_stout": "/cervezas/TroubadourImperialStout.jpeg", // Troubadour Imperial Stout
+  "cervezas_botella_troubadour_obscura":        "/cervezas/TroubadourObscura.jpeg",       // Troubadour Obscura
+  "cervezas_botella_super_bock_stout":          "/cervezas/S%C3%BAperBockStout.jpeg",     // Super Bock Stout
 };
 const BEER_CATALOG = getBottleBeerCatalog()
   .filter((beer) => BEER_IMAGES[beer.id])
   .map((beer) => ({ ...beer, img: BEER_IMAGES[beer.id] }));
+
+const getWeekSeed = () => {
+  const now = new Date();
+  const dayOfWeek = now.getDay();
+  const monday = new Date(now);
+  monday.setDate(now.getDate() - ((dayOfWeek + 6) % 7));
+  monday.setHours(0, 0, 0, 0);
+  return Math.floor(monday.getTime() / 1000);
+};
+
+const seededShuffle = (arr, seed) => {
+  let s = seed;
+  const rand = () => {
+    s = (s + 0x6D2B79F5) | 0;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
 const PAGE_TRANSITION_MS = 280;
 const MENU_ASSETS = {
   es: {
@@ -71,6 +178,11 @@ function App() {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [sheetOverrides, setSheetOverrides] = useState({});
   const [emailCopied, setEmailCopied] = useState(false);
+
+  const weeklyBeers = useMemo(
+    () => seededShuffle(BEER_CATALOG, getWeekSeed()).slice(0, 5),
+    []
+  );
 
   const t = translations[lang];
   const scheduleRows = t.scheduleRows || [];
@@ -372,13 +484,25 @@ function App() {
                 <p className="eyebrow">{t.wheatBeersEyebrow}</p>
                 <h2>{t.wheatBeersTitle}</h2>
               </div>
-              <div className="wheat-beer-showcase">
-                {BEER_CATALOG.map((beer) => (
-                  <article className="wheat-beer-card" key={beer.id}>
-                    <div className="wheat-beer-img-wrap">
+              <div className="beer-album-grid">
+                {weeklyBeers.map((beer) => (
+                  <article
+                    className="beer-album-card"
+                    key={beer.id}
+                    onClick={goToBottleBeers}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") goToBottleBeers(); }}
+                  >
+                    <div className="beer-album-img-wrap">
                       <img src={beer.img} alt={beer.name} loading="lazy" />
                     </div>
-                    <p className="wheat-beer-name">{beer.name}</p>
+                    <div className="beer-album-info">
+                      {beer.categoria ? <p className="beer-album-type">{beer.categoria}</p> : null}
+                      <h3 className="beer-album-name">{beer.name}</h3>
+                      {beer.origen ? <p className="beer-album-origin">{beer.origen}</p> : null}
+                      {beer.graduacion ? <p className="beer-album-abv">{beer.graduacion}</p> : null}
+                    </div>
                   </article>
                 ))}
               </div>
