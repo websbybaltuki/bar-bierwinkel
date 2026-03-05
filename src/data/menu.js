@@ -44,7 +44,7 @@ const servingTypes = {
 // =====================
 // DRINKS MENU
 // =====================
-const normalizeKey = (value) =>
+export const normalizeKey = (value) =>
   String(value ?? "")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -445,20 +445,20 @@ export const fullMenus = {
 
 // Allergen metadata
 export const allergenMeta = {
-  gluten: { label: "Gluten", symbol: "G" },
-  dairy: { label: "Lacteos", symbol: "L" },
-  eggs: { label: "Huevos", symbol: "H" },
-  nuts: { label: "Frutos secos", symbol: "F" },
-  peanuts: { label: "Cacahuetes", symbol: "C" },
-  soy: { label: "Soja", symbol: "S" },
-  fish: { label: "Pescado", symbol: "P" },
-  shellfish: { label: "Mariscos", symbol: "M" },
-  celery: { label: "Apio", symbol: "A" },
-  mustard: { label: "Mostaza", symbol: "Mo" },
-  sesame: { label: "Sesamo", symbol: "Se" },
-  sulphites: { label: "Sulfitos", symbol: "Su" },
-  lupin: { label: "Altramuces", symbol: "Al" },
-  molluscs: { label: "Moluscos", symbol: "Ml" }
+  gluten:    { label: "Gluten",        symbol: "G",  icon: "🌾" },
+  dairy:     { label: "Lácteos",       symbol: "L",  icon: "🥛" },
+  eggs:      { label: "Huevos",        symbol: "H",  icon: "🥚" },
+  nuts:      { label: "Frutos secos",  symbol: "F",  icon: "🌰" },
+  peanuts:   { label: "Cacahuetes",    symbol: "C",  icon: "🥜" },
+  soy:       { label: "Soja",          symbol: "S",  icon: "🫘" },
+  fish:      { label: "Pescado",       symbol: "P",  icon: "🐟" },
+  shellfish: { label: "Mariscos",      symbol: "M",  icon: "🦐" },
+  celery:    { label: "Apio",          symbol: "A",  icon: "🌿" },
+  mustard:   { label: "Mostaza",       symbol: "Mo", icon: "🌻" },
+  sesame:    { label: "Sésamo",        symbol: "Se", icon: "🌱" },
+  sulphites: { label: "Sulfitos",      symbol: "Su", icon: "🍷" },
+  lupin:     { label: "Altramuces",    symbol: "Al", icon: "🫛" },
+  molluscs:  { label: "Moluscos",      symbol: "Ml", icon: "🐚" }
 };
 
 // Default allergens for food dishes (fallback when item doesn't define its own list)
@@ -508,7 +508,7 @@ const formatPrices = (prices, lang) => {
     .map((p) => {
       const type = getLocalizedText(p.type, lang);
       const vol = p.volume ? ` ${p.volume}` : "";
-      return `${type}${vol}: ${p.price}€`;
+      return `${type}${vol}: ${p.price.toFixed(2)}€`;
     })
     .join(" / ");
 };
@@ -675,18 +675,18 @@ export const getCompleteMenus = (lang) => {
 };
 
 /**
- * Returns all bottle beers from Cervezas.json with their generated IDs and full JSON data.
+ * Returns products from any Cervezas.json section with generated IDs.
  * Use BEER_IMAGES in App.jsx (keyed by these IDs) to cross-reference photos.
  */
-export const getBottleBeerCatalog = () => {
-  const section = getSectionByMenu("CERVEZAS DE BOTELLA");
+export const getDrinkCatalog = (menuName, sectionId) => {
+  const section = getSectionByMenu(menuName);
   if (!section) return [];
-  const sectionId = "cervezas_botella";
   return (section.categorias || []).flatMap((category) =>
     (category.productos || []).map((product) => ({
       id: buildDrinkItemId(sectionId, product.nombre, ""),
       name: product.nombre || "",
       categoria: category.nombre || "",
+      menuSection: sectionId,
       descripcion: product.descripcion || null,
       origen: product.origen || null,
       graduacion: product.graduacion || null,
@@ -694,6 +694,9 @@ export const getBottleBeerCatalog = () => {
     }))
   );
 };
+
+export const getBottleBeerCatalog = () =>
+  getDrinkCatalog("CERVEZAS DE BOTELLA", "cervezas_botella");
 
 // Export all
 export default {

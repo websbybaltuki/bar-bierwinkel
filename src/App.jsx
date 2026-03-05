@@ -3,8 +3,10 @@ import { supportedLanguages, translations } from "./i18n/translations";
 import {
   allergenMeta,
   getBottleBeerCatalog,
+  getDrinkCatalog,
   getCompleteMenus,
-  getMenuSections
+  getMenuSections,
+  normalizeKey
 } from "./data/menu";
 
 const MAP_EMBED_URL =
@@ -111,8 +113,32 @@ const BEER_IMAGES = {
   "cervezas_botella_troubadour_imperial_stout": "/cervezas/TroubadourImperialStout.jpeg", // Troubadour Imperial Stout
   "cervezas_botella_troubadour_obscura":        "/cervezas/TroubadourObscura.jpeg",       // Troubadour Obscura
   "cervezas_botella_super_bock_stout":          "/cervezas/S%C3%BAperBockStout.jpeg",     // Super Bock Stout
+
+  // ── CERVEZAS SIN GLUTEN ────────────────────────────────────────────────────
+  "cervezas_sin_gluten_dougall_s_ipa":                "/cervezas/DougallsIPAsingluten.jpg",       // Dougall's IPA
+  "cervezas_sin_gluten_mahou_tostada_0_0_sin_gluten": "/cervezas/Mahoutostada00singluten.jpg",    // Mahou Tostada 0,0 Sin Gluten
+  "cervezas_sin_gluten_naturepils":                   "/cervezas/Naturepils.jpg",                 // Naturepils
+
+  // ── CERVEZAS SIN ALCOHOL ───────────────────────────────────────────────────
+  "cervezas_sin_alcohol_clausthaler":               "/cervezas/Clausthaler.jpg",               // Clausthaler
+  "cervezas_sin_alcohol_corona_0_0":                "/cervezas/Corona00.jpg",                  // Corona 0,0
+  "cervezas_sin_alcohol_mahou_0_0_tostada":         "/cervezas/Mahoutostada00.jpg",            // Mahou 0,0 Tostada
+  "cervezas_sin_alcohol_super_bock_stout":          "/cervezas/Superbocksinalcohol.jpg",       // Super Bock Stout 0,0
+  "cervezas_sin_alcohol_kopparberg_fresa_y_lima":   "/cervezas/Kopparbergsinalcohol.jpg",      // Kopparberg Fresa y Lima 0,0
+  "cervezas_sin_alcohol_dinckel_privaat_0_0":       "/cervezas/Dinkelacker00.jpg",             // Dinckel Privaat 0,0
+
+  // ── SIDRAS ─────────────────────────────────────────────────────────────────
+  "sidras_kopparberg_fresa_y_lima":                 "/cervezas/Kopparbergfresaylima.jpg",      // Kopparberg Fresa y Lima
+  "sidras_kopparberg_mixed_fruit":                  "/cervezas/Kopparbergmixed.jpg",           // Kopparberg Mixed Fruit
+  "sidras_ladron_de_manzanas":                      "/cervezas/Ladrondemanzanas.jpg",          // Ladrón de Manzanas
+  "sidras_magners":                                 "/cervezas/magners.jpg",                   // Magners
 };
-const BEER_CATALOG = getBottleBeerCatalog()
+const BEER_CATALOG = [
+  ...getBottleBeerCatalog(),
+  ...getDrinkCatalog("CERVEZAS SIN GLUTEN",  "cervezas_sin_gluten"),
+  ...getDrinkCatalog("CERVEZAS SIN ALCOHOL", "cervezas_sin_alcohol"),
+  ...getDrinkCatalog("SIDRAS",               "sidras"),
+]
   .filter((beer) => BEER_IMAGES[beer.id])
   .map((beer) => ({ ...beer, img: BEER_IMAGES[beer.id] }));
 
@@ -179,10 +205,7 @@ function App() {
   const [sheetOverrides, setSheetOverrides] = useState({});
   const [emailCopied, setEmailCopied] = useState(false);
 
-  const weeklyBeers = useMemo(
-    () => seededShuffle(BEER_CATALOG, getWeekSeed()).slice(0, 5),
-    []
-  );
+  const [weeklyBeers, setWeeklyBeers] = useState([]);
 
   const t = translations[lang];
   const scheduleRows = t.scheduleRows || [];
@@ -230,7 +253,7 @@ function App() {
     if (!price) return "";
     if (price === "Consultar") return price;
     if (typeof price === "string") return price;
-    return `${price} €`;
+    return `${price.toFixed(2)} €`;
   };
 
   const copyEmail = () => {
@@ -294,6 +317,22 @@ function App() {
     }, PAGE_TRANSITION_MS + 120);
   };
 
+  const goToBeerSubgroup = (beer) => {
+    const groupId = normalizeKey(beer.categoria);
+    const sectionId = beer.menuSection || "cervezas_botella";
+    setMenuType("bebida");
+    navigateToPage("menu");
+    window.setTimeout(() => {
+      const subgroupEl = document.getElementById(`subgroup-${groupId}`);
+      if (subgroupEl) {
+        subgroupEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        const sectionEl = document.getElementById(`section-${sectionId}`);
+        if (sectionEl) sectionEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, PAGE_TRANSITION_MS + 120);
+  };
+
   useEffect(() => {
     localStorage.setItem("bierwinkel-lang", lang);
     document.documentElement.lang = lang;
@@ -343,23 +382,53 @@ function App() {
         ? `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=${sheetGid}`
         : null);
 
-    if (!csvUrl) return;
+    const fallback = (reason) => {
+      console.log("[Sheet] fallback activado:", reason);
+      setWeeklyBeers(seededShuffle(BEER_CATALOG, getWeekSeed()).slice(0, 5));
+    };
 
+    if (!csvUrl) { fallback("sin URL configurada"); return; }
+
+    console.log("[Sheet] cargando:", csvUrl);
     fetch(csvUrl)
       .then((r) => r.text())
       .then((text) => {
-        const rows = text.trim().split("\n").map((line) => line.split(";").map((c) => c.trim()));
-        if (rows.length < 2) return;
-        const headers = rows[0];
-        const map = {};
-        for (let i = 1; i < rows.length; i++) {
-          const obj = {};
-          headers.forEach((h, j) => { obj[h] = rows[i][j] ?? ""; });
-          if (obj.id) map[obj.id] = obj;
+        const clean = text.replace(/^\uFEFF/, "").replace(/\r/g, "");
+        const lines = clean.trim().split("\n").filter((l) => l.trim());
+        console.log("[Sheet] primera línea:", lines[0]?.slice(0, 120));
+        if (lines[0]?.trimStart().startsWith("<")) {
+          console.error("[Sheet] ❌ La respuesta es HTML, no CSV. Publika la hoja: Archivo → Compartir → Publicar en la web → CSV");
+          fallback("respuesta HTML en lugar de CSV");
+          return;
         }
+        if (lines.length < 2) { fallback("CSV vacío"); return; }
+        const sep = lines[0].includes("\t") ? "\t" : lines[0].includes(";") ? ";" : ",";
+        const unquote = (s) => s.trim().replace(/^"(.*)"$/, "$1");
+        const headers = lines[0].split(sep).map(unquote).map((h) => h.toLowerCase());
+        console.log("[Sheet] cabeceras:", headers);
+        const idIdx = headers.indexOf("id");
+        const recIdx = headers.indexOf("recomendacion");
+        console.log("[Sheet] columna id:", idIdx, "| columna recomendacion:", recIdx);
+        if (idIdx === -1) { fallback("no se encuentra columna 'id' en el CSV"); return; }
+        const map = {};
+        for (let i = 1; i < lines.length; i++) {
+          const cols = lines[i].split(sep).map(unquote);
+          const id = cols[idIdx];
+          if (!id) continue;
+          const obj = {};
+          headers.forEach((h, j) => { obj[h] = cols[j] ?? ""; });
+          map[id] = obj;
+        }
+        const featured = BEER_CATALOG.filter(
+          (beer) => (map[beer.id]?.recomendacion || "").toUpperCase() === "SI"
+        );
+        console.log("[Sheet] IDs en map:", Object.keys(map).length, "| muestra:", Object.keys(map).slice(0, 3));
+        console.log("[Sheet] recomendados:", featured.map((b) => b.id));
         setSheetOverrides(map);
+        if (featured.length > 0) setWeeklyBeers(featured.slice(0, 5));
+        else fallback("ninguna cerveza marcada con SI");
       })
-      .catch(() => {});
+      .catch((e) => fallback("error fetch: " + e.message));
   }, []);
 
   return (
@@ -489,10 +558,10 @@ function App() {
                   <article
                     className="beer-album-card"
                     key={beer.id}
-                    onClick={goToBottleBeers}
+                    onClick={() => goToBeerSubgroup(beer)}
                     role="button"
                     tabIndex={0}
-                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") goToBottleBeers(); }}
+                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") goToBeerSubgroup(beer); }}
                   >
                     <div className="beer-album-img-wrap">
                       <img src={beer.img} alt={beer.name} loading="lazy" />
@@ -634,7 +703,7 @@ function App() {
                       ) : null}
                       {section.groups && section.groups.length > 0 ? (
                         section.groups.map((group) => (
-                          <div key={group.id} className="menu-subgroup">
+                          <div key={group.id} id={`subgroup-${group.id}`} className="menu-subgroup">
                             <h4 className="menu-subgroup-title">{group.category}</h4>
                             <ul className="menu-item-list">
                               {group.items.map((item) => (
@@ -708,7 +777,7 @@ function App() {
                   <article className="menu-section-card complete-menu-card" key={menu.id}>
                     <div className="menu-item-row">
                       <h3>{menu.name}</h3>
-                      <span className="menu-item-price">{menu.price} €</span>
+                      <span className="menu-item-price">{menu.price.toFixed(2)} €</span>
                     </div>
                     <div className="complete-menu-sections">
                       {menu.sections.map((section) => (
@@ -783,10 +852,10 @@ function App() {
                 <article
                   className="beer-album-card"
                   key={beer.id}
-                  onClick={goToBottleBeers}
+                  onClick={() => goToBeerSubgroup(beer)}
                   role="button"
                   tabIndex={0}
-                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") goToBottleBeers(); }}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") goToBeerSubgroup(beer); }}
                 >
                   <div className="beer-album-img-wrap">
                     <img src={beer.img} alt={beer.name} loading="lazy" />

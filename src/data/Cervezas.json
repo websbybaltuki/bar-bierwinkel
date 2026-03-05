@@ -786,6 +786,13 @@
               "origen": "Sueca",
               "graduacion": "0°",
               "precio_eur": null
+            },
+            {
+              "nombre": "Dinckel Privaat 0,0",
+              "descripcion": "Sin alcohol",
+              "origen": "Alemana",
+              "graduacion": "0°",
+              "precio_eur": null
             }
           ]
         }
@@ -887,6 +894,13 @@
               "origen": "Española",
               "volumen_cl": 33,
               "precio_eur": 3.3
+            },
+            {
+              "nombre": "Magners",
+              "descripcion": "Sidra irlandesa. 4,5°",
+              "origen": "Irlandesa",
+              "graduacion": "4.5°",
+              "precio_eur": 4.5
             }
           ]
         }
