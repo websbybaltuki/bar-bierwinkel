@@ -26,7 +26,7 @@
               "origen": "Alemana",
               "graduacion": "5°",
               "volumen_cl": 50,
-              "precio_eur": 4.0
+              "precio_eur": 4.00
             },
             {
               "nombre": "Weihenstephan Hefe 50cl",
@@ -34,7 +34,7 @@
               "origen": "Alemana",
               "graduacion": "5.4°",
               "volumen_cl": 50,
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             },
             {
               "nombre": "Erdinger Pikantus 50cl",
@@ -48,7 +48,7 @@
               "nombre": "Sanwald",
               "descripcion": "La cerveza de trigo Sanwald se elabora en estricto cumplimiento con la Ley alemana de pureza de la cerveza de 1.516. Se embotella sin filtrar y con toda su naturalidad, de ahí su ligero aspecto turbio de color, y de este modo los componentes naturales permanecen intactos hasta su consumo. Todo ello hace que estemos ante una cerveza de trigo con un sabor pronunciado, un tono picante, muy aromático y un cuerpo muy completo lo que la hace que sea una cerveza muy refrescante.",
               "origen": "Alemana",
-              "precio_eur": 4.0
+              "precio_eur": 4.00
             }
           ]
         },
@@ -61,7 +61,7 @@
               "origen": "Belga",
               "graduacion": "7.5°",
               "volumen_cl": 33,
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "La Chouffe",
@@ -75,21 +75,21 @@
               "descripcion": "Pilsen. Alemana. 5,2°",
               "origen": "Alemana",
               "graduacion": "5.2°",
-              "precio_eur": 3.5
+              "precio_eur": 3.50
             },
             {
               "nombre": "Dinckel Privaat",
               "descripcion": "Trigo. Alemana. 5,6°",
               "origen": "Alemana",
               "graduacion": "5.6°",
-              "precio_eur": 2.5
+              "precio_eur": 2.50
             },
             {
               "nombre": "Corona",
               "descripcion": "Lager. Mexicana. 4,7°",
               "origen": "Mexicana",
               "graduacion": "4.7°",
-              "precio_eur": 3.5
+              "precio_eur": 3.50
             },
             {
               "nombre": "Barbar Blonde",
@@ -97,14 +97,14 @@
               "origen": "Belga",
               "graduacion": "8°",
               "volumen_cl": 33,
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Barbar Bock Meca",
               "descripcion": "Oscura elaborada con miel. Belga. 8°",
               "origen": "Belga",
               "graduacion": "8°",
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "St Feuillien",
@@ -112,14 +112,14 @@
               "origen": "Belga",
               "graduacion": "8.5°",
               "volumen_cl": 33,
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Delirium Red",
               "descripcion": "Cerveza fuerte, con cerezas. Rojo oscuro. Belga. 8,5°",
               "origen": "Belga",
               "graduacion": "8.5°",
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "La Divine",
@@ -133,7 +133,7 @@
               "descripcion": "Dorada. Sabor dulce y final seco y alcohólico. Belga. 8,5°",
               "origen": "Belga",
               "graduacion": "8.5°",
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Kasteel Donker",
@@ -201,21 +201,21 @@
               "descripcion": "Rubia. Belga. 6,6°",
               "origen": "Belga",
               "graduacion": "6.6°",
-              "precio_eur": 4.0
+              "precio_eur": 4.00
             },
             {
               "nombre": "Leffe Brune",
               "descripcion": "Oscura. Con sabor a malta tostada. Belga. 6,5°",
               "origen": "Belga",
               "graduacion": "6.5°",
-              "precio_eur": 4.0
+              "precio_eur": 4.00
             },
             {
               "nombre": "Leffe Tripel",
               "descripcion": "Cerveza de alta fermentación con contenido de alcohol de alrededor del 8,5%. Elaborada con malta de cebada y lúpulo. Sabor dulce y afrutado con notas de especias y levadura. Color dorado y espuma densa y cremosa.",
               "origen": "Belga",
               "graduacion": "8.5°",
-              "precio_eur": 4.2
+              "precio_eur": 4.20
             },
             {
               "nombre": "Grimbergen Triple",
@@ -229,7 +229,7 @@
               "descripcion": "Tostada. Belga. 6,5°",
               "origen": "Belga",
               "graduacion": "6.5°",
-              "precio_eur": 4.2
+              "precio_eur": 4.20
             },
             {
               "nombre": "Maredsous Brune",
@@ -257,14 +257,14 @@
               "descripcion": "Oscura muy fuerte. Belga. 10°",
               "origen": "Belga",
               "graduacion": "10°",
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Het Kapittel Pater",
               "descripcion": "Negra. Belga. 6°",
               "origen": "Belga",
               "graduacion": "6°",
-              "precio_eur": 4.0
+              "precio_eur": 4.00
             },
             {
               "nombre": "Het Kapittel Abt",
@@ -284,14 +284,14 @@
               "origen": "Belga",
               "graduacion": "9°",
               "volumen_cl": 33,
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Judas",
               "descripcion": "Dorada. Belga. 8,5°",
               "origen": "Belga",
               "graduacion": "8.5°",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             },
             {
               "nombre": "Troubadour Magma",
@@ -299,7 +299,7 @@
               "origen": "Belga",
               "graduacion": "9°",
               "volumen_cl": 33,
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Bush Beer Ambrée",
@@ -320,28 +320,28 @@
               "descripcion": "IPA. Elaborada con tres variedades de lúpulo. Belga. 9,5°",
               "origen": "Belga",
               "graduacion": "9.5°",
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Palm",
               "descripcion": "Pale Ale. Tostada. Belga. 5,2°",
               "origen": "Belga",
               "graduacion": "5.2°",
-              "precio_eur": 3.6
+              "precio_eur": 3.60
             },
             {
               "nombre": "Martin's IPA 55",
               "descripcion": "44 Ibus. Belga. 6,9°",
               "origen": "Belga",
               "graduacion": "6.9°",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             },
             {
               "nombre": "BrewDog Punk IPA",
               "descripcion": "IPA de color claro, aromas a frutas tropicales (mango y piña sobre todo) y ligeramente amarga. 5,6°",
               "origen": null,
               "graduacion": "5.6°",
-              "precio_eur": 4.7
+              "precio_eur": 4.70
             }
           ]
         },
@@ -354,14 +354,14 @@
               "origen": "Belga",
               "graduacion": "8°",
               "volumen_cl": 33,
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Orval",
               "descripcion": "La trapense más amarga. Belga. 6,2°",
               "origen": "Belga",
               "graduacion": "6.2°",
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Chimay Roja",
@@ -389,7 +389,7 @@
               "descripcion": "Negra especiada. Belga. 9°",
               "origen": "Belga",
               "graduacion": "9°",
-              "precio_eur": 5.3
+              "precio_eur": 5.30
             },
             {
               "nombre": "Westmalle Dubbel",
@@ -403,14 +403,14 @@
               "descripcion": "Negra. Muy especiada. Belga. 11,3°",
               "origen": "Belga",
               "graduacion": "11.3°",
-              "precio_eur": 6.2
+              "precio_eur": 6.20
             },
             {
               "nombre": "Rochefort 8",
               "descripcion": "Ámbar. Belga. 9,2°",
               "origen": "Belga",
               "graduacion": "9.2°",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             },
             {
               "nombre": "La Trappe Dubbel",
@@ -442,48 +442,48 @@
               "nombre": "1906",
               "descripcion": null,
               "origen": "Española",
-              "precio_eur": 3.0
+              "precio_eur": 3.00
             },
             {
               "nombre": "Estrella Galicia",
               "descripcion": null,
               "origen": "Española",
-              "precio_eur": 3.0
+              "precio_eur": 3.00
             },
             {
               "nombre": "Bud",
               "descripcion": "Rubia dulzona. Americana. 5°",
               "origen": "Americana",
               "graduacion": "5°",
-              "precio_eur": 3.0
+              "precio_eur": 3.00
             },
             {
               "nombre": "Heineken",
               "descripcion": "Holandesa. 5°",
               "origen": "Holandesa",
               "graduacion": "5°",
-              "precio_eur": 2.5
+              "precio_eur": 2.50
             },
             {
               "nombre": "Biere du Demon",
               "descripcion": "Francesa. 12°",
               "origen": "Francesa",
               "graduacion": "12°",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             },
             {
               "nombre": "Löwenbrau",
               "descripcion": "Alemana. 5,2°",
               "origen": "Alemana",
               "graduacion": "5.2°",
-              "precio_eur": 3.5
+              "precio_eur": 3.50
             },
             {
               "nombre": "Samichlaus",
               "descripcion": "Ámbar. La lager más fuerte del mundo. Suiza. 14°",
               "origen": "Suiza",
               "graduacion": "14°",
-              "precio_eur": 6.6
+              "precio_eur": 6.60
             }
           ]
         },
@@ -495,42 +495,42 @@
               "descripcion": "Checa. 4,4°",
               "origen": "Checa",
               "graduacion": "4.4°",
-              "precio_eur": 3.0
+              "precio_eur": 3.00
             },
             {
               "nombre": "Stella Artois",
               "descripcion": "Belga. 5,2°",
               "origen": "Belga",
               "graduacion": "5.2°",
-              "precio_eur": 3.0
+              "precio_eur": 3.00
             },
             {
               "nombre": "Carlsberg",
               "descripcion": "Danesa. 5°",
               "origen": "Danesa",
               "graduacion": "5°",
-              "precio_eur": 3.0
+              "precio_eur": 3.00
             },
             {
               "nombre": "Budvar. Budejovick",
               "descripcion": "Checa. 5°",
               "origen": "Checa",
               "graduacion": "5°",
-              "precio_eur": 3.5
+              "precio_eur": 3.50
             },
             {
               "nombre": "Kronenbourg",
               "descripcion": "Francesa. 5°",
               "origen": "Francesa",
               "graduacion": "5°",
-              "precio_eur": 3.0
+              "precio_eur": 3.00
             },
             {
               "nombre": "Warsteiner",
               "descripcion": "Alemana. 4,8°",
               "origen": "Alemana",
               "graduacion": "4.8°",
-              "precio_eur": 3.5
+              "precio_eur": 3.50
             }
           ]
         },
@@ -542,7 +542,7 @@
               "descripcion": "Stout seca. Irlandesa elaborada al estilo belga. 8°",
               "origen": "Irlandesa",
               "graduacion": "8°",
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Troubadour Imperial Stout",
@@ -550,7 +550,7 @@
               "origen": "Belga",
               "graduacion": "9°",
               "volumen_cl": 33,
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Troubadour Obscura",
@@ -558,7 +558,7 @@
               "origen": "Belga",
               "graduacion": "8.2°",
               "volumen_cl": 33,
-              "precio_eur": 5.2
+              "precio_eur": 5.20
             },
             {
               "nombre": "Guinness Original",
@@ -573,7 +573,7 @@
               "descripcion": "Stout con cuerpo, dulce y poco amarga. Portuguesa 5°",
               "origen": "Portuguesa",
               "graduacion": "5°",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             }
           ]
         }
@@ -592,7 +592,7 @@
               "graduacion": "5°",
               "precios": {
                 "cana_33cl": 2.2,
-                "jarra_50cl": 3.3
+                "jarra_50cl": 3.30
               }
             },
             {
@@ -601,8 +601,8 @@
               "origen": null,
               "graduacion": "4.5°",
               "precios": {
-                "cana_33cl": 3.8,
-                "jarra_50cl": 4.8
+                "cana_33cl": 3.80,
+                "jarra_50cl": 4.80
               }
             },
             {
@@ -611,8 +611,8 @@
               "origen": "Belga",
               "graduacion": "8°",
               "precios": {
-                "cana_33cl": 3.8,
-                "jarra_50cl": 4.8
+                "cana_33cl": 3.80,
+                "jarra_50cl": 4.80
               }
             },
             {
@@ -621,8 +621,8 @@
               "origen": "Inglesa",
               "graduacion": "5.8°",
               "precios": {
-                "cana_33cl": 3.8,
-                "jarra_50cl": 4.8
+                "cana_33cl": 3.80,
+                "jarra_50cl": 4.80
               }
             },
             {
@@ -631,7 +631,7 @@
               "origen": "Escocesa",
               "graduacion": "10°",
               "precios": {
-                "jarra_50cl": 4.8
+                "jarra_50cl": 4.80
               }
             },
             {
@@ -640,8 +640,8 @@
               "origen": null,
               "graduacion": "6.4°",
               "precios": {
-                "cana_33cl": 3.5,
-                "jarra_50cl": 4.5
+                "cana_33cl": 3.50,
+                "jarra_50cl": 4.50
               }
             },
             {
@@ -650,8 +650,8 @@
               "origen": "Belga",
               "graduacion": "8.4°",
               "precios": {
-                "cana_33cl": 3.8,
-                "jarra_50cl": 4.8
+                "cana_33cl": 3.80,
+                "jarra_50cl": 4.80
               }
             },
             {
@@ -660,7 +660,7 @@
               "origen": "Belga",
               "graduacion": "8.4°",
               "precios": {
-                "copa": 4.0
+                "copa": 4.00
               }
             },
             {
@@ -669,8 +669,8 @@
               "origen": "Irlandesa",
               "graduacion": "8°",
               "precios": {
-                "cana": 3.9,
-                "jarra_50cl": 5.2
+                "cana": 3.90,
+                "jarra_50cl": 5.20
               }
             },
             {
@@ -679,8 +679,8 @@
               "origen": "Belga",
               "graduacion": "8.5°",
               "precios": {
-                "cana_33cl": 3.9,
-                "jarra_50cl": 4.9
+                "cana_33cl": 3.90,
+                "jarra_50cl": 4.90
               }
             },
             {
@@ -689,8 +689,8 @@
               "origen": "Belga",
               "graduacion": "8°",
               "precios": {
-                "cana_33cl": 3.7,
-                "jarra_50cl": 4.8
+                "cana_33cl": 3.70,
+                "jarra_50cl": 4.80
               }
             },
             {
@@ -699,8 +699,8 @@
               "origen": "Belga",
               "graduacion": "7°",
               "precios": {
-                "cana_33cl": 3.9,
-                "jarra_50cl": 4.9
+                "cana_33cl": 3.90,
+                "jarra_50cl": 4.90
               }
             }
           ]
@@ -719,7 +719,7 @@
               "origen": null,
               "graduacion": "6.4°",
               "volumen_cl": 33,
-              "precio_eur": 4.5
+              "precio_eur": 4.500
             },
             {
               "nombre": "Mahou Tostada 0,0 Sin Gluten",
@@ -733,7 +733,7 @@
               "descripcion": "Cerveza ecológica sin gluten. Alc. 4.6%",
               "origen": null,
               "graduacion": "4.6°",
-              "precio_eur": 4.0
+              "precio_eur": 4.00
             }
           ]
         }
@@ -750,35 +750,35 @@
               "descripcion": null,
               "origen": null,
               "graduacion": "0°",
-              "precio_eur": 3.5
+              "precio_eur": 3.50
             },
             {
               "nombre": "Mahou 0,0 Tostada",
               "descripcion": "Tostada",
               "origen": "Española",
               "graduacion": "0°",
-              "precio_eur": 3.0
+              "precio_eur": 3.00
             },
             {
               "nombre": "Heineken 0,0",
               "descripcion": null,
               "origen": "Holandesa",
               "graduacion": "0°",
-              "precio_eur": 2.5
+              "precio_eur": 2.50
             },
             {
               "nombre": "Clausthaler",
               "descripcion": "0,0",
               "origen": "Alemana",
               "graduacion": "0°",
-              "precio_eur": 3.0
+              "precio_eur": 3.00
             },
             {
               "nombre": "Super Bock Stout",
               "descripcion": "Negra sin alcohol",
               "origen": "Portuguesa",
               "graduacion": "0°",
-              "precio_eur": 3.0
+              "precio_eur": 3.00
             },
             {
               "nombre": "Kopparberg Fresa y Lima",
@@ -809,21 +809,21 @@
               "descripcion": "Melocotón. 4°",
               "origen": "Belga",
               "graduacion": "4°",
-              "precio_eur": 4.0
+              "precio_eur": 4.00
             },
             {
               "nombre": "Timmermans Framboise",
               "descripcion": "Frambuesa. 4°",
               "origen": "Belga",
               "graduacion": "4°",
-              "precio_eur": 4.0
+              "precio_eur": 4.00
             },
             {
               "nombre": "Timmermans Kriek",
               "descripcion": "Cerezas. 4°",
               "origen": "Belga",
               "graduacion": "4°",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             }
           ]
         },
@@ -835,28 +835,28 @@
               "descripcion": "Fruta de la pasión. 4°",
               "origen": "Belga",
               "graduacion": "4°",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             },
             {
               "nombre": "Floris Mango",
               "descripcion": "4°",
               "origen": "Belga",
               "graduacion": "4°",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             },
             {
               "nombre": "Floris Chocolate",
               "descripcion": "4°",
               "origen": "Belga",
               "graduacion": "4°",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             },
             {
               "nombre": "Mongozo Coconut",
               "descripcion": "Coco. 4°",
               "origen": null,
               "graduacion": "4°",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             }
           ]
         }
@@ -873,34 +873,34 @@
               "descripcion": "50cl.",
               "origen": "Sueca",
               "volumen_cl": 50,
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             },
             {
               "nombre": "Kopparberg Mixed Fruit",
               "descripcion": "50cl.",
               "origen": "Sueca",
               "volumen_cl": 50,
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             },
             {
               "nombre": "Kopparberg Mixed Fruit Tropical",
               "descripcion": null,
               "origen": "Sueca",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             },
             {
               "nombre": "Ladrón de Manzanas",
               "descripcion": "33cl.",
               "origen": "Española",
               "volumen_cl": 33,
-              "precio_eur": 3.3
+              "precio_eur": 3.30
             },
             {
               "nombre": "Magners",
               "descripcion": "Sidra irlandesa. 4,5°",
               "origen": "Irlandesa",
               "graduacion": "4.5°",
-              "precio_eur": 4.5
+              "precio_eur": 4.50
             }
           ]
         }
@@ -914,11 +914,11 @@
           "productos": [
             {
               "nombre": "Jack Daniel's",
-              "precio_eur": 7.5
+              "precio_eur": 7.50
             },
             {
               "nombre": "Red Label",
-              "precio_eur": 6.5
+              "precio_eur": 6.50
             }
           ]
         },
@@ -927,15 +927,15 @@
           "productos": [
             {
               "nombre": "Brugal",
-              "precio_eur": 6.5
+              "precio_eur": 6.50
             },
             {
               "nombre": "Cacique",
-              "precio_eur": 6.5
+              "precio_eur": 6.50
             },
             {
               "nombre": "Barceló",
-              "precio_eur": 6.5
+              "precio_eur": 6.50
             }
           ]
         },
@@ -944,25 +944,25 @@
           "productos": [
             {
               "nombre": "Seagram's",
-              "precio_eur": 6.5
+              "precio_eur": 6.50
             },
             {
               "nombre": "Beefeater",
-              "precio_eur": 6.5
+              "precio_eur": 6.50
             },
             {
               "nombre": "Tanqueray",
-              "precio_eur": 6.5
+              "precio_eur": 6.50
             },
             {
               "nombre": "Tanqueray 0,0",
               "descripcion": "Sin alcohol",
               "graduacion": "0°",
-              "precio_eur": 6.5
+              "precio_eur": 6.50
             },
             {
               "nombre": "Puerto de Indias",
-              "precio_eur": 6.5
+              "precio_eur": 6.50
             }
           ]
         },
@@ -971,7 +971,7 @@
           "productos": [
             {
               "nombre": "Vodka Absolut",
-              "precio_eur": 6.5
+              "precio_eur": 6.50
             }
           ]
         },
@@ -981,29 +981,29 @@
             {
               "nombre": "Baileys",
               "precios": {
-                "copa": 6.5,
-                "chupito": 2.2
+                "copa": 6.50,
+                "chupito": 2.20
               }
             },
             {
               "nombre": "Tequila",
               "precios": {
-                "copa": 6.5,
-                "chupito": 2.2
+                "copa": 6.50,
+                "chupito": 2.20
               }
             },
             {
               "nombre": "Jägermeister",
               "precios": {
-                "copa": 7.5,
-                "chupito": 2.2
+                "copa": 7.50,
+                "chupito": 2.20
               }
             },
             {
               "nombre": "Licor de Hierbas",
               "precios": {
-                "copa": 6.5,
-                "chupito": 2.2
+                "copa": 6.50,
+                "chupito": 2.20
               }
             },
             {
@@ -1012,7 +1012,7 @@
             },
             {
               "nombre": "Martini",
-              "precio_eur": 3.5
+              "precio_eur": 3.50
             }
           ]
         }
@@ -1027,29 +1027,29 @@
             {
               "nombre": "Copa de vino tinto",
               "descripcion": "Consulte al camarero por el vino",
-              "precio_eur": 2.5
+              "precio_eur": 2.50
             },
             {
               "nombre": "Tinto de verano",
               "descripcion": "Tinto de verano de la casa preparado con Fanta limón.",
-              "precio_eur": 2.8
+              "precio_eur": 2.80
             },
             {
               "nombre": "Copa vino blanco Alicante",
               "descripcion": "Sabor refrescante y afrutado.",
               "precios": {
-                "copa": 3.7
+                "copa": 3.70
               }
             },
             {
               "nombre": "Botella vino blanco Alicante",
               "descripcion": "Vino semidulce de la zona. Sabor refrescante y afrutado.",
-              "precio_eur": 25.0
+              "precio_eur": 25.00
             },
             {
               "nombre": "Copa de vino blanco verdejo",
               "descripcion": "Consulte al camarero por el vino",
-              "precio_eur": 2.5
+              "precio_eur": 2.50
             }
           ]
         }
@@ -1065,47 +1065,47 @@
               "nombre": "Agua",
               "descripcion": "33cl.",
               "volumen_cl": 33,
-              "precio_eur": 1.3
+              "precio_eur": 1.30
             },
             {
               "nombre": "Sprite",
-              "precio_eur": 2.0
+              "precio_eur": 2.00
             },
             {
               "nombre": "Coca Cola",
-              "precio_eur": 2.0
+              "precio_eur": 2.00
             },
             {
               "nombre": "Coca Cola Zero",
-              "precio_eur": 2.0
+              "precio_eur": 2.00
             },
             {
               "nombre": "Fanta Limón",
-              "precio_eur": 2.0
+              "precio_eur": 2.00
             },
             {
               "nombre": "Fanta Naranja",
-              "precio_eur": 2.0
+              "precio_eur": 2.00
             },
             {
               "nombre": "Aquarius Limón",
-              "precio_eur": 2.2
+              "precio_eur": 2.20
             },
             {
               "nombre": "Aquarius Naranja",
-              "precio_eur": 2.2
+              "precio_eur": 2.20
             },
             {
               "nombre": "Aquarius Melocotón Rojo",
-              "precio_eur": 2.2
+              "precio_eur": 2.20
             },
             {
               "nombre": "FuzeTea",
-              "precio_eur": 2.2
+              "precio_eur": 2.20
             },
             {
               "nombre": "Tónica",
-              "precio_eur": 2.2
+              "precio_eur": 2.20
             }
           ]
         },
@@ -1114,15 +1114,15 @@
           "productos": [
             {
               "nombre": "Piña",
-              "precio_eur": 2.0
+              "precio_eur": 2.00
             },
             {
               "nombre": "Melocotón",
-              "precio_eur": 2.0
+              "precio_eur": 2.00
             },
             {
               "nombre": "Naranja",
-              "precio_eur": 2.0
+              "precio_eur": 2.00
             }
           ]
         }
@@ -1137,38 +1137,38 @@
             {
               "nombre": "Manzanilla",
               "descripcion": "Ingredientes: Manzanilla. 100% pura flor de manzanilla, este corte proporciona aroma y colores más intensos.",
-              "precio_eur": 1.8
+              "precio_eur": 1.80
             },
             {
               "nombre": "Menta",
               "descripcion": "Ingredientes: Hojas de Menta. Una tisana tradicional. Disfruta de esta deliciosa infusión de refrescante sabor.",
-              "precio_eur": 1.8
+              "precio_eur": 1.80
             },
             {
               "nombre": "Té Rooibos con Vainilla",
-              "precio_eur": 1.8
+              "precio_eur": 1.80
             },
             {
               "nombre": "Té Jengibre con Cúrcuma",
-              "precio_eur": 1.8
+              "precio_eur": 1.80
             },
             {
               "nombre": "Té Jengibre con Mango",
-              "precio_eur": 1.8
+              "precio_eur": 1.80
             },
             {
               "nombre": "Té Jengibre con Limón",
-              "precio_eur": 1.8
+              "precio_eur": 1.80
             },
             {
               "nombre": "Té rojo cuerpo del deseo",
               "descripcion": "Ingredientes: Té pu-erh, té verde, piña, pétalos de rosa y trozos de fresa. A base de té rojo pu-erh, té verde e hibisco combina un sensual aroma con el ligero toque ácido de las diferentes frutas, perfecto para las personas que cuidan su línea.",
-              "precio_eur": 1.8
+              "precio_eur": 1.80
             },
             {
               "nombre": "Té verde jengibre y limón",
               "descripcion": "Ingredientes: Té verde, limón, regaliz, jengibre, menta y pimienta negra.",
-              "precio_eur": 1.8
+              "precio_eur": 1.80
             }
           ]
         }

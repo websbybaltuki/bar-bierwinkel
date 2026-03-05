@@ -760,24 +760,12 @@ iframe {
   margin-top: 0.36rem;
 }
 
-.allergen-icons-row img {
-  width: 18px;
-  height: 18px;
+.allergen-icon-img {
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: rgba(255, 214, 145, 0.22);
-}
-
-.allergen-icon-glyph {
-  width: 1.35rem;
-  height: 1.35rem;
-  display: inline-grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(255, 214, 145, 0.22);
-  border: 1px solid rgba(255, 214, 145, 0.35);
-  font-size: 0.95rem;
-  line-height: 1;
-  overflow: hidden;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .allergen-icons-row {
@@ -1168,6 +1156,10 @@ iframe {
   margin-top: 1.5rem;
   width: min(1100px, 100%);
   margin-inline: auto;
+}
+
+.beer-album-grid--centered {
+  justify-content: center;
 }
 
 .beer-album-card {

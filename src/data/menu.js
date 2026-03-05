@@ -445,20 +445,20 @@ export const fullMenus = {
 
 // Allergen metadata
 export const allergenMeta = {
-  gluten:    { label: "Gluten",        symbol: "G",  icon: "🌾" },
-  dairy:     { label: "Lácteos",       symbol: "L",  icon: "🥛" },
-  eggs:      { label: "Huevos",        symbol: "H",  icon: "🥚" },
-  nuts:      { label: "Frutos secos",  symbol: "F",  icon: "🌰" },
-  peanuts:   { label: "Cacahuetes",    symbol: "C",  icon: "🥜" },
-  soy:       { label: "Soja",          symbol: "S",  icon: "🫘" },
-  fish:      { label: "Pescado",       symbol: "P",  icon: "🐟" },
-  shellfish: { label: "Mariscos",      symbol: "M",  icon: "🦐" },
-  celery:    { label: "Apio",          symbol: "A",  icon: "🌿" },
-  mustard:   { label: "Mostaza",       symbol: "Mo", icon: "🌻" },
-  sesame:    { label: "Sésamo",        symbol: "Se", icon: "🌱" },
-  sulphites: { label: "Sulfitos",      symbol: "Su", icon: "🍷" },
-  lupin:     { label: "Altramuces",    symbol: "Al", icon: "🫛" },
-  molluscs:  { label: "Moluscos",      symbol: "Ml", icon: "🐚" }
+  gluten:    { label: "Cereales con Gluten", symbol: "G",  img: "/alergenos/gluten.svg" },
+  dairy:     { label: "Lácteos",             symbol: "L",  img: "/alergenos/dairy.svg" },
+  eggs:      { label: "Huevos",              symbol: "H",  img: "/alergenos/eggs.svg" },
+  nuts:      { label: "Frutos de cáscara",   symbol: "F",  img: "/alergenos/nuts.svg" },
+  peanuts:   { label: "Cacahuetes",          symbol: "C",  img: "/alergenos/peanuts.svg" },
+  soy:       { label: "Soja",                symbol: "S",  img: "/alergenos/soy.svg" },
+  fish:      { label: "Pescado",             symbol: "P",  img: "/alergenos/fish.svg" },
+  shellfish: { label: "Crustáceos",          symbol: "M",  img: "/alergenos/crustaceans.svg" },
+  celery:    { label: "Apio",                symbol: "A",  img: "/alergenos/celery.svg" },
+  mustard:   { label: "Mostaza",             symbol: "Mo", img: "/alergenos/mustard.svg" },
+  sesame:    { label: "Granos de sésamo",    symbol: "Se", img: "/alergenos/sesame.svg" },
+  sulphites: { label: "Dióxido de azufre y sulfitos", symbol: "Su", img: "/alergenos/sulphites.svg" },
+  lupin:     { label: "Altramuces",          symbol: "Al", img: "/alergenos/lupin.svg" },
+  molluscs:  { label: "Moluscos",            symbol: "Ml", img: "/alergenos/molluscs.svg" }
 };
 
 // Default allergens for food dishes (fallback when item doesn't define its own list)

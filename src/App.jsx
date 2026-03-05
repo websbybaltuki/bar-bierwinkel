@@ -203,9 +203,16 @@ function App() {
   const [showAllergens, setShowAllergens] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [sheetOverrides, setSheetOverrides] = useState({});
+  const [sheetLoaded, setSheetLoaded] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
 
-  const [weeklyBeers, setWeeklyBeers] = useState([]);
+  const handleEmailClick = (e) => {
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    if (!isTouch) e.preventDefault();
+    navigator.clipboard.writeText(CONTACT_EMAIL).catch(() => {});
+    setEmailCopied(true);
+    window.setTimeout(() => setEmailCopied(false), 2500);
+  };
 
   const t = translations[lang];
   const scheduleRows = t.scheduleRows || [];
@@ -249,6 +256,15 @@ function App() {
     });
   }, [localizedMenuSections, menuType, sheetOverrides]);
 
+  const weeklyBeers = useMemo(() => {
+    if (!sheetLoaded) return [];
+    const featured = BEER_CATALOG.filter(
+      (beer) => (sheetOverrides[beer.id]?.recomendacion || "").toUpperCase() === "SI"
+    );
+    if (featured.length > 0) return featured.slice(0, 5);
+    return seededShuffle(BEER_CATALOG, getWeekSeed()).slice(0, 5);
+  }, [sheetOverrides, sheetLoaded]);
+
   const formatMenuPrice = (price) => {
     if (!price) return "";
     if (price === "Consultar") return price;
@@ -256,11 +272,7 @@ function App() {
     return `${price.toFixed(2)} €`;
   };
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText(CONTACT_EMAIL).catch(() => {});
-    setEmailCopied(true);
-    window.setTimeout(() => setEmailCopied(false), 2500);
-  };
+
 
   const updateBrowserUrl = (page) => {
     if (page === "inicio") {
@@ -384,49 +396,56 @@ function App() {
 
     const fallback = (reason) => {
       console.log("[Sheet] fallback activado:", reason);
-      setWeeklyBeers(seededShuffle(BEER_CATALOG, getWeekSeed()).slice(0, 5));
+      setSheetLoaded(true);
     };
 
     if (!csvUrl) { fallback("sin URL configurada"); return; }
 
-    console.log("[Sheet] cargando:", csvUrl);
     fetch(csvUrl)
       .then((r) => r.text())
       .then((text) => {
         const clean = text.replace(/^\uFEFF/, "").replace(/\r/g, "");
         const lines = clean.trim().split("\n").filter((l) => l.trim());
-        console.log("[Sheet] primera línea:", lines[0]?.slice(0, 120));
         if (lines[0]?.trimStart().startsWith("<")) {
-          console.error("[Sheet] ❌ La respuesta es HTML, no CSV. Publika la hoja: Archivo → Compartir → Publicar en la web → CSV");
+          console.error("[Sheet] La respuesta es HTML, no CSV. Publica la hoja: Archivo → Compartir → Publicar en la web → CSV");
           fallback("respuesta HTML en lugar de CSV");
           return;
         }
         if (lines.length < 2) { fallback("CSV vacío"); return; }
         const sep = lines[0].includes("\t") ? "\t" : lines[0].includes(";") ? ";" : ",";
-        const unquote = (s) => s.trim().replace(/^"(.*)"$/, "$1");
-        const headers = lines[0].split(sep).map(unquote).map((h) => h.toLowerCase());
-        console.log("[Sheet] cabeceras:", headers);
+        const parseCSVLine = (line) => {
+          const fields = [];
+          let cur = "";
+          let inQ = false;
+          for (let i = 0; i < line.length; i++) {
+            const ch = line[i];
+            if (inQ) {
+              if (ch === '"' && line[i + 1] === '"') { cur += '"'; i++; }
+              else if (ch === '"') { inQ = false; }
+              else { cur += ch; }
+            } else {
+              if (ch === '"') { inQ = true; }
+              else if (ch === sep) { fields.push(cur.trim()); cur = ""; }
+              else { cur += ch; }
+            }
+          }
+          fields.push(cur.trim());
+          return fields;
+        };
+        const headers = parseCSVLine(lines[0]).map((h) => h.toLowerCase());
         const idIdx = headers.indexOf("id");
-        const recIdx = headers.indexOf("recomendacion");
-        console.log("[Sheet] columna id:", idIdx, "| columna recomendacion:", recIdx);
         if (idIdx === -1) { fallback("no se encuentra columna 'id' en el CSV"); return; }
         const map = {};
         for (let i = 1; i < lines.length; i++) {
-          const cols = lines[i].split(sep).map(unquote);
+          const cols = parseCSVLine(lines[i]);
           const id = cols[idIdx];
           if (!id) continue;
           const obj = {};
           headers.forEach((h, j) => { obj[h] = cols[j] ?? ""; });
           map[id] = obj;
         }
-        const featured = BEER_CATALOG.filter(
-          (beer) => (map[beer.id]?.recomendacion || "").toUpperCase() === "SI"
-        );
-        console.log("[Sheet] IDs en map:", Object.keys(map).length, "| muestra:", Object.keys(map).slice(0, 3));
-        console.log("[Sheet] recomendados:", featured.map((b) => b.id));
         setSheetOverrides(map);
-        if (featured.length > 0) setWeeklyBeers(featured.slice(0, 5));
-        else fallback("ninguna cerveza marcada con SI");
+        setSheetLoaded(true);
       })
       .catch((e) => fallback("error fetch: " + e.message));
   }, []);
@@ -553,7 +572,13 @@ function App() {
                 <p className="eyebrow">{t.wheatBeersEyebrow}</p>
                 <h2>{t.wheatBeersTitle}</h2>
               </div>
-              <div className="beer-album-grid">
+              <div
+                className="beer-album-grid beer-album-grid--centered"
+                style={{
+                  gridTemplateColumns: `repeat(${weeklyBeers.length}, 1fr)`,
+                  width: `min(${weeklyBeers.length * 220}px, 100%)`,
+                }}
+              >
                 {weeklyBeers.map((beer) => (
                   <article
                     className="beer-album-card"
@@ -633,9 +658,9 @@ function App() {
                   <a className="btn ghost" href={`tel:${MOBILE_PHONE.replace(/\s+/g, "")}`}>
                     {t.mobileBtn}: {MOBILE_PHONE}
                   </a>
-                  <button className="btn ghost" onClick={copyEmail}>
+                  <a className="btn ghost" href={`mailto:${CONTACT_EMAIL}`} onClick={handleEmailClick}>
                     {emailCopied ? t.emailCopied : `Email: ${CONTACT_EMAIL}`}
-                  </button>
+                  </a>
                 </article>
               </div>
             </section>
@@ -720,14 +745,13 @@ function App() {
                                       {item.allergens
                                         .filter((code) => allergenMeta[code])
                                         .map((code) => (
-                                          <span
+                                          <img
                                             key={`${group.id}-${item.id || item.name}-${code}`}
-                                            className="allergen-icon-glyph"
+                                            className="allergen-icon-img"
+                                            src={allergenMeta[code].img}
                                             title={allergenMeta[code].label}
-                                            aria-label={allergenMeta[code].label}
-                                          >
-                                            {allergenMeta[code].icon || allergenMeta[code].symbol}
-                                          </span>
+                                            alt={allergenMeta[code].label}
+                                          />
                                         ))}
                                     </div>
                                   ) : null}
@@ -752,14 +776,13 @@ function App() {
                                   {item.allergens
                                     .filter((code) => allergenMeta[code])
                                     .map((code) => (
-                                      <span
+                                      <img
                                         key={`${section.id || section.category}-${item.id || item.name}-${code}`}
-                                        className="allergen-icon-glyph"
+                                        className="allergen-icon-img"
+                                        src={allergenMeta[code].img}
                                         title={allergenMeta[code].label}
-                                        aria-label={allergenMeta[code].label}
-                                      >
-                                        {allergenMeta[code].icon || allergenMeta[code].symbol}
-                                      </span>
+                                        alt={allergenMeta[code].label}
+                                      />
                                     ))}
                                 </div>
                               ) : null}
@@ -807,9 +830,12 @@ function App() {
                   <div className="allergen-legend">
                     {Object.entries(allergenMeta).map(([code, meta]) => (
                       <span className="allergen-pill" key={code}>
-                        <span className="allergen-icon-glyph" aria-hidden="true">
-                          {meta.icon || meta.symbol}
-                        </span>
+                        <img
+                          className="allergen-icon-img"
+                          src={meta.img}
+                          alt={meta.label}
+                          aria-hidden="true"
+                        />
                         {meta.label}
                       </span>
                     ))}
@@ -913,8 +939,8 @@ function App() {
                 <a className="btn ghost" href={`tel:${MOBILE_PHONE.replace(/\s+/g, "")}`}>
                   {t.mobileBtn}: {MOBILE_PHONE}
                 </a>
-                <a className="btn ghost" href={`mailto:${CONTACT_EMAIL}`}>
-                  Email: {CONTACT_EMAIL}
+                <a className="btn ghost" href={`mailto:${CONTACT_EMAIL}`} onClick={handleEmailClick}>
+                  {emailCopied ? t.emailCopied : `Email: ${CONTACT_EMAIL}`}
                 </a>
               </article>
             </div>
